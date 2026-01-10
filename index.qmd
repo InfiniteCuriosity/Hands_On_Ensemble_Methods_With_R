@@ -1,21 +1,79 @@
-# This book will put the most powerful tools to model nature in your hands
+# This book will put the most accurate tools to model nature in your hands
 
 This book will guide you through the entire process of building your own ensemble models from beginning to end. I’ve done my very best to make the book very interesting, fun, and practical. There are lots of examples using real world data with all the steps included.
 
-::: callout-tip
-## Nature is most accurately described, modeled and predicted using a diverse set of individual models and ensembles of models.
+::: {.callout-note appearance="minimal"}
+**Nature is most accurately described, modeled and predicted using a diverse set of individual models and ensembles of models**. Ensembles are the most accurate description of nature we have up to this time. Ensembles are the current best understanding of nature. This book will give you the tools and skills to build a diverse range of individual models and ensembles of models for numeric, classification, logistic and time series data.
+:::
 
-Ensembles are the most accurate description of nature we have up to this time. Ensembles are the current best understanding of nature.
+I do extreme sports for fun, such as white water rafting, snowboarding, and skydiving, and I've never been hurt. The single best way to be safe in extreme sports is to be fully prepared and totally predictable (no surprises!), communicate a plan before you start, and always be ready when things do not go according to plan. This book will follow the same system. This chapter will outline the book, and you'll have a chance to get a glimpse of some of the highlights of our journey together. Then each chapter will guide you through the way to be fully prepared and minimize surprises in your work. We will look at what to do when things do not go as planned. And you won't even have to get out of your chair to do all of this!
 
-This book will give you the tools and skills to build a diverse range of individual models and ensembles of models for numeric, classification, logistic and time series data.
+I find the material in this book to be extremely fun, interesting, and highly engaging. I've done my very best to communicate my joy and enthusiasm for this in this book, and I sincerely hope it comes though loud and clear for you.
+
+::: {.callout-note appearance="simple" icon="false"}
+**The goal of predicting and forecasting** is not to predict, the goal of forecasting is not to forecast. The goal is to give the team that receives the predictions and forecats the very best preparation for whatever might happen in the real world, so they are fully ready ahead of time to respond no matter what happens. That is what success and excellence in predictive analytics looks like. This goal is totally achievable, and this book will help you reach that destination.
+
+That's why we are doing this. It always helps to know your why.
+
+**We are doing this so the team receiving your reports and comments and feedback is as well prepared as they can be for anything that might happen.** This is a testable and falsifiable hypothesis.
+
+We will look at models, of course, and we'll learn a lot of skills to help the team be fully prepared with those models, such as multiple ways to determine what most strongly predicts the most important feature, how to determine (and be prepared for) changes when the data set is static, and much better alternatives to a fixed result. This book will never say something like, "The most accurate RMSE is 4.68", we will look at much more accurate ways to communicate that result.
+
+It's not important enough to know your why, because there are many whys in any situation. It's much more valuable to know your absolute rock bottom why. The very foundation on which you stand.
+
+**Every why in data science connects to people. No exceptions.** The results impact people. That's the value proposition. We are doing all of this to make things better for people. It's never an abstract exercise, the work always connects with people.
 :::
 
 ## Ensembles: Your Team of Rivals To Help You Get The Most Accurate Answer
 
-### First really in-depth point
+## What to do before building models: The value and process of observation, discovery and connection.
 
-some text
+### We will practice observation, discovery and connection in every chapter, to strengthen your skills and help you produce better models.
 
-## Second Subtopic
+### It started with a blizzard in Chicago (and much of the United States)
 
-### Second really in-depth point.
+## Know your origin story: Why are you doing this at all?
+
+I bring decades of real-world experience in the business world, both not-for-profit and for profit. A lot of my experience includes working in (and sometimes managing) multi-million dollar accounts for multi-million and multi-billion dollar companies. I've seen success and failure, triumph and tragedy. A large part of my duties have included hiring over 15,000 people, the vast majority were very good hires. A part of this book will share how you can start building a successful career. Part of this book will answer a question that I find to be extremely important: How do you communicate your results to managers and leaders in a way they will actually listen and take the path that is most likely to return the best results? Every data science book I've read has shown various steps and processes and models, but I've never seen the best ways to communicate those results to leaders and managers in an effective way. This book will provide ways to help you reach that goal on every job.
+
+We will also look at how to communicate your results in a resume or cover letter, even if you don't have specific measures. There are steps you can take to greatly increase your probability of moving forward in the hiring process, and we'll look at those steps.
+
+We will also look at the role of a manager, and what evidence and research shows managers can do to get great performance from their teams. If you decide to move into a manager role (or if you are there already), this section of the book will provide evidence that managers have done that results in lower turnover, higher performance, and more satisfied customers.
+
+## You're not doing data science as much as customer service. Here's what the very best in customer service actually do that generates the best results.
+
+### Beating the best scores in multiple Kaggle data science competitions
+
+## Building your library of models that will work on nearly any data set
+
+## Speed, speed, and more speed running ensembles
+
+## How to code a lot faster
+
+## How to show change in static data
+
+## The value of keeping a journal.
+
+## One of your own.
+
+Science tells us that It's not exactly correct that only the strong survive (even though it's also a great song by Chicago legend Jerry Butler). Over a century of science tells us there is a particular kind of strength that favors survival, and that strength is the ability to adapt. The better you can adapt, the more likely you are to survive. Being able to adapt isn't just a strength, it's the most important strength to survival. This book is going to show you how to adapt in an extremely wide range of data science situations, so you are always as well prepared as possible.
+
+## Outliers and Separators that provoke questions, not answers.
+
+### How high stakes separators bring out the strongest predictors
+
+## Finding the strongest predictor of the most important feature
+
+## How empathy with managers will get better results
+
+## Always do the most caring thing you can - how being the most caring person you can in all situations helps you get the best possible results
+
+## Accountability - How to measure the results of your work
+
+## The only agenda is the truth, as best we can get it. Not politics, not money, not favoritism.
+
+## How to test for overfitting
+
+## How to be a great data story-teller, in a way that other people will want to listen.
+
+## A code of ethics for data science

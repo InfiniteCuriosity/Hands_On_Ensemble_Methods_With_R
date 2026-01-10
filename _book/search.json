@@ -4,29 +4,129 @@
     "href": "index.html",
     "title": "Hands On Ensemble Methods With R",
     "section": "",
-    "text": "1 This book will put the most powerful tools to model nature in your hands\nThis book will guide you through the entire process of building your own ensemble models from beginning to end. I’ve done my very best to make the book very interesting, fun, and practical. There are lots of examples using real world data with all the steps included.",
+    "text": "1 This book will put the most accurate tools to model nature in your hands\nThis book will guide you through the entire process of building your own ensemble models from beginning to end. I’ve done my very best to make the book very interesting, fun, and practical. There are lots of examples using real world data with all the steps included.\nIn the beginning there was a huge blizzard over Chicago. That’s how everything started.\nI do extreme sports for fun, such as white water rafting, snowboarding, and skydiving, and I’ve never been hurt. The single best way to be safe in extreme sports is to be totally predictable (no surprises!), communicate a plan before you start, and always be ready when things do not go according to plan. This book will follow the same system. This chapter will outline the book, and you’ll have a chance to get a glimpse of some of the highlights of our journey together. Then each chapter will guide you through the way to be the minimize surprises in your work, and we will look at what to do when things do not go as planned.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#ensembles-your-team-of-rivals-to-help-you-get-the-most-accurate-answer",
+    "href": "index.html#ensembles-your-team-of-rivals-to-help-you-get-the-most-accurate-answer",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.1 Ensembles: Your Team of Rivals To Help You Get The Most Accurate Answer",
+    "text": "1.1 Ensembles: Your Team of Rivals To Help You Get The Most Accurate Answer",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results.",
+    "href": "index.html#youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.4 You’re not doing data science as much as customer service. Here’s what the very best in customer service actually do that generates the best results.",
+    "text": "1.4 You’re not doing data science as much as customer service. Here’s what the very best in customer service actually do that generates the best results.\n\n1.4.1 Beating the best scores in multiple Kaggle data science competitions",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#building-your-library-of-models-that-will-work-on-nearly-any-data-set",
+    "href": "index.html#building-your-library-of-models-that-will-work-on-nearly-any-data-set",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.5 Building your library of models that will work on nearly any data set",
+    "text": "1.5 Building your library of models that will work on nearly any data set",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#speed-speed-and-more-speed-running-ensembles",
+    "href": "index.html#speed-speed-and-more-speed-running-ensembles",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.6 Speed, speed, and more speed running ensembles",
+    "text": "1.6 Speed, speed, and more speed running ensembles",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-code-a-lot-faster",
+    "href": "index.html#how-to-code-a-lot-faster",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.7 How to code a lot faster",
+    "text": "1.7 How to code a lot faster",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#outliers-and-separators-that-provoke-questions-not-answers",
+    "href": "index.html#outliers-and-separators-that-provoke-questions-not-answers",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.6 Outliers and Separators that provoke questions, not answers",
+    "text": "1.6 Outliers and Separators that provoke questions, not answers",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
     ]
   },
   {
-    "objectID": "index.html#ensembles-your-team-of-rivals-to-help-you-get-the-best-answer",
-    "href": "index.html#ensembles-your-team-of-rivals-to-help-you-get-the-best-answer",
+    "objectID": "index.html#finding-the-strongest-predictor-of-the-most-important-feature",
+    "href": "index.html#finding-the-strongest-predictor-of-the-most-important-feature",
     "title": "Hands On Ensemble Methods With R",
-    "section": "1.1 Ensembles: Your Team of Rivals To Help You Get The Best Answer",
-    "text": "1.1 Ensembles: Your Team of Rivals To Help You Get The Best Answer\n\n1.1.1 First really in-depth point\nsome text",
+    "section": "1.12 Finding the strongest predictor of the most important feature",
+    "text": "1.12 Finding the strongest predictor of the most important feature",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
     ]
   },
   {
-    "objectID": "index.html#second-subtopic",
-    "href": "index.html#second-subtopic",
+    "objectID": "index.html#how-empathy-with-managers-will-get-better-results",
+    "href": "index.html#how-empathy-with-managers-will-get-better-results",
     "title": "Hands On Ensemble Methods With R",
-    "section": "1.2 Second Subtopic",
-    "text": "1.2 Second Subtopic\n\n1.2.1 Second really in-depth point.",
+    "section": "1.13 How empathy with managers will get better results",
+    "text": "1.13 How empathy with managers will get better results",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#always-do-the-most-caring-thing-you-can---how-being-the-most-caring-person-you-can-in-all-situations-helps-you-get-the-best-possible-results",
+    "href": "index.html#always-do-the-most-caring-thing-you-can---how-being-the-most-caring-person-you-can-in-all-situations-helps-you-get-the-best-possible-results",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.14 Always do the most caring thing you can - how being the most caring person you can in all situations helps you get the best possible results",
+    "text": "1.14 Always do the most caring thing you can - how being the most caring person you can in all situations helps you get the best possible results",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#accountability---how-to-measure-the-results-of-your-work",
+    "href": "index.html#accountability---how-to-measure-the-results-of-your-work",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.15 Accountability - How to measure the results of your work",
+    "text": "1.15 Accountability - How to measure the results of your work",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-test-for-overfitting",
+    "href": "index.html#how-to-test-for-overfitting",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.17 How to test for overfitting",
+    "text": "1.17 How to test for overfitting",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-be-a-great-data-story-teller-in-a-way-that-other-people-will-want-to-listen.",
+    "href": "index.html#how-to-be-a-great-data-story-teller-in-a-way-that-other-people-will-want-to-listen.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.18 How to be a great data story-teller, in a way that other people will want to listen.",
+    "text": "1.18 How to be a great data story-teller, in a way that other people will want to listen.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
     ]
   },
   {
@@ -57,6 +157,96 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "index.html#what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection.",
+    "href": "index.html#what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.2 What to do before building models: The value and process of observation, discovery and connection.",
+    "text": "1.2 What to do before building models: The value and process of observation, discovery and connection.\n\n1.2.1 We will practice observation, discovery and conneciton in every chapter, to strengthen your skills and help you produce better models.\n\n\n1.2.2 It started with a blizzard in Chicago (and much of the United States)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#know-your-origin-story-why-are-you-doing-this-at-all",
+    "href": "index.html#know-your-origin-story-why-are-you-doing-this-at-all",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.3 Know your origin story: Why are you doing this at all?",
+    "text": "1.3 Know your origin story: Why are you doing this at all?",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-show-change-in-static-data",
+    "href": "index.html#how-to-show-change-in-static-data",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.8 How to show change in static data",
+    "text": "1.8 How to show change in static data",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-value-of-keepinng-a-joural.",
+    "href": "index.html#the-value-of-keepinng-a-joural.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.9 The value of keepinng a joural.",
+    "text": "1.9 The value of keepinng a joural.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#one-of-your-own.",
+    "href": "index.html#one-of-your-own.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.10 One of your own.",
+    "text": "1.10 One of your own.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#outliers-and-separators-that-provoke-questions-not-answers.",
+    "href": "index.html#outliers-and-separators-that-provoke-questions-not-answers.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.11 Outliers and Separators that provoke questions, not answers.",
+    "text": "1.11 Outliers and Separators that provoke questions, not answers.\n\n1.11.1 How high stakes separators bring out the strongest predictors",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-value-of-keeping-a-journal.",
+    "href": "index.html#the-value-of-keeping-a-journal.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.9 The value of keeping a journal.",
+    "text": "1.9 The value of keeping a journal.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#a-code-of-ethics-for-data-science",
+    "href": "index.html#a-code-of-ethics-for-data-science",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.19 A code of ethics for data science",
+    "text": "1.19 A code of ethics for data science",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#the-only-agenda-is-the-truth-as-best-we-can-get-it.-not-politics-not-money-not-favoritism.",
+    "href": "index.html#the-only-agenda-is-the-truth-as-best-we-can-get-it.-not-politics-not-money-not-favoritism.",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.16 The only agenda is the truth, as best we can get it. Not politics, not money, not favoritism.",
+    "text": "1.16 The only agenda is the truth, as best we can get it. Not politics, not money, not favoritism.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most accurate tools to model nature in your hands</span>"
     ]
   }
 ]
