@@ -10,7 +10,7 @@ Ensembles are the most accurate description of nature we have up to this time. E
 This book will give you the tools and skills to build a diverse range of individual models and ensembles of models for numeric, classification, logistic and time series data.
 :::
 
-## First Subtopic
+## Ensembles: Your Team of Rivals To Help You Get The Most Accurate Answer
 
 ### First really in-depth point
 
