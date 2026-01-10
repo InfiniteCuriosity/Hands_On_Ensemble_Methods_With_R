@@ -1,9 +1,21 @@
-# Preface {.unnumbered}
+# This book will put the most powerful tools to model nature in your hands
 
-This is a Quarto book.
+This book will guide you through the entire process of building your own ensemble models from beginning to end. I’ve done my very best to make the book very interesting, fun, and practical. There are lots of examples using real world data with all the steps included.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+::: callout-tip
+## Nature is most accurately described, modeled and predicted using a diverse set of individual models and ensembles of models.
 
-```{r}
-1 + 1
-```
+Ensembles are the most accurate description of nature we have up to this time. Ensembles are the current best understanding of nature.
+
+This book will give you the tools and skills to build a diverse range of individual models and ensembles of models for numeric, classification, logistic and time series data.
+:::
+
+## First Subtopic
+
+### First really in-depth point
+
+some text
+
+## Second Subtopic
+
+### Second really in-depth point.

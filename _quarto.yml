@@ -40,3 +40,6 @@ format:
 
 editor: visual
 
+toc: true
+toc-depth: 2
+

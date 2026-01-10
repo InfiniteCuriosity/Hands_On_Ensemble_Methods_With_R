@@ -4,29 +4,49 @@
     "href": "index.html",
     "title": "Hands On Ensemble Methods With R",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "1 This book will put the most powerful tools to model nature in your hands\nThis book will guide you through the entire process of building your own ensemble models from beginning to end. I’ve done my very best to make the book very interesting, fun, and practical. There are lots of examples using real world data with all the steps included.",
     "crumbs": [
-      "Preface"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#first-subtopic",
+    "href": "index.html#first-subtopic",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.1 First Subtopic",
+    "text": "1.1 First Subtopic\n\n1.1.1 First really in-depth point\nsome text",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#second-subtopic",
+    "href": "index.html#second-subtopic",
+    "title": "Hands On Ensemble Methods With R",
+    "section": "1.2 Second Subtopic",
+    "text": "1.2 Second Subtopic\n\n1.2.1 Second really in-depth point.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>This book will put the most powerful tools to model nature in your hands</span>"
     ]
   },
   {
     "objectID": "Welcome!.html",
     "href": "Welcome!.html",
-    "title": "1  Introduction",
+    "title": "2  Introduction",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\nHere is a footnote.1",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
     "objectID": "Welcome!.html#footnotes",
     "href": "Welcome!.html#footnotes",
-    "title": "1  Introduction",
+    "title": "2  Introduction",
     "section": "",
     "text": "https://www.apple.com↩︎",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
