@@ -6,16 +6,132 @@ This book will guide you through the entire process of building your own ensembl
 **Nature is most accurately described, modeled and predicted using a diverse set of individual models and ensembles of models**. Ensembles are the most accurate description of nature we have up to this time. Ensembles are the current best understanding of nature. This book will give you the tools and skills to build a diverse range of individual models and ensembles of models for numeric, classification, logistic and time series data.
 :::
 
+::: {.callout-note appearance="minimal"}
+**A Teacher will show you how to do things. A Mentor challenges you to grow and succeed. And a Counselor is committed to guiding you to do this process in the healthiest possible way.** My goal is to be all three for you in this book, based on a lifetime of very successful experience. Welcome to the journey!
+
+**This book will be an attempt to answer the single most important question in all of science: How can nature be modeled in the most accurate way, given what we know at this time?** The goal is to tell the truth in the evidence and make the most accurate predictions possible. This will be done by modeling, and you will learn about the process in this book.
+
+The goal is the teaching, mentoring and guidance will help you become your own modeler, and help you produce the best results from any given data set.
+:::
+
+## Features of this book, and how to get the most out of your experience
+
+### Each chapter will include a preview (like this), full text, and a review. I call the system delayed repetition, and it's the method that helps me learn the fastest.
+
+I've had the pleasure to learn a very broad range of skills in my life. For example, I was the only bilingual staff person in an office for quite a while. I've also studied extreme sports, several styles of music, led two not for profit organizations (local chapter of Amnesty International and the Chicago Apple User Group), and much more. One of the most important skills I've learned is how I learned well. Certain methods are more successful for me, others are less successful. The most successful method I have found is a system I called **delayed repetition**. I learn faster when I see a preview of something, then do it, then do a review. I might do that over again, but that delayed repetition of working on a part of the process multiple times helps me learn much faster than if I just try to see it once and then apply it.
+
+Another benefit I have found is that delayed repetition results in longer retention for me. I have found that if I slow down my learning process and include delayed repetition, that my retention and accuracy of skills are much better than if I do not use delayed repetition.
+
+An example I have always enjoyed happened when I was a student in music school at Western Michigan University. My private violin instructor encouraged me to memorize a piece before I started practicing it. I told him that I found that confusing and was not sure what he was asking. He clarified that he wanted me to know the notes of the piece first, and then we will work out, over and over again, various ways to interpret it, so that the final result would be my choice of a range of interpretations, not his interpretation. This also resulted in me, learning the peace, much faster than I had previous selections I worked out while I was a student in music school.
+
+This book will reflect that understanding that delayed repetition is a fast way to learn and retain skills. Every section will start with a preview, followed by the main body of the text, followed by a summary. There will also be practice exercises and other ways to review. My experience is shown, over and over and over again, that it is the delayed repetition where I learn the most, and this book will reflect that method, and hopefully demonstrate the success I have had learning in so many different areas. I found delayed repetition to be extremely successful in virtually every area I have applied, and I'm thrilled to bring delayed repetition to you in this book.
+
+In my experience, delayed repetition is a much faster to learn than any other system I've ever found. Since delayed repetition works in so many different areas, I encourage you to feel free to experiment with it in other areas in addition to learning data science and building ensembles.
+
+Another large benefit in this book is that each set of problems will ask you to **solve one of your own in each problem set**. What this means is that you will be asked to identify a data set of your choice, identify the problem and hand, work up a solution and present your solution.
+
+This is much more like the real world than a typical problem set. In normal real world settings, you are not given everything in a clean tidy format, and then asked to solve the problem. In fact, that has never happened to me in my professional career, nor do I know anyone else that was given everything, and only had to solve the problem. The idea that you will be presented with everything and just need to solve the problem, is extremely out of touch with how the real world actually works.
+
+To help you be successful, you need to be a **problem finder**, as well as a problem solver. This book will encourage you to be a great problem finder, as well as guiding you to learn the most powerful problem solving techniques currently available. Unfortunately, many times the problem is not found until after some damage has been done. Therefore, this book encourages you to look for and notice things ahead of when danger might happen, or opportunities might be just around the corner.
+
+I heard an example of being a problem finder that made a big impression on me. Dr. Michael Roberto was on the faculty at the Harvard Business School when he arranged to have Robert McNamara speak to his class. McNamara was a key decision maker in the John F. Kennedy and Lyndon Johnson administrations, so he was in an excellent position to speak to the class.
+
+As Dr. Roberto tells the story, they met before class and McNamara asked Roberto if HBS still used the case method. Dr. Roberto replied they did. McNamara replied that was great, except for one problem. The real world isn't like the case method at all. While the case method puts the reader in the role of the person making the decision, everything else is already done. All the student has to do is make the decision, but the real world is never like that at all.[^index-1]
+
+[^index-1]: <https://www.thegreatcoursesplus.com/the-art-of-critical-decision-making>
+
+What I see frequently described as a scientific method, or the scientific process, is only the second part of the actual process. The part that I see involves testing, verification, and similar aspects of the process. What I do not see very often is the first part of the process, which is the process of discovery. Many times, great discoveries are made, then tested and verified. It is extremely rare that anything is discovered and verified at the same time. Therefore, an extremely valuable skill in the scientific method is the process of discovery. This book will encourage you to do that, and each section will have a part devoted to discovery.
+
+**Discovery** can be greatly enhanced by seeing connections and relationships that other people frequently miss. This book will present various data science methods to help you see connections in relationship relationships that are often overlooked. These will help you come up with more accurate descriptions and predictions on new data.
+
+I personally find the process of discovery to be very fun and exciting, and I will do my best to share my enthusiasm for with you in each section.
+
+The other part of the exercises is that **you will be asked to post about your work** on that section. You do not need to go into great detail, just enough so people understand what you are doing. For example:
+
+> I'm working on an analysis of housing prices. The results beat the best prior results on housing prices that I could find on this data set by more than 90%. This result was achieved using a combination of ensembles, and tuning models. PM me if you'd like to learn more.
+
+That would be fine. Of course you may add graphics, comments, and much more.
+
+**The story behind the posting requirement:**
+
+I was talking with a friend of mine who is not a math person, he's a 911 Operator. I explained that I was working on making a prediction for the winning time for the 2024 London Marathon. He asked me how confident I was about the prediction. "I'm very confident", I replied. He looked straight at me and said, "Post it." I realized he was absolutely correct. Take a risk, and put the results out there for the world to see. So I did.
+
+I used time series (which we will cover in chapters 10 and 11) to predict the winning times in the men's and women's 2024 London marathon. The day before the marathon I posted my predictions, and then waited for the results. I was willing to call the predictions good if they were ±30 seconds on a 2 hour race. Here are my predictions vs the actual results:
+
+| 2024 London Marathon Winning Times Prediction by Russ Conte | Men (Predicted) | Men (Actual) | Women (Predicted) | Women (Actual) |
+|----|----|----|----|----|
+|  | 2:03:21 - 2:04:21 | 2:04:01 | 2:17:51 - 2:18:51 | 2:16:16 |
+
+The men's winning time is 100% in the predicted range, but the women completed the London Marathon faster than my prediction for them. You can see my predictions the day before (<https://www.youtube.com/shorts/7rQSLCe8bYA>) and after the results were announced (<https://www.youtube.com/shorts/ZXGR_PpMIdU>).
+
+Posting on any social media about your data science experience/results/frustrations (etc.) will improve your skills in data science in ways that nothing else can match. You'll be asked by others to explain your posts in non-technical terms, and do it in a way that is engaging.
+
+Posting (and replying) on social media about your data science experiences might be the very best education you get in terms of learning how to communicate these results to a non-technical crowd, in a way they understand and appreciate.
+
+That's the first part of the book. We'll do a very quick summary, then look at what is coming in the second half of the book.
+
+The first part of this book will cover the many methods for building and modeling, individual models and ensembles. The second part of this book will help you prepare for a career in the field. You will look at how leaders actually make decisions, how to build your own no code solutions, if you want, and most importantly your journey from student to leader from getting hired to hiring.
+
+I've seen many times when people walk into a new job or career and they are not as well prepared as they could be. I want to provide a section of this book to help you be as well prepared for your career in this field as you can possibly be.
+
+Another feature of this book will be a code of ethics. When I trained as a professional counselor, almost every course discussed ethics, with very real world examples which have stayed with me through the years. I almost never hear of examples in ethics in data science, so I want to make sure to include those in this book. I suggest you start thinking now about ethics, and how you can integrate ethics into your work.
+
+The last section of the book is a final comprehensive project. By the time you get there, the project will be virtually done, all you'll need to do is put it together. But it will give you results that you will be able to present in an interview or put together on a portfolio that will greatly improve your chances of demonstrating your confidence to a future employer.
+
+Another benefit of this book is that I will share several examples of completed projects for your review. Your completed projects can be part of your portfolio that can be presented to potential employers.
+
+## What most strongly predicts model accuracy and reproducibility?
+
+### Always include full exploratory data analysis
+
+### Create models using a very diverse set of individual models and ensembles of models
+
+### Repeated random resampling. Do not sample just once.
+
+### Tuning/optimizing all models
+
+### Test for overfitting, only use models that do not overfit on new data
+
+### State EVERYTHING as a testable hypothesis. No exceptions. Then actually test everything.
+
+### Test if the predicted results come from the same distribution as the original data, reject if false
+
+### Include confidence intervals for all results, not just a specific value (do not say, "the model with the best RMSE had a result of X").
+
+### Plot both barcharts and by model/resample (need to re-word this)
+
+### Include plots for visual inspection of the results.
+
+### Show results for each resample by model (this reveals things that usually do not show up in an analysis).
+
+### Use options for multiple optimization systems: VIF, BIC, Mallows Cp
+
+### Show summary plots: Predicted vs actual, Q-Q, residuals vs predicted, histogram of residuals.
+
+### Look at outliers and influential points, see if there are any issues with these data points.
+
+## Automate the entire thing
+
+## How to build individual models and ensembles that return results with accuracy that beats the best results in previous Kaggle competitions.
+
+## How to make the results as reproducible as possible.
+
+## How to test for overfitting, and other tests
+
+## What to know <b><i>before</i></b> you start building models.
+
 I do extreme sports for fun, such as white water rafting, snowboarding, and skydiving, and I've never been hurt. The single best way to be safe in extreme sports is to be fully prepared and totally predictable (no surprises!), communicate a plan before you start, and always be ready when things do not go according to plan. This book will follow the same system. This chapter will outline the book, and you'll have a chance to get a glimpse of some of the highlights of our journey together. Then each chapter will guide you through the way to be fully prepared and minimize surprises in your work. We will look at what to do when things do not go as planned. And you won't even have to get out of your chair to do all of this!
 
 I find the material in this book to be extremely fun, interesting, and highly engaging. I've done my very best to communicate my joy and enthusiasm for this in this book, and I sincerely hope it comes though loud and clear for you.
 
 ::: {.callout-note appearance="simple" icon="false"}
-**The goal of predicting and forecasting** is not to predict, the goal of forecasting is not to forecast. The goal is to give the team that receives the predictions and forecats the very best preparation for whatever might happen in the real world, so they are fully ready ahead of time to respond no matter what happens. That is what success and excellence in predictive analytics looks like. This goal is totally achievable, and this book will help you reach that destination.
+**The goal of predicting and forecasting** is not to predict, the goal of forecasting is not to forecast. The goal is to give the team that receives the predictions and forecasts the very best preparation for whatever might happen in the real world, so they are fully ready ahead of time to respond no matter what happens. That is what success and excellence in predictive analytics looks like. This goal is totally achievable, and this book will help you reach that destination.
 
 That's why we are doing this. It always helps to know your why.
 
 **We are doing this so the team receiving your reports and comments and feedback is as well prepared as they can be for anything that might happen.** This is a testable and falsifiable hypothesis.
+
+The goal is not only to give the best answer, but to set the team up for any answer that might happen in nature.
 
 We will look at models, of course, and we'll learn a lot of skills to help the team be fully prepared with those models, such as multiple ways to determine what most strongly predicts the most important feature, how to determine (and be prepared for) changes when the data set is static, and much better alternatives to a fixed result. This book will never say something like, "The most accurate RMSE is 4.68", we will look at much more accurate ways to communicate that result.
 
@@ -25,6 +141,8 @@ It's not important enough to know your why, because there are many whys in any s
 :::
 
 ## Ensembles: Your Team of Rivals To Help You Get The Most Accurate Answer
+
+### This is a test of level 3
 
 ## What to do before building models: The value and process of observation, discovery and connection.
 
@@ -40,25 +158,50 @@ We will also look at how to communicate your results in a resume or cover letter
 
 We will also look at the role of a manager, and what evidence and research shows managers can do to get great performance from their teams. If you decide to move into a manager role (or if you are there already), this section of the book will provide evidence that managers have done that results in lower turnover, higher performance, and more satisfied customers.
 
+How to test if you are actually solving the problem the customer wants you to solve.
+
+We will also look at ways to increase the probability you are actually solving the problem(s) the customer actually wants solved. It is shocking to me how often teams do not check if they are working on the correct problem or opportunity, only to find out all their time and effort was spent going in the wrong direction and is now totally wasted. We'll look at specific steps you can take to reduce the probability of that happening on your projects right from the very beginning of the process.
+
 ## You're not doing data science as much as customer service. Here's what the very best in customer service actually do that generates the best results.
 
 ### Beating the best scores in multiple Kaggle data science competitions
 
 ## Building your library of models that will work on nearly any data set
 
+## Work with real data, solve real problems, make real recommendations
+
 ## Speed, speed, and more speed running ensembles
 
 ## How to code a lot faster
+
+## Examples where we will be using ensembles of models to make predictions and recommendations:
+
+```{r table of areas where ensembles will be applied, echo=FALSE}
+library(knitr)
+table1 <- data.frame('Numeric' = c('Housing prices', 'Quality of automobiles'), 'Classification' = c('Product placement', 'Heart disease'), 'Logistic' = c('Sports analytics', 'Fraud'), 'Forecasting' = c('Employment', 'Marathons'))
+
+knitr::kable(table1)
+```
 
 ## How to show change in static data
 
 ## The value of keeping a journal.
 
-## One of your own.
+## One of your own, or you learn most when you teach.
 
 Science tells us that It's not exactly correct that only the strong survive (even though it's also a great song by Chicago legend Jerry Butler). Over a century of science tells us there is a particular kind of strength that favors survival, and that strength is the ability to adapt. The better you can adapt, the more likely you are to survive. Being able to adapt isn't just a strength, it's the most important strength to survival. This book is going to show you how to adapt in an extremely wide range of data science situations, so you are always as well prepared as possible.
 
 ## Outliers and Separators that provoke questions, not answers.
+
+::: {.callout-note appearance="simple" icon="false"}
+<h3>Study what separates top performers that no one else is doing</h3>
+
+Don't just study what the top performers are doing. The best information will come when we know what the top performers are doing that no one else is doing. Don't just study what the top performers are doing, **study what separates top performers from everyone else**.
+
+In data science, the top performers are using ensembles, but very few others are using ensembles. So we will learn how to build ensembles of models, because that is the biggest separator between top performing statistical models and the rest.
+
+We'll also see how to do separate top performers from everything else in our analysis, graphics, and recommendations. It's not only what people are doing, it's the values and commitments and disciplines that strongly contribute to all the difference, we will look at those in this book.
+:::
 
 ### How high stakes separators bring out the strongest predictors
 
@@ -72,8 +215,38 @@ Science tells us that It's not exactly correct that only the strong survive (eve
 
 ## The only agenda is the truth, as best we can get it. Not politics, not money, not favoritism.
 
+::: {.callout-note appearance="minimal" icon="false"}
+<h3>Data science for the rest of us: Every chapter will include opportunities to share your results and stories</h3>
+
+As far as I know, this is the first text to encourage readers to post results and stories. The goal is for you to practice sharing results and stories in ways that a wide range of people can understand, not only for people trained in data science. You will be doing data science for the rest of us.
+:::
+
 ## How to test for overfitting
+
+::: {.callout-note appearance="simple" icon="false"}
+<h3>What data scientists actually do</h3>
+
+What separates data science from all other fields is **we build models to make predictions and test everything**. The function of data science is to test everything in a way that is neutral, fair, and reproducible. We share the results of the tests.
+
+In this book we will test everything from model accuracy to overfitting to how similar the predicted distribution is to the actual data, and much, much more.
+
+We will see the same test applied to a range of models, so the test results can be ranked.
+:::
 
 ## How to be a great data story-teller, in a way that other people will want to listen.
 
 ## A code of ethics for data science
+
+::: {.warning style="padding:0.1em; background-color:#E9D8FD; color:#000000"}
+<span>
+
+<p style="margin-top:1em; text-align:center">
+
+<b>Data Science Essay #2: Testing for Humility vs Arrogance </b>
+
+</p>
+
+</p>
+
+</span>
+:::
