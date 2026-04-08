@@ -3,3 +3,42 @@ title: "Your Journey From Student To Professional To Expert To Leader"
 format: html
 ---
 
+The single best thing you can do is meet other people in the field. It’s not what you know or who you know, it’s who knows you that gets the job.
+
+15.1 Professional Organizations:
+
+American Statistical Association
+
+INFORMS
+
+Forecasting
+
+15.2 YouTube:
+
+15.3 LinkedIn:
+
+15.4 Mastadon:
+
+15.5 X:
+
+15.6 Meetup (6000+ groups worldwide):
+
+<https://www.meetup.com/topics/data-science/>
+
+15.7 Zoom:
+
+Data Science Hangout
+
+15.8 Book publishers:
+
+15.9 Conferences
+
+15.10 Where to submit articles for publication
+
+15.11 Being a great mentor
+
+15.12 Becoming a data science industry leader: Helping others become better at their craft
+
+Once you are a leader, it’s not about you, it’s about others.
+
+15.13 Succession planning in data science.
