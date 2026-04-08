@@ -3,3 +3,655 @@ title: "Numeric Data - How To Build 18 Individual Models.qmd"
 format: html
 ---
 
+## How to build numeric models that beat Kaggle data science winners
+
+Welcome to the chapter on building individual numeric models. This is the first of two parts, the second (next) chapter will show how to build ensembles of numeric models. This promises to be a lot of fun and very practical, so let's get started!
+
+## Summary of what is coming
+
+This chapter will show how to build individual numeric models, including the following components:
+
+-   A Kaggle data science competitions to use as a baseline
+
+-   How to read in a data set
+
+-   How to set up the data set so the analysis is much easier to perform
+
+-   How to randomize the data before you analyze it
+
+-   How to set up the data to be randomly resampled
+
+-   How to set up optimized (tuned) formulas
+
+-   How to set up summary plots
+
+-   How to set up summary reports
+
+-   How to build an intermediate level solution (uses numeric data and strings)
+
+-   How to build an advanced solution (working with numeric data, strings, factors, and a stratified column to model prices of BMW cars)
+
+-   Actual code you may use or adapt for your own projects
+
+## A Kaggle data science competition to use as a baseline for the first example
+
+Boston Housing. The winning score (lowest RMSE) was 2.42143. The competition had 49 entrants, and 699 submissions. Let's get a lower RMSE than 2.42143 on the Boston Housing data set. The competition page is: <https://www.kaggle.com/competitions/uou-g03784-2022-spring>
+
+You may either download the data from the Kaggle.com website. Here are the first ten rows of the data:
+
+|    crim |   zn | indus | chas |    nox |    rm |  age |    dis | rad | tax | ptratio |  black | lstat | medv |
+|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|
+| 0.00632 | 18.0 |  2.31 |    0 | 0.5380 | 6.575 | 65.2 | 4.0900 |   1 | 296 |    15.3 | 396.90 |  4.98 | 24.0 |
+| 0.02731 |  0.0 |  7.07 |    0 | 0.4690 | 6.421 | 78.9 | 4.9671 |   2 | 242 |    17.8 | 396.90 |  9.14 | 21.6 |
+| 0.02729 |  0.0 |  7.07 |    0 | 0.4690 | 7.185 | 61.1 | 4.9671 |   2 | 242 |    17.8 | 392.83 |  4.03 | 34.7 |
+| 0.03237 |  0.0 |  2.18 |    0 | 0.4580 | 6.998 | 45.8 | 6.0622 |   3 | 222 |    18.7 | 394.63 |  2.94 | 33.4 |
+| 0.06905 |  0.0 |  2.18 |    0 | 0.4580 | 7.147 | 54.2 | 6.0622 |   3 | 222 |    18.7 | 396.90 |  5.33 | 36.2 |
+| 0.02985 |  0.0 |  2.18 |    0 | 0.4580 | 6.430 | 58.7 | 6.0622 |   3 | 222 |    18.7 | 394.12 |  5.21 | 28.7 |
+| 0.08829 | 12.5 |  7.87 |    0 | 0.5240 | 6.012 | 66.6 | 5.5605 |   5 | 311 |    15.2 | 395.60 | 12.43 | 22.9 |
+| 0.14455 | 12.5 |  7.87 |    0 | 0.5240 | 6.172 | 96.1 | 5.9505 |   5 | 311 |    15.2 | 396.90 | 19.15 | 27.1 |
+
+**The goal** in this case is to model the last column, medv, or the median value of the property, measured in thousands of dollars. For example, if a property has an MEDV value of 28.7, that property is valued at \$28,700.
+
+In the Kaggle competition, the winning score at an error rate of 2.42143. It is not always the case to model the last column in a data set, but that practice is common.
+
+## How to read in a data set
+
+Now that we know what our goal is, to minimize the root mean squared error of the home value, our first step is to read in the data set.
+
+The Boston Housing data set is available in several places, we will read it in from the MASS package, as follows:
+
+```{r Reading in the Boston Housing data set}
+library(MASS)
+df <- MASS::Boston
+```
+
+Let's take a quick look at our data set:
+
+```{r First look at our data set}
+head(df, n= 10)
+```
+
+We can see ten columns, and all of the columns are numeric. Later on we will work with data sets where some columns are not numeric.
+
+## How to set up the data set so the analysis is much easier to perform
+
+Let's set this up to work with virtually ANY data set, not just Boston Housing. We'll do that in two steps:
+
+1.  Rename the target column as 'y'
+
+2.  Always move the target column to the right most position
+
+These two steps will make it much easier to do our analysis using different modeling methods.
+
+::: {.callout-note appearance="simple"}
+The big secret at this point is to format all the data sets in the same layout. Not just the Boston Housing data set, but the other data sets we will use, too. The last column will always be the target column, and always named 'y'. These simple changes will speed up the coding and analysis process when we use a range of modeling methods, as you will see in just a moment.
+:::
+
+```{r Move the target column to the last position, rename the target column as y}
+library(tidyverse)
+df <- df %>% relocate(medv, .after = last_col())
+df <- df %>% dplyr::rename(y = medv)
+head(df)
+```
+
+## How to always randomize the data before you analyze it
+
+This is a single line of code, but can make your final analysis much stronger than if it is not used. We are going to randomize the data, so the result is much more like the real world than if we did not randomize the data. This code randomizes all the rows, and keeps the name of the data (as df) and the last column (as y). You can see the data has been randomized because the row numbers are no longer in sequence.
+
+```{r Randomize all the rows of the data set}
+df <- df[sample(nrow(df)), ]
+head(df)
+```
+
+## How to set up the data to be randomly resampled
+
+This section is going to start with our randomized data set, and then re-randomize it over and over. We'll randomly resample it 5 times in our example.
+
+::: {.callout-note appearance="simple"}
+The big picture here is that we're going to randomize the rows, then randomly resample a certain number of times (for example, 5 times). All we are doing here is setting the data up to be analyzed. Our next step will analyze the data after each resampling, save those results, and then return the mean.
+:::
+
+```{r Setting up the data to be randomly resampled 5 times}
+for (i in 1:5) {
+  df <- df[sample(nrow(df)), ]
+}
+```
+
+## How to split data into train and test sets
+
+We'll use 60% train and 40% test, but those numbers are arbitrary. You may use values that work best for you.
+
+We will start with the entire randomized data set. We will set the first 60% as the training set, and the remaining 40% as the test set.
+
+We will be building our models on the training set, and making predictions on the test (holdout) set in the next section. We will also take a quick look at the train and test sets.
+
+```{r How to split data into train and test sets}
+sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+head(train)
+head(test)
+```
+
+## How to set up optimized (tuned) formulas
+
+```{r Building models}
+library(earth)
+library(randomForest)
+# Linear
+
+bagging <- ipred::bagging(y ~ ., data = train)
+bayesglm <- arm::bayesglm(y ~ ., data = train, family = gaussian(link = "identity"))
+bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
+earth <- earth::earth(y ~ ., data = train)
+linear <- lm(y ~ ., data = train)
+randForest <- e1071::tune.randomForest(y ~ ., data = train)
+svm <- e1071::tune.svm(y ~ ., data = train)
+tree <- tree::tree(y ~ ., data = train)
+```
+
+### Measure the root mean squared error for each of our five models
+
+```{r Measure RMSE for each of our five models}
+bagging_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
+bayesglm_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesglm, newdata = test))
+bayesRNN_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
+earth_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
+linear_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
+randForest_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
+svm_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
+tree_rmse <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
+```
+
+Let's look at the results:
+
+```{r Look at the results of our five models}
+results <- data.frame('Name' = c('bagging', 'bayesGLM', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(bagging_rmse, bayesglm_rmse, bayesRNN_rmse, earth_rmse, linear_rmse, randForest_rmse, svm_rmse, tree_rmse))
+results <- results %>% arrange(RMSE)
+results
+```
+
+## Now let's run the same code, but randomly resample it 25 times.
+
+```{r randomly resample 25 times}
+bagging_predicted <- 0
+bagging_rmse <- 0
+bayesRNN_rmse <- 0
+earth_rmse <- 0
+linear_rmse <- 0
+randForest_rmse <- 0
+svm_rmse <- 0
+tree_rmse <- 0
+
+for (i in 1:5) {
+  sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+
+bagging <- ipred::bagging(y ~ ., data = train)
+bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
+earth <- earth::earth(y ~ ., data = train)
+linear <- lm(y ~ ., data = train)
+randForest <- e1071::tune.randomForest(y ~ ., data = train)
+svm <- e1071::tune.svm(y ~ ., data = train)
+tree <- tree::tree(y ~ ., data = train)
+
+bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
+bagging_predicted[i] <- predict(object = bagging, newdata = test)
+
+bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
+earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
+linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
+randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
+svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
+tree_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
+
+results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+results <- results %>% arrange(RMSE)
+}
+results
+
+
+```
+
+## How to set up summary plots
+
+### Predicted vs actual
+
+One of the main ways you can demonstrate value to your customers is to show predicted vs actual information. We will start with plots, then generate summary tables.
+
+```{r predicted vs actual plots}
+bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
+ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bagging predicted vs actual', x = 'Actual', y = 'Predicted')
+
+bayesrnn_plot <- data.frame(x = predict(object = bayesRNN, newdata = test), y = test$y)
+ggplot(bayesrnn_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bayesrnn predicted vs actual', x = 'Actual', y = 'Predicted')
+
+earth_plot <- data.frame(x = predict(object = earth, newdata = test), y = test$y)
+ggplot(earth_plot, mapping = aes(x = predict(object = earth, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Earth predicted vs actual', x = 'Actual', y = 'Predicted')
+
+linear_plot <- data.frame(x = predict(object = linear, newdata = test), y = test$y)
+ggplot(linear_plot, mapping = aes(x = predict(object = linear, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+
+randForest_plot <- data.frame(x = predict(object = randForest$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = randForest$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Random Forest predicted vs actual', x = 'Actual', y = 'Predicted')
+
+svm_plot <- data.frame(x = predict(object = svm$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = svm$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Support Vector Machines predicted vs actual', x = 'Actual', y = 'Predicted')
+
+tree_plot <- data.frame(x = predict(object = tree, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+
+```
+
+## How to set up summary reports
+
+1.  Set up the data
+2.  Use the reactable package to make excellent tables
+
+```{r Set up summary tables}
+library(reactable)
+summary_table <- data.frame('Model_name' = c('Bagging', 'BayesRNN', 'Earth', 'Linear', 'Random Forest', 'Support Vector Machines', 'Trees'), 'Mean_RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+
+summary_table
+```
+
+## Intermediate data set: Numeric data, exploratory data analysis, and strings
+
+Now we are going to add strings to our data set. The process will be extremely similar to what we just did with the Boston Housing data set.
+
+```{r Add strings to our numeric models}
+df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/Insurance1.csv', stringsAsFactors = TRUE)
+head(df)
+str(df)
+```
+
+As we can see the Insurance data set has seven columns. Three of the columns are imported as factors: sex, smoker, and region. We are now able to use them directly when we make our models.
+
+<h4>Steps to building individual models in a consistent way:</h4>
+
+We are going to follow the same steps we used for the Boston Housing data set, except that several of the columns are factors.
+
+<h4>1. What does the really customer want?</h4>
+
+This is an insurance data set, the customer wants to model the charges (the seventh column). Specifically, they want to model the charges in a way that minimizes the charges they will pay, and meet their business obligations.
+
+This is a very typical set of requirements from customers: Given the data from the customer, what is the best action the customer can take? Our modeling and recommendations will have a direct impact on their business decisions.
+
+<h4>2. Before we run any code, let's ALWAYS take a look at the data to see what it suggests</h4>
+
+In this section we are going to do an Exploratory Data Analysis. This was first published in 1961 by John Tukey. His definition states:
+
+> "Procedures for analyzing data, techniques for interpreting the results of such procedures, ways of planning the gathering of data to make its analysis easier, more precise or more accurate, and all the machinery and results of (mathematical) statistics which apply to analyzing data." (add source)
+
+```{r Histograms of the insurance data set}
+
+library(tidyverse)
+df1 <- df %>% purrr::keep(is.numeric)
+ ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
+  ggplot2::geom_histogram(bins = round(nrow(df1))) +
+  ggplot2::facet_wrap(. ~ cols, scales = "free") +
+  ggplot2::labs(title = "Histograms of each numeric column.")
+```
+
+```{r Predictor (charges) vs each column}
+
+df %>%
+  tidyr::gather(-charges, key = "var", value = "value") %>%
+  ggplot2::ggplot(aes(x = value, y = charges)) +
+  ggplot2::geom_point() +
+  ggplot2::facet_wrap(~ var, scales = "free") +
+  ggplot2::theme_bw()+
+  ggplot2::labs(title = "y (predictor variable) vs target variables")
+```
+
+Several results stand out from the exploratory data analysis, and we would do well to include them in our final report:
+
+1.  The minimal charges to up as age goes up
+
+2.  The maximum charges goes down as the number of children goes down
+
+3.  Average and maximum charges for smokers are much higher than for non-smokers
+
+<h4>3. Setting up models</h4>
+
+```{r borrowing from our code for Boston Housing}
+
+df$sex <- as.numeric(df$sex)
+df$smoker <- as.numeric(df$smoker)
+df$region <- as.numeric(df$smoker)
+
+# Change the target variable ('Charges') to 'y'
+
+names(df)[7] = 'y'
+
+bagging_predicted <- 0
+bagging_rmse <- 0
+bayesRNN_rmse <- 0
+earth_rmse <- 0
+linear_rmse <- 0
+randForest_rmse <- 0
+svm_rmse <- 0
+tree_rmse <- 0
+
+for (i in 1:5) {
+  sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+
+bagging <- ipred::bagging(y ~ ., data = train)
+bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
+earth <- earth::earth(y ~ ., data = train)
+linear <- lm(y ~ ., data = train)
+randForest <- e1071::tune.randomForest(y ~ ., data = train)
+svm <- e1071::tune.svm(y ~ ., data = train)
+tree <- tree::tree(y ~ ., data = train)
+
+bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
+bagging_predicted[i] <- predict(object = bagging, newdata = test)
+
+bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
+earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
+linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
+randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
+svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
+tree_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
+
+results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+results <- results %>% arrange(RMSE)
+}
+results
+```
+
+<h4>The huge advantage is you've got a method you can use with a wide range of numeric data sets, without having to start from scratch every time</h4>
+
+<h4>Lab 1: Introduction to individual numeric models</h4>
+
+Let's start with a data set that only has numeric values, the famous Strength of Concrete (sometimes called Concrete Compressive Strength) data set. The full data set may be found at either:
+
+<https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength>
+
+Or I cleaned it up and posted it online:
+
+```{r Lab: Basic numeric models}
+df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/Concrete_Data.csv')
+
+head(df) # get a look at the data set
+
+str(df)
+```
+
+The data set has a total of nine numeric features, eight predictors, and Concrete Compressive Strength.
+
+We will follow the same sequence we used in this chapter:
+
+<h4>Set the data set up so it is easy to use (rename the target column as 'y')</h4>
+
+We will change the 'Strength' variable to 'y', that way we can use the same methods we used previously.
+
+```{r Rename final column to 'y'}
+
+colnames(df)[9] <- 'y'
+
+head(df) # Check, this worked fine
+```
+
+<h4>Exploratory data analysis</h4>
+
+```{r Histograms of the numeric values for strength of concrete}
+library(tidyverse)
+df1 <- df %>% purrr::keep(is.numeric)
+ ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
+  ggplot2::geom_histogram(bins = round(nrow(df1))) +
+  ggplot2::facet_wrap(. ~ cols, scales = "free") +
+  ggplot2::labs(title = "Histograms of each numeric column.")
+```
+
+```{r Predictors vs target for strength of concrete}
+
+df %>%
+  tidyr::gather(-y, key = "var", value = "value") %>%
+  ggplot2::ggplot(aes(x = value, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::facet_wrap(~ var, scales = "free") +
+  ggplot2::theme_bw()+
+  ggplot2::labs(title = "y (predictor variable) vs target variables")
+```
+
+<h4>Building models</h4>
+
+```{r building models for the strength of concrete data set}
+
+bagging_predicted <- 0
+bagging_rmse <- 0
+bayesRNN_rmse <- 0
+earth_rmse <- 0
+linear_rmse <- 0
+randForest_rmse <- 0
+svm_rmse <- 0
+tree_rmse <- 0
+
+for (i in 1:5) {
+  sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+
+bagging <- ipred::bagging(y ~ ., data = train)
+bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
+earth <- earth::earth(y ~ ., data = train)
+linear <- lm(y ~ ., data = train)
+randForest <- e1071::tune.randomForest(y ~ ., data = train)
+svm <- e1071::tune.svm(y ~ ., data = train)
+tree <- tree::tree(y ~ ., data = train)
+
+bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
+bagging_predicted[i] <- predict(object = bagging, newdata = test)
+
+bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
+earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
+linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
+randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
+svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
+tree_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
+
+results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+results <- results %>% arrange(RMSE)
+}
+results
+```
+
+```{r Summary plots for Strength of Concrete}
+
+bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
+ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bagging predicted vs actual', x = 'Actual', y = 'Predicted')
+
+bayesrnn_plot <- data.frame(x = predict(object = bayesRNN, newdata = test), y = test$y)
+ggplot(bayesrnn_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bayesrnn predicted vs actual', x = 'Actual', y = 'Predicted')
+
+earth_plot <- data.frame(x = predict(object = earth, newdata = test), y = test$y)
+ggplot(earth_plot, mapping = aes(x = predict(object = earth, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Earth predicted vs actual', x = 'Actual', y = 'Predicted')
+
+linear_plot <- data.frame(x = predict(object = linear, newdata = test), y = test$y)
+ggplot(linear_plot, mapping = aes(x = predict(object = linear, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+
+randForest_plot <- data.frame(x = predict(object = randForest$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = randForest$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Random Forest predicted vs actual', x = 'Actual', y = 'Predicted')
+
+svm_plot <- data.frame(x = predict(object = svm$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = svm$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Support Vector Machines predicted vs actual', x = 'Actual', y = 'Predicted')
+
+tree_plot <- data.frame(x = predict(object = tree, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+
+```
+
+<h4>Summary report and recommendations</h4>
+
+Fill in summary report details/recommendations here
+
+<h4>Lab—Predict BMW car prices</h4>
+
+```{r BMW car prices - read in the data}
+
+df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/bmw.csv', stringsAsFactors = TRUE)
+
+head(df)
+str(df)
+```
+
+<h4>Exploratory data analysis of BMW car price data</h4>
+
+First we are going to change the 'price' column to 'y', then move that column to the far right in the data set.
+
+```{r Change price column to 'y'}
+colnames(df)[3] <- 'y'
+str(df)
+```
+
+```{r Move 'y' column to the far right}
+
+df <- df %>% dplyr::relocate(y, .after = last_col()) # Moves the target column to the last column on the right
+
+str(df)
+```
+
+```{r Histograms of the BMW car price data set}
+library(tidyverse)
+df1 <- df %>% purrr::keep(is.numeric)
+ ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
+  ggplot2::geom_histogram(bins = round(nrow(df1))) +
+  ggplot2::facet_wrap(. ~ cols, scales = "free") +
+  ggplot2::labs(title = "Histograms of each numeric column.")
+```
+
+```{r Predictor vs target for the BMW car prices data set}
+
+df %>%
+  tidyr::gather(-y, key = "var", value = "value") %>%
+  ggplot2::ggplot(aes(x = value, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::facet_wrap(~ var, scales = "free") +
+  ggplot2::theme_bw()+
+  ggplot2::labs(title = "y (predictor variable) vs target variables")
+```
+
+```{r Build models for BMW car price data set}
+
+df$model <- as.numeric(df$model)
+df$transmission <- as.numeric(df$transmission)
+df$fuelType <- as.numeric(df$fuelType)
+
+bagging_predicted <- 0
+bagging_rmse <- 0
+bayesRNN_rmse <- 0
+earth_rmse <- 0
+linear_rmse <- 0
+randForest_rmse <- 0
+svm_rmse <- 0
+tree_rmse <- 0
+
+for (i in 1:5) {
+  sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+
+bagging <- ipred::bagging(y ~ ., data = train)
+bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
+earth <- earth::earth(y ~ ., data = train)
+linear <- lm(y ~ ., data = train)
+randForest <- e1071::tune.randomForest(y ~ ., data = train)
+svm <- e1071::tune.svm(y ~ ., data = train)
+tree <- tree::tree(y ~ ., data = train)
+
+bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
+bagging_predicted[i] <- predict(object = bagging, newdata = test)
+
+bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
+earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
+linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
+randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
+svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
+tree_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
+
+results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+results <- results %>% arrange(RMSE)
+}
+results
+```
+
+```{r Predicted vs actual plots for BMW car prices}
+
+{r predicted vs actual plots}
+bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
+ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bagging predicted vs actual', x = 'Actual', y = 'Predicted')
+
+bayesrnn_plot <- data.frame(x = predict(object = bayesRNN, newdata = test), y = test$y)
+ggplot(bayesrnn_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bayesrnn predicted vs actual', x = 'Actual', y = 'Predicted')
+
+earth_plot <- data.frame(x = predict(object = earth, newdata = test), y = test$y)
+ggplot(earth_plot, mapping = aes(x = predict(object = earth, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Earth predicted vs actual', x = 'Actual', y = 'Predicted')
+
+linear_plot <- data.frame(x = predict(object = linear, newdata = test), y = test$y)
+ggplot(linear_plot, mapping = aes(x = predict(object = linear, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+
+randForest_plot <- data.frame(x = predict(object = randForest$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = randForest$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Random Forest predicted vs actual', x = 'Actual', y = 'Predicted')
+
+svm_plot <- data.frame(x = predict(object = svm$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = svm$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Support Vector Machines predicted vs actual', x = 'Actual', y = 'Predicted')
+
+tree_plot <- data.frame(x = predict(object = tree, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+```
+
+```{r Summary tables for BMW car price models}
+
+library(reactable)
+summary_table <- data.frame('Model_name' = c('Bagging', 'BayesRNN', 'Earth', 'Linear', 'Random Forest', 'Support Vector Machines', 'Trees'), 'Mean_RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+
+summary_table
+```
+
+Summary report (write this up!)

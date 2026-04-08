@@ -11,10 +11,10 @@ This book will guide you through the entire process of building your own ensembl
 
 **This book will be an attempt to answer the single most important question in all of science: How can nature be modeled in the most accurate way, given what we know at this time?** The goal is to tell the truth in the evidence and make the most accurate predictions possible. This will be done by modeling, and you will learn about the process in this book.
 
-The goal is the teaching, mentoring and guidance will help you become your own modeler, and help you produce the best results from any given data set.
+The goal is to help you become your own modeler, and help you produce the best results from any given data set.
 :::
 
-## Features of this book, and how to get the most out of your experience
+## Features of this book to help you get the most out of your experience
 
 ### Each chapter will include a preview (like this), full text, and a review. I call the system delayed repetition, and it's the method that helps me learn the fastest.
 
@@ -22,17 +22,23 @@ I've had the pleasure to learn a very broad range of skills in my life. For exam
 
 Another benefit I have found is that delayed repetition results in longer retention for me. I have found that if I slow down my learning process and include delayed repetition, that my retention and accuracy of skills are much better than if I do not use delayed repetition.
 
-An example I have always enjoyed happened when I was a student in music school at Western Michigan University. My private violin instructor encouraged me to memorize a piece before I started practicing it. I told him that I found that confusing and was not sure what he was asking. He clarified that he wanted me to know the notes of the piece first, and then we will work out, over and over again, various ways to interpret it, so that the final result would be my choice of a range of interpretations, not his interpretation. This also resulted in me, learning the peace, much faster than I had previous selections I worked out while I was a student in music school.
+An example I have always enjoyed happened when I was a student in music school at Western Michigan University. My private violin instructor encouraged me to memorize a piece before I started practicing it. I told him that I found that confusing and was not sure what he was asking. He clarified that he wanted me to know the notes of the piece first, and then we will work out, over and over again, various ways to interpret it, so that the final result would be my choice of a range of interpretations, not his interpretation. This also resulted in me learning the music much faster than I had previous selections I worked out while I was a student in music school.
 
-This book will reflect that understanding that delayed repetition is a fast way to learn and retain skills. Every section will start with a preview, followed by the main body of the text, followed by a summary. There will also be practice exercises and other ways to review. My experience is shown, over and over and over again, that it is the delayed repetition where I learn the most, and this book will reflect that method, and hopefully demonstrate the success I have had learning in so many different areas. I found delayed repetition to be extremely successful in virtually every area I have applied, and I'm thrilled to bring delayed repetition to you in this book.
+This book will reflect that understanding that delayed repetition is a fast way to learn and retain skills. Every section will start with a preview, followed by the main body of the text, followed by a summary. There will also be practice exercises and other ways to review. My experience has shown, over and over and over again, that it is the delayed repetition where I learn the most, and this book will reflect that method, and hopefully demonstrate the success I have had learning in so many different areas. I found delayed repetition to be extremely successful in virtually every area I have applied, and I'm thrilled to bring delayed repetition to you in this book.
 
 In my experience, delayed repetition is a much faster to learn than any other system I've ever found. Since delayed repetition works in so many different areas, I encourage you to feel free to experiment with it in other areas in addition to learning data science and building ensembles.
 
-Another large benefit in this book is that each set of problems will ask you to **solve one of your own in each problem set**. What this means is that you will be asked to identify a data set of your choice, identify the problem and hand, work up a solution and present your solution.
+### Solve one of your own.
+
+Another large benefit in this book is that each set of problems will ask you to **solve one of your own in each problem set**. What this means is that you will be asked to identify a data set of your choice, identify the problem, work up a solution and present your solution, all on your own.
 
 This is much more like the real world than a typical problem set. In normal real world settings, you are not given everything in a clean tidy format, and then asked to solve the problem. In fact, that has never happened to me in my professional career, nor do I know anyone else that was given everything, and only had to solve the problem. The idea that you will be presented with everything and just need to solve the problem, is extremely out of touch with how the real world actually works.
 
-To help you be successful, you need to be a **problem finder**, as well as a problem solver. This book will encourage you to be a great problem finder, as well as guiding you to learn the most powerful problem solving techniques currently available. Unfortunately, many times the problem is not found until after some damage has been done. Therefore, this book encourages you to look for and notice things ahead of when danger might happen, or opportunities might be just around the corner.
+### Be a problem finder
+
+To help you be successful, you need to be a **problem finder**, as well as a problem solver. This book will encourage you to be a great problem finder, as well as guiding you to learn the most powerful problem solving techniques currently available. In the real world the problem is usually not found until after some damage has been done. Therefore, this book encourages you to look for and notice things ahead of when danger might happen, or opportunities might be just around the corner.
+
+This book will show you how to identify the likely leading indicators in your data set before things go wrong.
 
 I heard an example of being a problem finder that made a big impression on me. Dr. Michael Roberto was on the faculty at the Harvard Business School when he arranged to have Robert McNamara speak to his class. McNamara was a key decision maker in the John F. Kennedy and Lyndon Johnson administrations, so he was in an excellent position to speak to the class.
 
@@ -40,11 +46,15 @@ As Dr. Roberto tells the story, they met before class and McNamara asked Roberto
 
 [^index-1]: <https://www.thegreatcoursesplus.com/the-art-of-critical-decision-making>
 
-What I see frequently described as a scientific method, or the scientific process, is only the second part of the actual process. The part that I see involves testing, verification, and similar aspects of the process. What I do not see very often is the first part of the process, which is the process of discovery. Many times, great discoveries are made, then tested and verified. It is extremely rare that anything is discovered and verified at the same time. Therefore, an extremely valuable skill in the scientific method is the process of discovery. This book will encourage you to do that, and each section will have a part devoted to discovery.
+### The process of discovery
 
-**Discovery** can be greatly enhanced by seeing connections and relationships that other people frequently miss. This book will present various data science methods to help you see connections in relationship relationships that are often overlooked. These will help you come up with more accurate descriptions and predictions on new data.
+What I see frequently described as a scientific method, or the scientific process, is only the second part of the actual scientific process. The part that I see involves testing, verification, and similar aspects of the process. What I do not see very often is the first part of the process, which is the process of discovery. Many times, great discoveries are made, then tested and verified. It is extremely rare that anything is discovered and verified at the same time. Therefore, an extremely valuable skill in the scientific method is the process of discovery. This book will encourage you to do that, and each section will have a part devoted to discovery.
+
+**Discovery** can be greatly enhanced by seeing connections and relationships that other people frequently miss. This book will present various data science methods to help you see connections in relationships that are often overlooked. These will help you come up with more accurate descriptions and predictions on new data.
 
 I personally find the process of discovery to be very fun and exciting, and I will do my best to share my enthusiasm for with you in each section.
+
+### Post it
 
 The other part of the exercises is that **you will be asked to post about your work** on that section. You do not need to go into great detail, just enough so people understand what you are doing. For example:
 
@@ -54,12 +64,12 @@ That would be fine. Of course you may add graphics, comments, and much more.
 
 **The story behind the posting requirement:**
 
-I was talking with a friend of mine who is not a math person, he's a 911 Operator. I explained that I was working on making a prediction for the winning time for the 2024 London Marathon. He asked me how confident I was about the prediction. "I'm very confident", I replied. He looked straight at me and said, "Post it." I realized he was absolutely correct. Take a risk, and put the results out there for the world to see. So I did.
+I was talking with a friend of mine who is not a math person, he's a 911 Operator. I explained that I was working on making a prediction for the winning time for the 2024 London Marathon. He asked me how confident I was about the prediction. "I'm very confident", I replied. He looked straight at me and said, "Post it." I realized he was absolutely correct. Take a risk, and put the results out there for the world to see BEFORE the London Marathon. So I did.
 
-I used time series (which we will cover in chapters 10 and 11) to predict the winning times in the men's and women's 2024 London marathon. The day before the marathon I posted my predictions, and then waited for the results. I was willing to call the predictions good if they were ±30 seconds on a 2 hour race. Here are my predictions vs the actual results:
+I used time series (which we will cover in chapters 10 and 11) to predict the winning times in the men's and women's 2024 London marathon. The day before the marathon I posted my predictions on YouTube, and then waited for the results. I was willing to call the predictions good if they were ±30 seconds on a 2 hour race. Here are my posted predictions vs the actual results:
 
 | 2024 London Marathon Winning Times Prediction by Russ Conte | Men (Predicted) | Men (Actual) | Women (Predicted) | Women (Actual) |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 |  | 2:03:21 - 2:04:21 | 2:04:01 | 2:17:51 - 2:18:51 | 2:16:16 |
 
 The men's winning time is 100% in the predicted range, but the women completed the London Marathon faster than my prediction for them. You can see my predictions the day before (<https://www.youtube.com/shorts/7rQSLCe8bYA>) and after the results were announced (<https://www.youtube.com/shorts/ZXGR_PpMIdU>).
@@ -70,7 +80,7 @@ Posting (and replying) on social media about your data science experiences might
 
 That's the first part of the book. We'll do a very quick summary, then look at what is coming in the second half of the book.
 
-The first part of this book will cover the many methods for building and modeling, individual models and ensembles. The second part of this book will help you prepare for a career in the field. You will look at how leaders actually make decisions, how to build your own no code solutions, if you want, and most importantly your journey from student to leader from getting hired to hiring.
+The first part of this book will cover the many methods for building and modeling, individual models and ensembles. The second part of this book will help you prepare for a career in the field. You will look at how leaders actually make decisions, how to build your own no code solutions if you want, and most importantly your journey from student to leader from getting hired to hiring.
 
 I've seen many times when people walk into a new job or career and they are not as well prepared as they could be. I want to provide a section of this book to help you be as well prepared for your career in this field as you can possibly be.
 
@@ -80,43 +90,113 @@ The last section of the book is a final comprehensive project. By the time you g
 
 Another benefit of this book is that I will share several examples of completed projects for your review. Your completed projects can be part of your portfolio that can be presented to potential employers.
 
-## What most strongly predicts model accuracy and reproducibility?
+## Writing the dream data science solution for your customers every time.
+
+If you could write your absolute dream data science solution, what would it look like? We will walk through my answer to my dream data science solution in every chapter, to a wide range of problems, so that you will have what I believe is the best format for a solution to huge range of data science problems. Each of the parts it does contain are considered essential, though you may also add sections unique to the data set or customer you are working on. When we use this type of format, these essential components will not be missed or forgotten.
+
+This will also give you several examples that you can use with an employer, on a portfolio, or as part of a professional presentation, such as a conference. In my observation, many people only learn this through trial and error, I want to make it as clear as possible how to write a report that will provide the information to the customer needs, and do it in a way that is the most helpful to the customer.
+
+All of my work, no exception, has been (and is) focused on the customer. I want to make sure I give the customer the most accurate report, do it as quickly as possible, and in the most professional manner. I want this to be something that customer can use to get the best possible results given what they know at that point in time.
+
+I have seen many other situations where the customer is not the priority, and the results are very far below optimal. I'm going to always recommend taking best possible care of the customer, and using that as your North star to determine how to move forward at any given time.
+
+At one point, I was actually trained in the Ritz Carlton customer service system. I will not attempt to reproduce that system here, but I will strongly recommend that you investigate it and do your best to provide the best customer service that you can all the time. Not everyone does this, this will help differentiate your work from the work of many other people.
+
+Here are two examples of the Ritz Carlton customer service system that are available to you, but there are many other customer service systems available if you prefer those systems:
+
+[The New Gold Standard: 5 Leadership Principles for Creating a Legendary Customer Service Experience Courtesy of the Ritz Carlton Hotel Company](https://www.amazon.com/New-Gold-Standard-Leadership-Ritz-Carlton/dp/1480595829 "The New Gold Standard: 5 Leadership Principles for Creating a Legendary Customer Service Experience Courtesy of the Ritz Carlton Hotel Company")
+
+[Excellence Wins: A No-Nonsense Guide to Becoming the Best in a World of Compromise](https://www.amazon.com/Excellence-Wins-No-Nonsense-Becoming-Compromise/dp/0310352096/ref=sr_1_1?crid=3NA8PXA24PXMZ&dib=eyJ2IjoiMSJ9.xrNqED5F4e-2w9jpucG2Wlcr7dADd_WGzKxomaiN4010DEAbMtSLPtkaVDLbGdYaXafy4CjasLUlUrRdKwPMWIff_70j4zPjJSP7nU5C04Ff-mgqbi8MeNBg8_5zGjTxqDLe1GGOBne9xzaL5ZEOE7eqYRNZGjPbADZ-hnqdwOyxutC93roLSdMu34bVOvGi3i6cy_ULAYwaOP3gPEmpLcdDmaQZCscv7oyocGArDnI.oyVplHsb33jMQOg1YNn71yFbu5PMEN_GOpieZ-G8qV8&dib_tag=se&keywords=Horst+schulze&qid=1768418978&s=books&sprefix=horst+schulz%2Cstripbooks%2C166&sr=1-1 "Excellence Wins: A No-Nonsense Guide to Becoming the Best in a World of Compromise")
 
 ### Always include full exploratory data analysis
 
+The goal of an exploratory data analysis is to give the reader a quick summary of the data. There is no actual modeling done at this point in the process, the goal is to give the reader a quick view of the data. Many times in my experience, the exploratory data analysis is extremely revealing, and it is critical that this is included in the report to the customer.
+
+We will look at an Insurance data set as our example. Here are the top rows of the Insurance data set:
+
+```{r Head of Insurance data, echo=FALSE}
+
+library(NumericEnsembles)
+head(Insurance, n = 15)
+
+```
+
+Note the number of rows can be specified, in this case it is 15.
+
+We can view each of the columns, and have a quick view of each column. We have seven columns, including age, sex, bmi (body mass index), smoker (yes or no), region (southwest, southeast, northwest, northeast), and charges.
+
+We will be investigating the charges by making models, predictions, and recommendations.
+
+```{r Summary of the Insurance data, echo=FALSE}
+
+summary(Insurance)
+```
+
+The Summary gives us values for the minimum, 1st quartile, median, mean, 3rd quartile, and maximum values.
+
+We will also see how to create a plot of each column vs the target column, in this case that is the charges column. The plot is:
+
+![Charges vs each feature](images/Charges_vs_each_feature.svg)
+
+We will also learn how to create histograms of each numeric column. For our data set it looks like this:
+
+![Histograms of each numeric column](images/Histograms_of_each_numeric_column.svg)
+
+Another important plot we will learn to make is boxplots of each numeric column. For our Insurance data, the boxplots are:
+
+![Boxplots of each numeric column](images/Boxplots_of_each_numeric_column.svg)
+
 ### Create models using a very diverse set of individual models and ensembles of models
 
-### Repeated random resampling. Do not sample just once.
+We will set up a standard library of models for each of the systems we will be using. You will see how that is developed in the next two chapters for numeric analysis. For numeric analysis, we will be using 32 models. 18 of the models are individual models, and 14 are ensembles. This diversity of model types will greatly improve our results.
+
+Ensembles are your Team of Rivals to give the customer the best possible results. I first became aware of the term when Dr. Doris Kearns Goodwin came to Chicago. She discussed her books, including her then new publication, Leadership in Turbulent Times, but she also discussed how Abraham Lincoln used a team of rivals to help him get the best results during the Civil War.
+
+We can do something in data science that is similar to what President Lincoln did in his decision making: Use a team of rivals. Our multiple models (including individual models and ensembles) will always be our team of rivals.
+
+### We will use regular learning and deep learning models in our ensembles
+
+We will be building individual regular learning, models, and deep learning models, and including all of them in our ensembles. The fact that we will be combining regular learning and deep learning will greatly improve the accuracy of our results.
 
 ### Tuning/optimizing all models
 
-### Test for overfitting, only use models that do not overfit on new data
+All the models we used that can be tuned and optimized will be tuned and optimized. This will also contribute to increased accuracy in our results.
 
-### State EVERYTHING as a testable hypothesis. No exceptions. Then actually test everything.
+### Repeated random resampling. You'll get more accurate answers when you randomly resample.
 
-### Test if the predicted results come from the same distribution as the original data, reject if false
+One of my personal frustrations when I see data science reports and presentations is when the authors only run a dead at a single time. Inevitably, if you randomly resample the data and then rerun the analysis, you will get a different result. We will use that observation to our advantage. We will randomly resemble in every report, and then provide the results from that random sampling. This will give us a more accurate result in the real world, then just running the analysis a single time.
+
+### Show the accuracy for each model and each resample
 
 ### Include confidence intervals for all results, not just a specific value (do not say, "the model with the best RMSE had a result of X").
 
-### Plot both barcharts and by model/resample (need to re-word this)
+We will also include 95% confidence intervals in our results. This will make it much more relatable to your reader, and give you a more accurate answer.
 
-### Include plots for visual inspection of the results.
+For example, if the recommendation is that the housing price is \$200,000, that is not nearly as accurate as saying that there's a 95% degree of confidence at the housing price will be in the range of: \$165,000 - \$235,000.
 
-### Show results for each resample by model (this reveals things that usually do not show up in an analysis).
+And building on the previous point, we are going to use multiple models and see the 95% confidence interval for each of these models. So if another model had a confidence interval of: \$190,000 - \$210,000, that would be something to share with the customer, that the second model has a narrow result than the first. Will actually be able to do this with all 32 models so we can see how accurate each of them actually are after we have re-sampled them multiple times.
 
-### Use options for multiple optimization systems: VIF, BIC, Mallows Cp
+### Test for overfitting, only use models that do not overfit on new data
 
-### Show summary plots: Predicted vs actual, Q-Q, residuals vs predicted, histogram of residuals.
+Overfitting is a flaw that can happen in a mathematical analysis. Overfitting happens when the model corresponds too closely to the training data, but fails to correspond on the testing data or on new data. Overfitting is a value which can be measured and tested, and the results can be ranked from lowest to highest (when applied to multiple models). We will look at how to measure and test for overfitting for each of the models, and report the results that so that we use the model which has the best accuracy and the lowest over fitting value.
 
-### Look at outliers and influential points, see if there are any issues with these data points.
+We will look at how to plot overfitting for each resample, for both the train value and the holdout (test) values. As this graph shows, lower values are more accurate, and it's clear some models are more accurate than others. This is a plot with free scales (y-values), but it's still clear to see how each of the 32 models performed with the Insurance data set.
 
-## Automate the entire thing
+![Overfitting by model and resample](images/Overfitting_by_model_and_resample.svg)
 
-## How to build individual models and ensembles that return results with accuracy that beats the best results in previous Kaggle competitions.
+### Another test will ask if the predicted results come from the same distribution as the original data, reject if false.
 
-## How to make the results as reproducible as possible.
+You will see how to set up the Kolmogorov-Smirnov test. This will test if the distribution in question (the model) comes from the same distribution as the original test (the training data). Higher values are better, most researchers reject the results if they are below a pre-specified value (such as 0.05 or 0.10). This will help us prevent choosing a model that is not from the same distribution as the original data. Here is an example of what that will look like:
 
-## How to test for overfitting, and other tests
+![Kolmogorov-Amirnov test, p-value, 1 standard deviation error bars](images/K_S_test.svg){fig-alt="Kolmogorov-Amirnov test, p-value, 1 standard deviation error bars"}
+
+### Show diagnostic plots of the top performing models: Predicted vs actual, Q-Q, residuals vs predicted, histogram of residuals.
+
+We will learn how to plot the diagnostic plots of the top performing models. For numeric models this will include predicted vs actual, residuals, histogram of residuals, and Q-Q plot. We will learn how to make each of these plots, then put them together on one plot. In our Insurance example, the best model was made using a neuralnet, and these are the summary plots:
+
+![Ensemble Neuralnet summary plots](images/Ensemble_Neuralnet_summary_plots.svg){fig-alt="Ensemble Neuralnet summary plots"}
+
+You can be in this business, an extremely long time and not see results this accurate without errors or overfitting. However, in this book, you will see exactly how to make results that are as accurate as the plot above shows and have no errors or no overfitting.
 
 ## What to know <b><i>before</i></b> you start building models.
 
@@ -139,10 +219,6 @@ It's not important enough to know your why, because there are many whys in any s
 
 **Every why in data science connects to people. No exceptions.** The results impact people. That's the value proposition. We are doing all of this to make things better for people. It's never an abstract exercise, the work always connects with people.
 :::
-
-## Ensembles: Your Team of Rivals To Help You Get The Most Accurate Answer
-
-### This is a test of level 3
 
 ## What to do before building models: The value and process of observation, discovery and connection.
 
@@ -205,27 +281,28 @@ We'll also see how to do separate top performers from everything else in our ana
 
 ### How high stakes separators bring out the strongest predictors
 
-## Finding the strongest predictor of the most important feature
+We will see how to create separators. These are the high stakes results that can have a huge impact on the customer. In our insurance example, we will see how to compare the highest five percent of charges against the lower five percent of charges, then plot the results. One of those plots shows that 100% of the top five percent of charges were smokers, and 0% of the bottom five percent were smokers. The Insurance company paid the top five percent \$3,121,213 in charges, but only paid the bottom five percent (all non-smokers) \$102,197 in charges. This is what is looks like as a graph with the highest five percent on the left, the lowest five percent on the right:
 
-## How empathy with managers will get better results
+![Separators: Smokers vs non-smokers](images/Separators.svg){fig-alt="Separators: Smokers vs non-smokers"}
 
-## Always do the most caring thing you can - how being the most caring person you can in all situations helps you get the best possible results
+## Finding the strongest predictor(s) of the most important feature
 
-## Accountability - How to measure the results of your work
+We will do several processes to help you communicate the strongest predictor of the most important feature. In the insurance data set, just three features account for more than 93% of the variable importance, and we will see how to get these results:
 
-## The only agenda is the truth, as best we can get it. Not politics, not money, not favoritism.
+| Variable | Importance        | Sign | Percentage | Total Percentage |
+|----------|-------------------|------|------------|------------------|
+| Smoker   | 57.8386452843969  | POS  | 0.5921     | 0.5921           |
+| Age      | 21.6467805721622  | POS  | 0.2216     | 0.8137           |
+| BMI      | 11.9965423296263  | POS  | 0.1228     | 0.9365           |
+| Children | 3.48267002762218  | POS  | 0.0357     | 0.9722           |
+| Region   | 2.32770324733846  | NEG  | 0.0238     | 0.996            |
+| Sex      | 0.393949407279711 | NEG  | 0.004      | 1                |
 
-::: {.callout-note appearance="minimal" icon="false"}
-<h3>Data science for the rest of us: Every chapter will include opportunities to share your results and stories</h3>
+: Variable importance
 
-As far as I know, this is the first text to encourage readers to post results and stories. The goal is for you to practice sharing results and stories in ways that a wide range of people can understand, not only for people trained in data science. You will be doing data science for the rest of us.
-:::
-
-## How to test for overfitting
-
-::: {.callout-note appearance="simple" icon="false"}
 <h3>What data scientists actually do</h3>
 
+::: {.callout-note appearance="simple" icon="false"}
 What separates data science from all other fields is **we build models to make predictions and test everything**. The function of data science is to test everything in a way that is neutral, fair, and reproducible. We share the results of the tests.
 
 In this book we will test everything from model accuracy to overfitting to how similar the predicted distribution is to the actual data, and much, much more.
@@ -233,20 +310,49 @@ In this book we will test everything from model accuracy to overfitting to how s
 We will see the same test applied to a range of models, so the test results can be ranked.
 :::
 
-## How to be a great data story-teller, in a way that other people will want to listen.
+## How to tell the story in your data to your customer.
 
-## A code of ethics for data science
+## How to make the best evidence based recommendations to your customer.
 
-::: {.warning style="padding:0.1em; background-color:#E9D8FD; color:#000000"}
-<span>
+## Summary:
 
-<p style="margin-top:1em; text-align:center">
+In this introduction we previewed some of what this book will cover. We looked at:
 
-<b>Data Science Essay #2: Testing for Humility vs Arrogance </b>
+-   Knowing what to do *before* you start building models
 
-</p>
+-   Knowing your own origin story (why you are doing this)
 
-</p>
+-   How to be a problem finder
 
-</span>
-:::
+-   The process of discovery
+
+-   Posting your work for others to see
+
+-   Writing your dream data science solution:
+
+    -   Always include the full exploratory data analysis
+
+    -   Use a diverse set of models
+
+    -   Use regular learning and deep learning
+
+    -   Tune/optimize all models
+
+    -   Use random resampling
+
+    -   Test for overfitting, reject models with unacceptable results
+
+    -   Show diagnostic graphs
+
+-   Some examples from great customer service
+
+-   How to view high stakes separators
+
+-   How to write strong evidence based recommendations.
+
+## Homework:
+
+1.  Post about what you learned in this chapter.
+2.  Look at Chapter 15, 60 Open Data Sources. You will be doing a Final Project toward the end of the book. Start looking for a data set that would be good for your Final Project. Obviously look at other data sources, too.
+3.  Come up with One of Your Own problems based on this chapter, write it up and post your solution. For example, maybe you found delayed repetition helpful (or not helpful), write that up and post it. Maybe you already know about excellent customer service. Write that up as One of Your Own, and post it.
+4.  Read the preview of the next chapter before you get into the next chapter.

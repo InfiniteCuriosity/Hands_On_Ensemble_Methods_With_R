@@ -1,25 +1,157 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+Welcome to Hands On Ensemble Methods With R! I hope you find this to be a very rewarding book. This has been a pure delight and joy to work on and create, and I hope that sense is communicated to you!
 
-See @knuth84 for additional discussion of literate programming.
-
-```{r}
-1 + 1
-```
-
-Here is a footnote.[^welcome-1]
-
-[^welcome-1]: https://www.apple.com
-
-Ensemble: blah blah blah
-
-:   Here is my definition of blah blah blah
-
-::: {.callout-note icon="false"}
-## Here is a heading
-
-One day we shall all be free!
-
-I can easily put material in here that would stand out from the rest of the text.
+::: {.callout-note appearance="minimal"}
+The purpose of this chapter is to give you an overview of the book, so you are well prepared to get the most from the contents.
 :::
+
+The book is in two sections: Building ensembles of models (chapters 1 - 8), and working in the industry (chapters 9 - 15).
+
+<h2>Part 1: Building ensembles of models</h2>
+
+This section of the book is designed to give you tools to build ensembles of models that will be:
+
+-   Easy to build, tailor, and optimize via tuning or cross-validation.
+
+-   Usable with a very wide variety of data sets (so you do not need to keep building new models over and over for the same type of data).
+
+-   Run very fast
+
+-   Run with minimal (or zero) errors or warnings
+
+-   Various levels of reproducible results.
+
+-   Include graphs, charts and tables to help your reader understand the truth in the data.
+
+-   You will be able to add many professional options in your model building, such as:
+
+    -   Multiple ways to automatically handle strings
+
+    -   Multiple ways to automatically resolve issues with highly correlated data
+
+    -   Ways to automatically complete stratified sampling of data
+
+    -   Multiple data reduction methods
+
+    -   Determine the most accurate model, and the strongest predictors for any given data set
+
+::: {.callout-note appearance="minimal"}
+You will be building ensembles of models of numeric, classification, logistic, time series, and survival data sets as you work through the book. You may use your results on your resume, portfolio, job interview, conference presentation, professional publication or anywhere you would like.
+:::
+
+<h3>Examples of the results that you will achieve in this book using ensembles</h3>
+
+Numeric ensembles:
+
+• You will build ensembles of models that will have a lower root mean squared error (RMSE) than 20 years of the best scores in Kaggle data science competitions for the Boston Housing data set.
+
+• You will build ensembles of models that will beat the best scores measuring the strength of concrete data set.
+
+• Determine which features in the data separate the highest five percent of results from the lowest five percent of results.
+
+• Summary results will include highest accuracy and strongest predictor.
+
+Classification ensembles:
+
+• 100% accuracy predicting heart disease using only the data - no medical test is required.
+
+• 100% accuracy predicting maternal health risk from the data alone.
+
+Logistic ensembles
+
+• Sports analytics—You will model the on-court performance of professional athletes (such as Lebron James) and make evidence based recommendations for them to improve their performance
+
+• Talent analytics—You will model employees and make evidence based recommendations to improve job satisfaction.
+
+Forecasting ensembles
+
+• You will make forecasts about the labor market in the United States, by combining data from the United States Department of Labor, and external data sources
+
+• You will make forecasts about the winning times in marathons
+
+Survival ensembles
+
+**(need to finish this section on survival ensembles)**
+
+We will be looking at making predictions in a very wide range of data, from sports to insurance, placing items on the shelf (retail analytics), diagnosing various diseases (heart disease, cancer, etc.), risk, talent analytics, public (government) analytics, and much more. All of these results (and more!) can be used in demonstrations, on your resume or portfolio, or any other place you would like to show your work.
+
+<h3>"Test everything, hold on to the good." St.Paul, 1st century</h3>
+
+One of the important ways we will improve our models is by testing them over and over. We will build teams of rival models, with the goal of having a result that is superior to any individual or other ensemble of models.
+
+We will randomly resample our models to see how the data changes when it is resampled. We will look at multiple ways of checking the accuracy of our models, to test if we have the optimal result.
+
+> More than the act of testing, the act of designing tests is one of the best bug preventers known. The thinking that must be done to create a useful test can discover and eliminate bugs before they are coded - indeed, test-design thinking can discover and eliminate bugs at every stage in the creation of software, from conception to specification, to design, coding and the rest.\
+> \
+> Boris Bezier, quoted in Software Testing Techniques, Creating a Software Engineering Culture by Karl Eugene Wiegers
+
+We will learn to design tests that return the most accurate description of the results. You will see multiple ways to test everything, and be better equipped to know which test is superior (or inferior), and why this is the case.
+
+<h3>Why reverse engineering can speed up your code writing much faster than any AI system</h3>
+
+I was getting ready to speak at a conference, and was being asked what I would be presenting. I explained that it is a system that allows people in data science to code extremely fast. "Faster than vibe coding?" one person asked. "Absolutely," I replied. "Faster than coding assistants?" another asked. "Yes, faster than coding assistants.
+
+I demonstrated how reverse engineering solved coding issues in seconds (literally) that vibe coding and AI assistance cannot match. The goal of clear and simple coding fits this quote:
+
+> The best programs are written so that computing machines can perform them quickly and so that human beings can understand them clearly. Donald E. Knuth
+
+We will also look at ways to debug code that actually solves the real problem in the code.
+
+> The trick is to fix the problem you have, not the problem you want. Bram Cohen
+
+Spend at least twice as much time seeking to understand the customer problem than solving it.
+
+<h2>Part 2: Working in the industry</h2>
+
+::: {.callout-note appearance="minimal"}
+The second part of the book will improve your data science skills by improving your skills at finding customer issues, solving the true customer issues, communicating clearly, and delivering results the customer needs.
+:::
+
+I've worked for over 30 years as a professional recruiter, and hired over 15,000 people. Here are some of the very interesting points I've learned along the way about what employers are looking for in the candidates they select, which we will discuss in this book:
+
+• Employers want results and accomplishments, and are willing to pay for it! We will look at many examples where we will seek to understand the needs of the company, and how we can deliver data science results that meet or exceed the needs of the customer.
+
+• Employers want employees who can solve real problems for their customers. We will look at how data science can help you build solutions for your customers in ways that solve real problems for their customers. We will see ways we can test this hypothesis, and fix our methods when we do not meet the expectations.
+
+• Soft skills can put you far ahead of the competition. Once we have built our models, we will look at ways to present the results that greatly increase the chance of the solutions being accepted. We will test the accuracy of listening, problem understanding, and feasibility, as major ways to get your data science solution implemented.
+
+• Employers want employees who can deliver models that are accurate, fast, and fully reproducible. In this book you will build ensembles of models that will be previous best results in Kaggle competitions. The models will run in a very short amount of time, and be fully reproducible.
+
+• We will cover several advanced skills in the second half of the book. These will include how to predict on totally new data, hiring and getting hired, a code of ethics, contributing to the profession, and moving from student to professional to leader.
+
+The combination of very strong data science skills, great skills understanding the customer, and the ability to communicate this at a very clear level is designed to give you the ultimate competitive advantage in the marketplace: A person who delivers fully reproducible and error free results the customer needs, in a way that is very professional, and maintains the highest standards of ethics and integrity.
+
+<h3>How to test the accuracy of your understanding of the customer's issues/problems/opportunities.</h3>
+
+We will take an in-depth look at testing the understanding of the customer's issues, and how to have the most accurate understanding of the customer issues. We will look at several real examples there the root issue is a misunderstanding of the customer, which led to unintended problems and consequences with the customer. These problems could have been avoided by testing the understanding of the customer's issues before beginning the analysis.
+
+::: {.callout-note appearance="minimal"}
+Optimize financial performance, not staff productivity.
+:::
+
+The report from MIT, [The GenAI Divide: State of AI in Business in 2025](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf) has a very stark warning about not understanding the customer's needs:
+
+> Despite \$30–40 billion in enterprise investment into GenAI, this report uncovers a surprising result in that 95% of organizations are getting zero return. The outcomes are so starkly divided across both buyers (enterprises, mid-market, SMBs) and builders (startups, vendors, consultancies) that we call it the GenAI Divide. Just 5% of integrated AI pilots are extracting millions in value, while the vast majority remain stuck with no measurable P&L impact. This divide does not seem to be driven by model quality or regulation, but seems to be determined by approach.
+
+Misunderstanding the customer's needs can possibly create more problems than bad code can ever cause. You can do a world of good making sure you truly understand the customer's needs BEFORE you begin coding!
+
+Early in my career I had the wonderful opportunity to receive very special customer service training, and I've remembered it all these years. The customer service training was using the Ritz-Carlton methods, and I found it truly amazing.
+
+As it was explained to us, the world's best customer service does not start with the customer—it always starts with the staff. We were trained to understand the true needs of the customer before we started to solve customer issues.
+
+> Companies will pay good money for people who can actually solve real customer problems.
+
+In my decades in business I found it very useful to test my understanding of the customer's true problem:
+
+"If we provide this (list our current understanding of the customer's problems and requests), will that meet all your requirements?"
+
+"No, you've missed two key points."
+
+"Thank you for letting us know about the two key points we missed. We want to get those resolved for you."
+
+The more accurately you understand the customer's needs, the less time you'll need to spend fixing mistakes due to misunderstandings. The payoff for understanding customer needs up front is much larger than it seems at first.
+
+<h2>Quick wrap-up</h2>
+
+The book has two sections: Building models and working in the industry. The goal for both sections is to provide the best skills in modeling and working in the industry.

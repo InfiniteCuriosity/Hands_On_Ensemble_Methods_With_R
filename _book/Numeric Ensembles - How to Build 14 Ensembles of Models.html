@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -235,8 +270,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#building-weighted-ensembles-to-model-numerical-data" id="toc-building-weighted-ensembles-to-model-numerical-data" class="nav-link active" data-scroll-target="#building-weighted-ensembles-to-model-numerical-data"><span class="header-section-number">6</span> Building weighted ensembles to model numerical data</a>
+  <ul class="collapse">
+  <li><a href="#think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning." id="toc-think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning." class="nav-link" data-scroll-target="#think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning."><span class="header-section-number">6.1</span> Think before you do something. This will help when we start at the end and work backwards toward the beginning.</a></li>
+  <li><a href="#one-of-your-own-add-one-model-to-the-list-of-seven-individual-models-see-how-it-impacts-results." id="toc-one-of-your-own-add-one-model-to-the-list-of-seven-individual-models-see-how-it-impacts-results." class="nav-link" data-scroll-target="#one-of-your-own-add-one-model-to-the-list-of-seven-individual-models-see-how-it-impacts-results."><span class="header-section-number">6.2</span> One of your own: Add one model to the list of seven individual models, see how it impacts results.</a></li>
+  <li><a href="#plan-ahead-as-much-as-you-can-that-makes-the-entire-model-building-process-much-easier." id="toc-plan-ahead-as-much-as-you-can-that-makes-the-entire-model-building-process-much-easier." class="nav-link" data-scroll-target="#plan-ahead-as-much-as-you-can-that-makes-the-entire-model-building-process-much-easier."><span class="header-section-number">6.3</span> Plan ahead as much as you can, that makes the entire model building process much easier.</a></li>
+  <li><a href="#one-of-your-own-add-a-model-to-the-individual-models-and-a-model-to-the-ensemble-of-models" id="toc-one-of-your-own-add-a-model-to-the-individual-models-and-a-model-to-the-ensemble-of-models" class="nav-link" data-scroll-target="#one-of-your-own-add-a-model-to-the-individual-models-and-a-model-to-the-ensemble-of-models"><span class="header-section-number">6.4</span> One of your own: Add a model to the individual models, and a model to the ensemble of models</a></li>
+  <li><a href="#post-your-results-on-social-media-in-a-way-that-a-non-technical-person-can-understand-them.-for-example" id="toc-post-your-results-on-social-media-in-a-way-that-a-non-technical-person-can-understand-them.-for-example" class="nav-link" data-scroll-target="#post-your-results-on-social-media-in-a-way-that-a-non-technical-person-can-understand-them.-for-example"><span class="header-section-number">6.5</span> Post your results on social media in a way that a non-technical person can understand them. For example:</a></li>
+  <li><a href="#exercises-to-help-you-improve-your-skills" id="toc-exercises-to-help-you-improve-your-skills" class="nav-link" data-scroll-target="#exercises-to-help-you-improve-your-skills"><span class="header-section-number">6.6</span> Exercises to help you improve your skills:</a></li>
+  <li><a href="#post-the-results-of-your-new-ensemble-on-social-media-in-a-way-that-helps-others-understand-the-results-or-methods." id="toc-post-the-results-of-your-new-ensemble-on-social-media-in-a-way-that-helps-others-understand-the-results-or-methods." class="nav-link" data-scroll-target="#post-the-results-of-your-new-ensemble-on-social-media-in-a-way-that-helps-others-understand-the-results-or-methods."><span class="header-section-number">6.7</span> Post the results of your new ensemble on social media in a way that helps others understand the results or methods.</a></li>
+  <li><a href="#helping-leaders-make-the-best-possible-decisions-what-are-the-options-benefits-and-costs-how-strong-are-the-resultsrecommendations" id="toc-helping-leaders-make-the-best-possible-decisions-what-are-the-options-benefits-and-costs-how-strong-are-the-resultsrecommendations" class="nav-link" data-scroll-target="#helping-leaders-make-the-best-possible-decisions-what-are-the-options-benefits-and-costs-how-strong-are-the-resultsrecommendations"><span class="header-section-number">6.8</span> Helping leaders make the best possible decisions: What are the options, benefits and costs? How strong are the results/recommendations?</a></li>
+  <li><a href="#helping-leaders-make-the-best-possible-decisions-margins-of-errorreasons-for-error" id="toc-helping-leaders-make-the-best-possible-decisions-margins-of-errorreasons-for-error" class="nav-link" data-scroll-target="#helping-leaders-make-the-best-possible-decisions-margins-of-errorreasons-for-error"><span class="header-section-number">6.9</span> Helping leaders make the best possible decisions: Margins of error/reasons for error</a></li>
+  <li><a href="#helping-leaders-make-the-best-possible-decisions-highest-accuracy-strongest-predictors" id="toc-helping-leaders-make-the-best-possible-decisions-highest-accuracy-strongest-predictors" class="nav-link" data-scroll-target="#helping-leaders-make-the-best-possible-decisions-highest-accuracy-strongest-predictors"><span class="header-section-number">6.10</span> Helping leaders make the best possible decisions: Highest accuracy, strongest predictor(s)</a></li>
+  <li><a href="#helping-your-customermanagerboard-to-start-thinking" id="toc-helping-your-customermanagerboard-to-start-thinking" class="nav-link" data-scroll-target="#helping-your-customermanagerboard-to-start-thinking"><span class="header-section-number">6.11</span> Helping your customer/manager/board to start thinking</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -260,8 +314,1446 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="building-weighted-ensembles-to-model-numerical-data" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Building weighted ensembles to model numerical data</h1>
+<p>In the last chapter we learned how to make 23 individual models, including calculating the error rate (as root mean squared error), and predictions from the holdout data (test and validation).</p>
+<p>This chapter will show how to use those results to make weighted ensembles that can be used to model numerical data.</p>
+<p>Let’s start at the end. Let’s imagine the finished product. A list of ensembles and individual models, with error rates sorted in decreasing order (best result on the top of the list)</p>
+<p>Therefore we’re going to need a weighted ensemble. But what weight to use?</p>
+<p>It turns out there is an excellent answer available for virtually no work on our part (which is great!). Each model has a mean error score. The weight we will use will be the reciprocal of the error.</p>
+<p>Let’s say we have two models. One has an error rate of 5.0 and the other has an error rate of 2.0. Clearly the model with the error rate of 2.0 is superior to the model with the error rate of 5.0, since 2.0 is smaller than 5.0.</p>
+<p>What we will do in building our ensemble is multiply the values in the ensemble by 1/(error rate). This will give higher weights to models with higher accuracy.</p>
+<p>Let’s see how this works with an extremely simple ensemble.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tree) <span class="co"># Allows us to use tree models</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS) <span class="co"># For the Boston Housing data set library(Metrics)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+✖ dplyr::select() masks MASS::select()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set initial values to 0</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>linear_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>linear_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>linear_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>linear_test_predict_value <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>tree_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>tree_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>tree_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>tree_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>tree_test_predict_value <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>ensemble_linear_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>ensemble_linear_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>ensemble_tree_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>ensemble_tree_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>numerical_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, colnum, train_amount, test_amount, numresamples){</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Move target column to far right</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data)[colnum] <span class="ot">&lt;-</span> <span class="st">"y"</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up resampling</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numresamples) {</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">size =</span> <span class="fu">nrow</span>(data), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(train_amount, test_amount))</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  train <span class="ot">&lt;-</span> data[idx <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  test <span class="ot">&lt;-</span> data[idx <span class="sc">==</span> <span class="dv">2</span>, ]</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit linear model on the training data, make predictions on the test data</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>linear_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>linear_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> linear_model, <span class="at">newdata =</span> test)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>linear_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> linear_predictions)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>linear_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(linear_RMSE)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit tree model on the training data, make predictions on the test data</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>tree_model <span class="ot">&lt;-</span> <span class="fu">tree</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> tree_model, <span class="at">newdata =</span> test)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>tree_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> tree_predictions)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>tree_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(tree_RMSE)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the weighted ensemble</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="st">'linear'</span> <span class="ot">=</span> linear_predictions <span class="sc">/</span> linear_RMSE_mean,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="st">'tree'</span> <span class="ot">=</span> tree_predictions <span class="sc">/</span> tree_RMSE_mean,</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="st">'y_ensemble'</span> <span class="ot">=</span> test<span class="sc">$</span>y)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Split ensemble between train and test</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>ensemble_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">size =</span> <span class="fu">nrow</span>(ensemble), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(train_amount, test_amount))</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>ensemble_train <span class="ot">&lt;-</span> ensemble[ensemble_idx <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>ensemble_test <span class="ot">&lt;-</span> ensemble[ensemble_idx <span class="sc">==</span> <span class="dv">2</span>, ]</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the ensemble data on the ensemble training data, predict on ensemble test data</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>ensemble_linear_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>ensemble_linear_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_linear_model, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>ensemble_linear_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y, <span class="at">predicted =</span> ensemble_linear_predictions)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>ensemble_linear_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_linear_RMSE)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the tree model on the ensemble training data, predict on ensemble test data</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>ensemble_tree_model <span class="ot">&lt;-</span> <span class="fu">tree</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>ensemble_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree_model, <span class="at">newdata =</span> ensemble_test) </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>ensemble_tree_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y, <span class="at">predicted =</span> ensemble_tree_predictions)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>ensemble_tree_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_tree_RMSE)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Model'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Linear'</span>, <span class="st">'Tree'</span>, <span class="st">'Ensemble_Linear'</span>, <span class="st">'Ensemble_tree'</span>),</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Error_Rate'</span> <span class="ot">=</span> <span class="fu">c</span>(linear_RMSE_mean, tree_RMSE_mean, ensemble_linear_RMSE_mean, ensemble_tree_RMSE_mean)</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Error_Rate)</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>} <span class="co"># Closing brace for numresamples</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">list</span>(results))</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>} <span class="co"># Closing brace for the function</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="fu">numerical_1</span>(<span class="at">data =</span> MASS<span class="sc">::</span>Boston, <span class="at">colnum =</span> <span class="dv">14</span>, <span class="at">train_amount =</span> <span class="fl">0.60</span>, <span class="at">test_amount =</span> <span class="fl">0.40</span>, <span class="at">numresamples =</span> <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+            Model Error_Rate
+1 Ensemble_Linear   4.410066
+2   Ensemble_tree   4.903172
+3            Tree   4.952794
+4          Linear   5.030512</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What we will be doing in this section is making a weighted ensemble using 17 models of numerical data, then using that ensemble to measure the accuracy of the models on the holdout (test) data.</p>
+<section id="think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning." class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning."><span class="header-section-number">6.1</span> Think before you do something. This will help when we start at the end and work backwards toward the beginning.</h2>
+<p>We are going to make an ensemble. The ensemble is going to a made of predictions from numerical models. You’ve already seen a couple of ensembles. This one will be extremely similar, but will involve more models.</p>
+<p>Starting at the end, we want the error rate (root mean squared error) for the ensemble and prediction models.</p>
+<p>That means we’ll need to make an ensemble. That means we’ll need individual model predictions, because that’s how an ensemble is made. If an ensemble is made of individual model predictions, that means we’ll need individual models. We already know how to do that, because we did it in the last chapter.</p>
+<p>We’re going to build a simple ensemble with seven models, and then use that ensemble with four very different methods. The Ensembles package actually works with a total of 40 different models. The process is exactly the same, whether we are working with seven individual models or 23 individual models, five ensemble models or 17 ensemble models. The structre and methods are the same.</p>
+<p>So let’s get started!</p>
+<p>The seven individual models we will be building are:</p>
+<ul>
+<li><p>Linear (tuned)</p></li>
+<li><p>Bayesglm</p></li>
+<li><p>Bayesrnn</p></li>
+<li><p>Gradient Boosted</p></li>
+<li><p>RandomForest</p></li>
+<li><p>Trees</p></li>
+</ul>
+<p>It’s important to understand that many other options are possible. Your are encouraged to add at least one more modeling method to the ensemble, and see how it impacts the results.</p>
+</section>
+<section id="one-of-your-own-add-one-model-to-the-list-of-seven-individual-models-see-how-it-impacts-results." class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="one-of-your-own-add-one-model-to-the-list-of-seven-individual-models-see-how-it-impacts-results."><span class="header-section-number">6.2</span> One of your own: Add one model to the list of seven individual models, see how it impacts results.</h2>
+</section>
+<section id="plan-ahead-as-much-as-you-can-that-makes-the-entire-model-building-process-much-easier." class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="plan-ahead-as-much-as-you-can-that-makes-the-entire-model-building-process-much-easier."><span class="header-section-number">6.3</span> Plan ahead as much as you can, that makes the entire model building process much easier.</h2>
+<p>Here is the code to build ensembles. I very strongly recommend doing this yourself, and checking every 5-10 lines to make sure there are no errors.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load packages we will need</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arm) <span class="co"># Allows us to run bayesglm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Matrix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lme4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+arm (Version 1.15-2, built: 2026-3-22)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Working directory is /Users/russellconte/Library/Mobile Documents/com~apple~CloudDocs/Documents/Taylor &amp; Francis/Hands_On_Ensemble_Methods_With_R</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brnn) <span class="co"># Allows us to run brnn</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Formula</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: truncnorm</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071) <span class="co"># Allows us to run several tuned model, such as linear and KNN</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'e1071'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    element</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest) <span class="co"># Allows us to run random forest models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'randomForest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    margin</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tree) <span class="co"># Allows us to run tree models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="a-few-other-packages-we-will-need-to-keep-everything-running-smoothly" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="a-few-other-packages-we-will-need-to-keep-everything-running-smoothly"><span class="header-section-number">6.3.1</span> A few other packages we will need to keep everything running smoothly</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Amazing set of tools for data science</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS) <span class="co"># Gives us the Boston Housing data set</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Metrics) <span class="co"># Allows us to calculate accuracy or error rates</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="build-the-function-that-will-build-the-individual-and-ensemble-models" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored"><span class="header-section-number">6.3.2</span> Build the function that will build the individual and ensemble models</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>numerical <span class="ot">&lt;-</span> <span class="cf">function</span>(data, colnum, numresamples, train_amount, test_amount){</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the target column the right most column, change the column name to y:</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data)[colnum] <span class="ot">&lt;-</span> <span class="st">"y"</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">relocate</span>(y, <span class="at">.after =</span> <span class="fu">last_col</span>()) <span class="co"># Moves the target column to the last column on the right df &lt;- df[sample(nrow(df)), ]</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set initial values to 0 for both individual and ensemble methods:</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>bayesglm_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>bayesglm_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>bayesglm_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>bayesglm_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>bayesglm_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>bayesglm_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>bayesglm_duration_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>bayesglm_holdout_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>bayesglm_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>bayesglm_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>bayesrnn_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>bayesrnn_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>bayesrnn_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>bayesrnn_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>bayesrnn_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>bayesrnn_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>bayesrnn_duration_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>bayesrnn_holdout_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>bayesrnn_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>bayesrnn_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>gb_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>gb_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>gb_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>gb_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>gb_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>gb_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>gb_duration_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>gb_holdout_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>gb_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>gb_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>linear_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>linear_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>linear_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>linear_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>linear_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>linear_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a>linear_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>linear_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>rf_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>rf_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>rf_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>rf_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>rf_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a>rf_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a>rf_duration_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a>rf_holdout_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a>rf_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a>rf_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a>tree_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a>tree_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a>tree_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a>tree_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a>tree_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-70"><a href="#cb27-70" aria-hidden="true" tabindex="-1"></a>tree_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a>tree_duration_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a>tree_holdout_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a>tree_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a>tree_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-81"><a href="#cb27-81" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-82"><a href="#cb27-82" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-83"><a href="#cb27-83" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_predict_value_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-85"><a href="#cb27-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-87"><a href="#cb27-87" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-88"><a href="#cb27-88" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-89"><a href="#cb27-89" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-90"><a href="#cb27-90" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-91"><a href="#cb27-91" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-92"><a href="#cb27-92" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-93"><a href="#cb27-93" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_predict_value_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-95"><a href="#cb27-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a>ensemble_gb_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-97"><a href="#cb27-97" aria-hidden="true" tabindex="-1"></a>ensemble_gb_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a>ensemble_gb_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-99"><a href="#cb27-99" aria-hidden="true" tabindex="-1"></a>ensemble_gb_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-100"><a href="#cb27-100" aria-hidden="true" tabindex="-1"></a>ensemble_gb_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-101"><a href="#cb27-101" aria-hidden="true" tabindex="-1"></a>ensemble_gb_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a>ensemble_gb_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-103"><a href="#cb27-103" aria-hidden="true" tabindex="-1"></a>ensemble_gb_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a>ensemble_gb_predict_value_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a>ensemble_linear_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-107"><a href="#cb27-107" aria-hidden="true" tabindex="-1"></a>ensemble_linear_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-108"><a href="#cb27-108" aria-hidden="true" tabindex="-1"></a>ensemble_linear_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-109"><a href="#cb27-109" aria-hidden="true" tabindex="-1"></a>ensemble_linear_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-110"><a href="#cb27-110" aria-hidden="true" tabindex="-1"></a>ensemble_linear_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-111"><a href="#cb27-111" aria-hidden="true" tabindex="-1"></a>ensemble_linear_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-112"><a href="#cb27-112" aria-hidden="true" tabindex="-1"></a>ensemble_linear_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-113"><a href="#cb27-113" aria-hidden="true" tabindex="-1"></a>ensemble_linear_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-114"><a href="#cb27-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-115"><a href="#cb27-115" aria-hidden="true" tabindex="-1"></a>ensemble_rf_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-116"><a href="#cb27-116" aria-hidden="true" tabindex="-1"></a>ensemble_rf_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-117"><a href="#cb27-117" aria-hidden="true" tabindex="-1"></a>ensemble_rf_test_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>ensemble_rf_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-119"><a href="#cb27-119" aria-hidden="true" tabindex="-1"></a>ensemble_rf_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a>ensemble_rf_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-121"><a href="#cb27-121" aria-hidden="true" tabindex="-1"></a>ensemble_rf_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-122"><a href="#cb27-122" aria-hidden="true" tabindex="-1"></a>ensemble_rf_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-123"><a href="#cb27-123" aria-hidden="true" tabindex="-1"></a>ensemble_rf_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-124"><a href="#cb27-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-125"><a href="#cb27-125" aria-hidden="true" tabindex="-1"></a>ensemble_tree_train_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-126"><a href="#cb27-126" aria-hidden="true" tabindex="-1"></a>ensemble_tree_test_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-127"><a href="#cb27-127" aria-hidden="true" tabindex="-1"></a>ensemble_tree_validation_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a>ensemble_tree_sd <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-129"><a href="#cb27-129" aria-hidden="true" tabindex="-1"></a>ensemble_tree_overfitting <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>ensemble_tree_duration <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a>ensemble_tree_holdout_RMSE <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-132"><a href="#cb27-132" aria-hidden="true" tabindex="-1"></a>ensemble_tree_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-134"><a href="#cb27-134" aria-hidden="true" tabindex="-1"></a><span class="co">#Let's build the function that does all the resampling and puts everything together:</span></span>
+<span id="cb27-135"><a href="#cb27-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numresamples) {</span>
+<span id="cb27-137"><a href="#cb27-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-138"><a href="#cb27-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly split the data between train and test</span></span>
+<span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">size =</span> <span class="fu">nrow</span>(df), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(train_amount, test_amount))</span>
+<span id="cb27-140"><a href="#cb27-140" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> df[idx <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> df[idx <span class="sc">==</span> <span class="dv">2</span>, ]</span>
+<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-143"><a href="#cb27-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesglm</span></span>
+<span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a>bayesglm_train_fit <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">bayesglm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train, <span class="at">family =</span> <span class="fu">gaussian</span>(<span class="at">link =</span> <span class="st">"identity"</span>))</span>
+<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>bayesglm_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> train<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> bayesglm_train_fit, <span class="at">newdata =</span> train))</span>
+<span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a>bayesglm_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesglm_train_RMSE)</span>
+<span id="cb27-148"><a href="#cb27-148" aria-hidden="true" tabindex="-1"></a>bayesglm_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> bayesglm_train_fit, <span class="at">newdata =</span> test))</span>
+<span id="cb27-149"><a href="#cb27-149" aria-hidden="true" tabindex="-1"></a>bayesglm_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesglm_test_RMSE)</span>
+<span id="cb27-150"><a href="#cb27-150" aria-hidden="true" tabindex="-1"></a>bayesglm_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesglm_test_RMSE_mean)</span>
+<span id="cb27-151"><a href="#cb27-151" aria-hidden="true" tabindex="-1"></a>bayesglm_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesglm_holdout_RMSE)</span>
+<span id="cb27-152"><a href="#cb27-152" aria-hidden="true" tabindex="-1"></a>bayesglm_test_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> bayesglm_train_fit, <span class="at">newdata =</span> test))</span>
+<span id="cb27-153"><a href="#cb27-153" aria-hidden="true" tabindex="-1"></a>y_hat_bayesglm <span class="ot">&lt;-</span> <span class="fu">c</span>(bayesglm_test_predict_value)</span>
+<span id="cb27-154"><a href="#cb27-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-155"><a href="#cb27-155" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesrnn</span></span>
+<span id="cb27-156"><a href="#cb27-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-157"><a href="#cb27-157" aria-hidden="true" tabindex="-1"></a>bayesrnn_train_fit <span class="ot">&lt;-</span> brnn<span class="sc">::</span><span class="fu">brnn</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(train), <span class="at">y =</span> train<span class="sc">$</span>y)</span>
+<span id="cb27-158"><a href="#cb27-158" aria-hidden="true" tabindex="-1"></a>bayesrnn_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> train<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> bayesrnn_train_fit, <span class="at">newdata =</span> train))</span>
+<span id="cb27-159"><a href="#cb27-159" aria-hidden="true" tabindex="-1"></a>bayesrnn_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesrnn_train_RMSE)</span>
+<span id="cb27-160"><a href="#cb27-160" aria-hidden="true" tabindex="-1"></a>bayesrnn_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> bayesrnn_train_fit, <span class="at">newdata =</span> test))</span>
+<span id="cb27-161"><a href="#cb27-161" aria-hidden="true" tabindex="-1"></a>bayesrnn_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesrnn_test_RMSE)</span>
+<span id="cb27-162"><a href="#cb27-162" aria-hidden="true" tabindex="-1"></a>bayesrnn_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(bayesrnn_test_RMSE_mean))</span>
+<span id="cb27-163"><a href="#cb27-163" aria-hidden="true" tabindex="-1"></a>bayesrnn_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(bayesrnn_holdout_RMSE)</span>
+<span id="cb27-164"><a href="#cb27-164" aria-hidden="true" tabindex="-1"></a>bayesrnn_train_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> bayesrnn_train_fit, <span class="at">newdata =</span> train))</span>
+<span id="cb27-165"><a href="#cb27-165" aria-hidden="true" tabindex="-1"></a>bayesrnn_test_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> bayesrnn_train_fit, <span class="at">newdata =</span> test))</span>
+<span id="cb27-166"><a href="#cb27-166" aria-hidden="true" tabindex="-1"></a>bayesrnn_predict_value_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(bayesrnn_test_predict_value))</span>
+<span id="cb27-167"><a href="#cb27-167" aria-hidden="true" tabindex="-1"></a>y_hat_bayesrnn <span class="ot">&lt;-</span> <span class="fu">c</span>(bayesrnn_test_predict_value)</span>
+<span id="cb27-168"><a href="#cb27-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-169"><a href="#cb27-169" aria-hidden="true" tabindex="-1"></a><span class="co"># Gradient boosted</span></span>
+<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-171"><a href="#cb27-171" aria-hidden="true" tabindex="-1"></a>gb_train_fit <span class="ot">&lt;-</span> gbm<span class="sc">::</span><span class="fu">gbm</span>(train<span class="sc">$</span>y <span class="sc">~</span> ., <span class="at">data =</span> train, <span class="at">distribution =</span> <span class="st">"gaussian"</span>, <span class="at">n.trees =</span> <span class="dv">100</span>, <span class="at">shrinkage =</span> <span class="fl">0.1</span>, <span class="at">interaction.depth =</span> <span class="dv">10</span>)</span>
+<span id="cb27-172"><a href="#cb27-172" aria-hidden="true" tabindex="-1"></a>gb_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> train<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> gb_train_fit, <span class="at">newdata =</span> train))</span>
+<span id="cb27-173"><a href="#cb27-173" aria-hidden="true" tabindex="-1"></a>gb_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(gb_train_RMSE)</span>
+<span id="cb27-174"><a href="#cb27-174" aria-hidden="true" tabindex="-1"></a>gb_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> gb_train_fit, <span class="at">newdata =</span> test))</span>
+<span id="cb27-175"><a href="#cb27-175" aria-hidden="true" tabindex="-1"></a>gb_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(gb_test_RMSE)</span>
+<span id="cb27-176"><a href="#cb27-176" aria-hidden="true" tabindex="-1"></a>gb_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(gb_test_RMSE_mean))</span>
+<span id="cb27-177"><a href="#cb27-177" aria-hidden="true" tabindex="-1"></a>gb_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(gb_holdout_RMSE)</span>
+<span id="cb27-178"><a href="#cb27-178" aria-hidden="true" tabindex="-1"></a>gb_train_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> gb_train_fit, <span class="at">newdata =</span> train))</span>
+<span id="cb27-179"><a href="#cb27-179" aria-hidden="true" tabindex="-1"></a>gb_test_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> gb_train_fit, <span class="at">newdata =</span> test)) </span>
+<span id="cb27-180"><a href="#cb27-180" aria-hidden="true" tabindex="-1"></a>gb_predict_value_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(gb_test_predict_value))</span>
+<span id="cb27-181"><a href="#cb27-181" aria-hidden="true" tabindex="-1"></a>y_hat_gb <span class="ot">&lt;-</span> <span class="fu">c</span>(gb_test_predict_value)</span>
+<span id="cb27-182"><a href="#cb27-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-183"><a href="#cb27-183" aria-hidden="true" tabindex="-1"></a><span class="co"># Tuned linear models</span></span>
+<span id="cb27-184"><a href="#cb27-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-185"><a href="#cb27-185" aria-hidden="true" tabindex="-1"></a>linear_train_fit <span class="ot">&lt;-</span> e1071<span class="sc">::</span><span class="fu">tune.rpart</span>(<span class="at">formula =</span> y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb27-186"><a href="#cb27-186" aria-hidden="true" tabindex="-1"></a>linear_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> train<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> linear_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> train))</span>
+<span id="cb27-187"><a href="#cb27-187" aria-hidden="true" tabindex="-1"></a>linear_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(linear_train_RMSE)</span>
+<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a>linear_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> linear_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> test))</span>
+<span id="cb27-189"><a href="#cb27-189" aria-hidden="true" tabindex="-1"></a>linear_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(linear_test_RMSE)</span>
+<span id="cb27-190"><a href="#cb27-190" aria-hidden="true" tabindex="-1"></a>linear_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(linear_test_RMSE_mean))</span>
+<span id="cb27-191"><a href="#cb27-191" aria-hidden="true" tabindex="-1"></a>linear_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(linear_holdout_RMSE)</span>
+<span id="cb27-192"><a href="#cb27-192" aria-hidden="true" tabindex="-1"></a>linear_train_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> linear_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> train))</span>
+<span id="cb27-193"><a href="#cb27-193" aria-hidden="true" tabindex="-1"></a>linear_test_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> linear_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> test))</span>
+<span id="cb27-194"><a href="#cb27-194" aria-hidden="true" tabindex="-1"></a>y_hat_linear <span class="ot">&lt;-</span> <span class="fu">c</span>(linear_test_predict_value)</span>
+<span id="cb27-195"><a href="#cb27-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-196"><a href="#cb27-196" aria-hidden="true" tabindex="-1"></a><span class="co"># RandomForest</span></span>
+<span id="cb27-197"><a href="#cb27-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-198"><a href="#cb27-198" aria-hidden="true" tabindex="-1"></a>rf_train_fit <span class="ot">&lt;-</span> e1071<span class="sc">::</span><span class="fu">tune.randomForest</span>(<span class="at">x =</span> train, <span class="at">y =</span> train<span class="sc">$</span>y, <span class="at">data =</span> train)</span>
+<span id="cb27-199"><a href="#cb27-199" aria-hidden="true" tabindex="-1"></a>rf_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> train<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> rf_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> train))</span>
+<span id="cb27-200"><a href="#cb27-200" aria-hidden="true" tabindex="-1"></a>rf_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(rf_train_RMSE)</span>
+<span id="cb27-201"><a href="#cb27-201" aria-hidden="true" tabindex="-1"></a>rf_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> rf_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> test))</span>
+<span id="cb27-202"><a href="#cb27-202" aria-hidden="true" tabindex="-1"></a>rf_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(rf_test_RMSE)</span>
+<span id="cb27-203"><a href="#cb27-203" aria-hidden="true" tabindex="-1"></a>rf_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(rf_test_RMSE_mean))</span>
+<span id="cb27-204"><a href="#cb27-204" aria-hidden="true" tabindex="-1"></a>rf_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(rf_holdout_RMSE)</span>
+<span id="cb27-205"><a href="#cb27-205" aria-hidden="true" tabindex="-1"></a>rf_train_predict_value <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> rf_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> train)</span>
+<span id="cb27-206"><a href="#cb27-206" aria-hidden="true" tabindex="-1"></a>rf_test_predict_value <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> rf_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> test)</span>
+<span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a>y_hat_rf <span class="ot">&lt;-</span> <span class="fu">c</span>(rf_test_predict_value)</span>
+<span id="cb27-208"><a href="#cb27-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-209"><a href="#cb27-209" aria-hidden="true" tabindex="-1"></a><span class="co"># Trees</span></span>
+<span id="cb27-210"><a href="#cb27-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-211"><a href="#cb27-211" aria-hidden="true" tabindex="-1"></a>tree_train_fit <span class="ot">&lt;-</span> tree<span class="sc">::</span><span class="fu">tree</span>(train<span class="sc">$</span>y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb27-212"><a href="#cb27-212" aria-hidden="true" tabindex="-1"></a>tree_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> train<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> tree_train_fit, <span class="at">newdata =</span> train))</span>
+<span id="cb27-213"><a href="#cb27-213" aria-hidden="true" tabindex="-1"></a>tree_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(tree_train_RMSE)</span>
+<span id="cb27-214"><a href="#cb27-214" aria-hidden="true" tabindex="-1"></a>tree_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>y, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> tree_train_fit, <span class="at">newdata =</span> test))</span>
+<span id="cb27-215"><a href="#cb27-215" aria-hidden="true" tabindex="-1"></a>tree_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(tree_test_RMSE)</span>
+<span id="cb27-216"><a href="#cb27-216" aria-hidden="true" tabindex="-1"></a>tree_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(tree_test_RMSE_mean))</span>
+<span id="cb27-217"><a href="#cb27-217" aria-hidden="true" tabindex="-1"></a>tree_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(tree_holdout_RMSE)</span>
+<span id="cb27-218"><a href="#cb27-218" aria-hidden="true" tabindex="-1"></a>tree_train_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> tree<span class="sc">::</span><span class="fu">tree</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train), <span class="at">newdata =</span> train))</span>
+<span id="cb27-219"><a href="#cb27-219" aria-hidden="true" tabindex="-1"></a>tree_test_predict_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">predict</span>(<span class="at">object =</span> tree<span class="sc">::</span><span class="fu">tree</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train), <span class="at">newdata =</span> test))</span>
+<span id="cb27-220"><a href="#cb27-220" aria-hidden="true" tabindex="-1"></a>y_hat_tree <span class="ot">&lt;-</span> <span class="fu">c</span>(tree_test_predict_value)</span>
+<span id="cb27-221"><a href="#cb27-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-222"><a href="#cb27-222" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the weighted ensemble:</span></span>
+<span id="cb27-223"><a href="#cb27-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-224"><a href="#cb27-224" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-225"><a href="#cb27-225" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BayesGLM"</span> <span class="ot">=</span> y_hat_bayesglm <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> bayesglm_holdout_RMSE_mean,</span>
+<span id="cb27-226"><a href="#cb27-226" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BayesRNN"</span> <span class="ot">=</span> y_hat_bayesrnn <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> bayesrnn_holdout_RMSE_mean,</span>
+<span id="cb27-227"><a href="#cb27-227" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GBM"</span> <span class="ot">=</span> y_hat_gb <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> gb_holdout_RMSE_mean,</span>
+<span id="cb27-228"><a href="#cb27-228" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Linear"</span> <span class="ot">=</span> y_hat_linear <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> linear_holdout_RMSE_mean,</span>
+<span id="cb27-229"><a href="#cb27-229" aria-hidden="true" tabindex="-1"></a>  <span class="st">"RandomForest"</span> <span class="ot">=</span> y_hat_rf <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> rf_holdout_RMSE_mean,</span>
+<span id="cb27-230"><a href="#cb27-230" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Tree"</span> <span class="ot">=</span> y_hat_tree <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> tree_holdout_RMSE_mean</span>
+<span id="cb27-231"><a href="#cb27-231" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-232"><a href="#cb27-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-233"><a href="#cb27-233" aria-hidden="true" tabindex="-1"></a>ensemble<span class="sc">$</span>Row_mean <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(ensemble)</span>
+<span id="cb27-234"><a href="#cb27-234" aria-hidden="true" tabindex="-1"></a>  ensemble<span class="sc">$</span>y_ensemble <span class="ot">&lt;-</span> <span class="fu">c</span>(test<span class="sc">$</span>y)</span>
+<span id="cb27-235"><a href="#cb27-235" aria-hidden="true" tabindex="-1"></a>  y_ensemble <span class="ot">&lt;-</span> <span class="fu">c</span>(test<span class="sc">$</span>y)</span>
+<span id="cb27-236"><a href="#cb27-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-237"><a href="#cb27-237" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the ensemble into train and test, according to user choices:</span></span>
+<span id="cb27-238"><a href="#cb27-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-239"><a href="#cb27-239" aria-hidden="true" tabindex="-1"></a>ensemble_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">size =</span> <span class="fu">nrow</span>(ensemble), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(train_amount, test_amount))</span>
+<span id="cb27-240"><a href="#cb27-240" aria-hidden="true" tabindex="-1"></a>ensemble_train <span class="ot">&lt;-</span> ensemble[ensemble_idx <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb27-241"><a href="#cb27-241" aria-hidden="true" tabindex="-1"></a>ensemble_test <span class="ot">&lt;-</span> ensemble[ensemble_idx <span class="sc">==</span> <span class="dv">2</span>, ]</span>
+<span id="cb27-242"><a href="#cb27-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-243"><a href="#cb27-243" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble BayesGLM</span></span>
+<span id="cb27-244"><a href="#cb27-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-245"><a href="#cb27-245" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_train_fit <span class="ot">&lt;-</span> arm<span class="sc">::</span><span class="fu">bayesglm</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train, <span class="at">family =</span> <span class="fu">gaussian</span>(<span class="at">link =</span> <span class="st">"identity"</span>))</span>
+<span id="cb27-246"><a href="#cb27-246" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_train<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_bayesglm_train_fit, <span class="at">newdata =</span> ensemble_train))</span>
+<span id="cb27-247"><a href="#cb27-247" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_bayesglm_train_RMSE)</span>
+<span id="cb27-248"><a href="#cb27-248" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_bayesglm_train_fit, <span class="at">newdata =</span> ensemble_test))</span>
+<span id="cb27-249"><a href="#cb27-249" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_bayesglm_test_RMSE)</span>
+<span id="cb27-250"><a href="#cb27-250" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(ensemble_bayesglm_test_RMSE_mean))</span>
+<span id="cb27-251"><a href="#cb27-251" aria-hidden="true" tabindex="-1"></a>ensemble_bayesglm_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_bayesglm_holdout_RMSE)</span>
+<span id="cb27-252"><a href="#cb27-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-253"><a href="#cb27-253" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble BayesRNN</span></span>
+<span id="cb27-254"><a href="#cb27-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-255"><a href="#cb27-255" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_train_fit <span class="ot">&lt;-</span> brnn<span class="sc">::</span><span class="fu">brnn</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(ensemble_train), <span class="at">y =</span> ensemble_train<span class="sc">$</span>y_ensemble)</span>
+<span id="cb27-256"><a href="#cb27-256" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_train<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_bayesrnn_train_fit, <span class="at">newdata =</span> ensemble_train))</span>
+<span id="cb27-257"><a href="#cb27-257" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_bayesrnn_train_RMSE)</span>
+<span id="cb27-258"><a href="#cb27-258" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_bayesrnn_train_fit, <span class="at">newdata =</span> ensemble_test))</span>
+<span id="cb27-259"><a href="#cb27-259" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_bayesrnn_test_RMSE)</span>
+<span id="cb27-260"><a href="#cb27-260" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(ensemble_bayesrnn_test_RMSE_mean))</span>
+<span id="cb27-261"><a href="#cb27-261" aria-hidden="true" tabindex="-1"></a>ensemble_bayesrnn_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_bayesrnn_holdout_RMSE)</span>
+<span id="cb27-262"><a href="#cb27-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-263"><a href="#cb27-263" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble Graident Boosted</span></span>
+<span id="cb27-264"><a href="#cb27-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-265"><a href="#cb27-265" aria-hidden="true" tabindex="-1"></a>ensemble_gb_train_fit <span class="ot">&lt;-</span> gbm<span class="sc">::</span><span class="fu">gbm</span>(ensemble_train<span class="sc">$</span>y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train, <span class="at">distribution =</span> <span class="st">"gaussian"</span>, <span class="at">n.trees =</span> <span class="dv">100</span>, <span class="at">shrinkage =</span> <span class="fl">0.1</span>, <span class="at">interaction.depth =</span> <span class="dv">10</span>)</span>
+<span id="cb27-266"><a href="#cb27-266" aria-hidden="true" tabindex="-1"></a>ensemble_gb_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_train<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_gb_train_fit, <span class="at">newdata =</span> ensemble_train))</span>
+<span id="cb27-267"><a href="#cb27-267" aria-hidden="true" tabindex="-1"></a>ensemble_gb_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_gb_train_RMSE)</span>
+<span id="cb27-268"><a href="#cb27-268" aria-hidden="true" tabindex="-1"></a>ensemble_gb_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_gb_train_fit, <span class="at">newdata =</span> ensemble_test))</span>
+<span id="cb27-269"><a href="#cb27-269" aria-hidden="true" tabindex="-1"></a>ensemble_gb_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_gb_test_RMSE)</span>
+<span id="cb27-270"><a href="#cb27-270" aria-hidden="true" tabindex="-1"></a>ensemble_gb_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(ensemble_gb_test_RMSE_mean))</span>
+<span id="cb27-271"><a href="#cb27-271" aria-hidden="true" tabindex="-1"></a>ensemble_gb_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_gb_holdout_RMSE)</span>
+<span id="cb27-272"><a href="#cb27-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-273"><a href="#cb27-273" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble using Tuned Random Forest</span></span>
+<span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-275"><a href="#cb27-275" aria-hidden="true" tabindex="-1"></a>ensemble_rf_train_fit <span class="ot">&lt;-</span> e1071<span class="sc">::</span><span class="fu">tune.randomForest</span>(<span class="at">x =</span> ensemble_train, <span class="at">y =</span> ensemble_train<span class="sc">$</span>y_ensemble, <span class="at">data =</span> ensemble_train)</span>
+<span id="cb27-276"><a href="#cb27-276" aria-hidden="true" tabindex="-1"></a>ensemble_rf_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_train<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_rf_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> ensemble_train))</span>
+<span id="cb27-277"><a href="#cb27-277" aria-hidden="true" tabindex="-1"></a>ensemble_rf_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_rf_train_RMSE)</span>
+<span id="cb27-278"><a href="#cb27-278" aria-hidden="true" tabindex="-1"></a>ensemble_rf_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_rf_train_fit<span class="sc">$</span>best.model, <span class="at">newdata =</span> ensemble_test))</span>
+<span id="cb27-279"><a href="#cb27-279" aria-hidden="true" tabindex="-1"></a>ensemble_rf_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_rf_test_RMSE)</span>
+<span id="cb27-280"><a href="#cb27-280" aria-hidden="true" tabindex="-1"></a>ensemble_rf_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(ensemble_rf_test_RMSE_mean))</span>
+<span id="cb27-281"><a href="#cb27-281" aria-hidden="true" tabindex="-1"></a>ensemble_rf_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_rf_holdout_RMSE)</span>
+<span id="cb27-282"><a href="#cb27-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-283"><a href="#cb27-283" aria-hidden="true" tabindex="-1"></a><span class="co"># Trees</span></span>
+<span id="cb27-284"><a href="#cb27-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-285"><a href="#cb27-285" aria-hidden="true" tabindex="-1"></a>ensemble_tree_train_fit <span class="ot">&lt;-</span> tree<span class="sc">::</span><span class="fu">tree</span>(ensemble_train<span class="sc">$</span>y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb27-286"><a href="#cb27-286" aria-hidden="true" tabindex="-1"></a>ensemble_tree_train_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_train<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree_train_fit, <span class="at">newdata =</span> ensemble_train))</span>
+<span id="cb27-287"><a href="#cb27-287" aria-hidden="true" tabindex="-1"></a>ensemble_tree_train_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_tree_train_RMSE)</span>
+<span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a>ensemble_tree_test_RMSE[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree_train_fit, <span class="at">newdata =</span> ensemble_test))</span>
+<span id="cb27-289"><a href="#cb27-289" aria-hidden="true" tabindex="-1"></a>ensemble_tree_test_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_tree_test_RMSE)</span>
+<span id="cb27-290"><a href="#cb27-290" aria-hidden="true" tabindex="-1"></a>ensemble_tree_holdout_RMSE[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(ensemble_tree_test_RMSE_mean))</span>
+<span id="cb27-291"><a href="#cb27-291" aria-hidden="true" tabindex="-1"></a>ensemble_tree_holdout_RMSE_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_tree_holdout_RMSE)</span>
+<span id="cb27-292"><a href="#cb27-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-293"><a href="#cb27-293" aria-hidden="true" tabindex="-1"></a>summary_results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-294"><a href="#cb27-294" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Model'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'BayesGLM'</span>, <span class="st">'BayesRNN'</span>, <span class="st">'Gradient_Boosted'</span>, <span class="st">'Linear'</span>, <span class="st">'Random_Forest'</span>, <span class="st">'Trees'</span>, <span class="st">'Ensemble_BayesGLM'</span>, <span class="st">'Ensemble_BayesRNN'</span>, <span class="st">'Ensemble_Gradient_Boosted'</span>, <span class="st">'Ensemble_Random_Forest'</span>, <span class="st">'Ensemble_Trees'</span>), </span>
+<span id="cb27-295"><a href="#cb27-295" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Error'</span> <span class="ot">=</span> <span class="fu">c</span>(bayesglm_holdout_RMSE_mean, bayesrnn_holdout_RMSE_mean, gb_holdout_RMSE_mean, linear_holdout_RMSE_mean, rf_holdout_RMSE_mean, tree_holdout_RMSE_mean, ensemble_bayesglm_holdout_RMSE_mean, ensemble_bayesrnn_holdout_RMSE_mean, ensemble_gb_holdout_RMSE_mean, ensemble_rf_holdout_RMSE_mean, ensemble_tree_holdout_RMSE_mean) )</span>
+<span id="cb27-296"><a href="#cb27-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-297"><a href="#cb27-297" aria-hidden="true" tabindex="-1"></a>summary_results <span class="ot">&lt;-</span> summary_results <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Error)</span>
+<span id="cb27-298"><a href="#cb27-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-299"><a href="#cb27-299" aria-hidden="true" tabindex="-1"></a>} <span class="co"># closing brace for numresamples</span></span>
+<span id="cb27-300"><a href="#cb27-300" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(summary_results)</span>
+<span id="cb27-301"><a href="#cb27-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-302"><a href="#cb27-302" aria-hidden="true" tabindex="-1"></a>} <span class="co"># closing brace for numerical function</span></span>
+<span id="cb27-303"><a href="#cb27-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-304"><a href="#cb27-304" aria-hidden="true" tabindex="-1"></a><span class="fu">numerical</span>(<span class="at">data =</span> MASS<span class="sc">::</span>Boston, <span class="at">colnum =</span> <span class="dv">14</span>, <span class="at">numresamples =</span> <span class="dv">5</span>, <span class="at">train_amount =</span> <span class="fl">0.60</span>, <span class="at">test_amount =</span> <span class="fl">0.40</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
+Nguyen-Widrow method
+Scaling factor= 0.701542 
+gamma= 30.8737   alpha= 4.7979   beta= 26126.65 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7038614 
+gamma= 14.6664   alpha= 2.7042   beta= 5802.515 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
+Nguyen-Widrow method
+Scaling factor= 0.7015275 
+gamma= 31.358    alpha= 5.4756   beta= 14835.04 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045493 
+gamma= 13.6519   alpha= 2.0394   beta= 7843.542 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
+Nguyen-Widrow method
+Scaling factor= 0.7015569 
+gamma= 30.3448   alpha= 5.1869   beta= 22808.1 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7043849 
+gamma= 13.5113   alpha= 2.1072   beta= 8263.686 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
+Nguyen-Widrow method
+Scaling factor= 0.7016246 
+gamma= 31.3989   alpha= 5.1823   beta= 16349.16 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7039559 
+gamma= 14.096    alpha= 2.3824   beta= 5797.139 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
+Nguyen-Widrow method
+Scaling factor= 0.7015771 
+gamma= 30.2448   alpha= 4.6572   beta= 17368.07 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7039559 
+gamma= 12.1858   alpha= 1.5876   beta= 10550.53 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Model     Error
+1          Ensemble_BayesGLM 0.1438557
+2                   BayesRNN 0.1458125
+3          Ensemble_BayesRNN 0.2153348
+4     Ensemble_Random_Forest 0.7505616
+5              Random_Forest 1.7136582
+6             Ensemble_Trees 1.8072801
+7  Ensemble_Gradient_Boosted 2.5935901
+8           Gradient_Boosted 3.3166984
+9                      Trees 4.7828252
+10                  BayesGLM 4.9306726
+11                    Linear 4.9519849</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here’s the very cool part of setting it up this way. If you have a totally different data set, all you need to do is put the information into the function, and everything runs. Check this out:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">numerical</span>(<span class="at">data =</span> ISLR<span class="sc">::</span>Auto[, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ISLR<span class="sc">::</span>Auto)<span class="sc">-</span><span class="dv">1</span>], <span class="at">colnum =</span> <span class="dv">1</span>, <span class="at">numresamples =</span> <span class="dv">25</span>, <span class="at">train_amount =</span> <span class="fl">0.50</span>, <span class="at">test_amount =</span> <span class="fl">0.50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023366 
+gamma= 19.2977   alpha= 3.5771   beta= 10242.55 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7055993 
+gamma= 13.7302   alpha= 2.7372   beta= 4343.865 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026419 
+gamma= 18.9618   alpha= 3.1426   beta= 22617.97 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045493 
+gamma= 12.6216   alpha= 2.231    beta= 4859.664 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025055 
+gamma= 19.6119   alpha= 3.3069   beta= 9988.613 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7050725 
+gamma= 13.3212   alpha= 2.3144   beta= 4921.446 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026419 
+gamma= 19.0482   alpha= 3.6592   beta= 10261.9 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7047266 
+gamma= 11.4571   alpha= 2.3517   beta= 5502.901 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026419 
+gamma= 18.958    alpha= 3.5491   beta= 8859.167 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7040214 
+gamma= 13.1418   alpha= 2.4187   beta= 5560.934 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025856 
+gamma= 18.8168   alpha= 3.3724   beta= 8558.507 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7046363 
+gamma= 13.6065   alpha= 2.1349   beta= 4724.881 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024799 
+gamma= 18.6648   alpha= 1.7828   beta= 86745.81 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7050725 
+gamma= 9.7132    alpha= 2.2059   beta= 4371.147 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023942 
+gamma= 17.7661   alpha= 3.4158   beta= 9302.441 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7053523 
+gamma= 12.3045   alpha= 1.4971   beta= 8758.936 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025449 
+gamma= 18.0345   alpha= 2.9614   beta= 9270.865 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7049182 
+gamma= 12.6845   alpha= 2.5911   beta= 4458.903 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024061 
+gamma= 19.0083   alpha= 3.626    beta= 9269.028 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7052939 
+gamma= 9.3911    alpha= 1.7196   beta= 4513.115 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7028266 
+gamma= 19.4556   alpha= 3.7375   beta= 8319.242 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045071 
+gamma= 15.2396   alpha= 1.8639   beta= 8386.276 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025055 
+gamma= 19.216    alpha= 3.4682   beta= 12024.25 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7046363 
+gamma= 13.3048   alpha= 2.8377   beta= 5680.569 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026135 
+gamma= 19.0226   alpha= 3.7555   beta= 10583.12 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7043456 
+gamma= 13.2253   alpha= 2.3171   beta= 5062.163 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025719 
+gamma= 17.9626   alpha= 2.8959   beta= 8797.079 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7050725 
+gamma= 13.4278   alpha= 2.4264   beta= 8202.636 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023593 
+gamma= 18.4847   alpha= 2.718    beta= 9482.901 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7060159 
+gamma= 14.3083   alpha= 2.5279   beta= 5141.372 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024673 
+gamma= 19.122    alpha= 3.4476   beta= 8961.127 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.704681 
+gamma= 11.9973   alpha= 1.7899   beta= 8769.623 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024302 
+gamma= 17.8016   alpha= 2.9587   beta= 23586.8 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7048205 
+gamma= 12.6967   alpha= 2.3235   beta= 4968.189 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023708 
+gamma= 19.1758   alpha= 3.5857   beta= 11916.91 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7048689 
+gamma= 12.6879   alpha= 2.1792   beta= 6166.056 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023942 
+gamma= 18.8879   alpha= 3.04     beta= 10104.29 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7047731 
+gamma= 13.1021   alpha= 2.5181   beta= 6651.85 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025719 
+gamma= 17.8836   alpha= 2.9026   beta= 9376.929 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7055354 
+gamma= 11.2406   alpha= 1.8478   beta= 3946.04 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024061 
+gamma= 19.7169   alpha= 3.1671   beta= 9913.546 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.705412 
+gamma= 12.302    alpha= 2.2513   beta= 5853.186 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025055 
+gamma= 18.7806   alpha= 3.5029   beta= 8790.395 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7051261 
+gamma= 14.3009   alpha= 2.6665   beta= 4872.298 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7028432 
+gamma= 18.2234   alpha= 3.7092   beta= 7827.355 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7044656 
+gamma= 14.3202   alpha= 1.9546   beta= 7197.727 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024799 
+gamma= 17.4553   alpha= 3.1819   beta= 16868.14 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045924 
+gamma= 13.1014   alpha= 2.2159   beta= 4656.105 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025185 
+gamma= 18.9804   alpha= 3.3954   beta= 9198.176 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7051808 
+gamma= 13.4591   alpha= 2.3958   beta= 8385.017 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Model     Error
+1          Ensemble_BayesGLM 0.1289919
+2                   BayesRNN 0.1308277
+3          Ensemble_BayesRNN 0.1879184
+4     Ensemble_Random_Forest 0.8190973
+5  Ensemble_Gradient_Boosted 1.4796541
+6              Random_Forest 1.6091401
+7             Ensemble_Trees 1.6143374
+8           Gradient_Boosted 2.8706998
+9                   BayesGLM 3.3689717
+10                    Linear 3.6137565
+11                     Trees 3.6805723</code></pre>
+</div>
+</div>
+<div class="warning" style="padding:0.1em; background-color:#E9D8FD; color:#69337A">
+<p><span></span></p>
+<p style="margin-top:1em; text-align:center">
+</p><p><br></p>
+<p><b></b></p><b>
+<h2 class="anchored" data-anchor-id="build-the-function-that-will-build-the-individual-and-ensemble-models">
+<center>
+The truth is always in the data, <br>never in the analysis
+</center>
+</h2>
+</b><p><b></b></p>
+<p><br></p>
+<p></p>
+<p></p>
+<p></p>
+</div>
+<p><br></p>
+<div class="warning" style="padding:0.1em; background-color:#E9D8FD; color:#69337A">
+<p><span></span></p>
+<p style="margin-top:1em; text-align:center">
+</p><p><br></p>
+<p><b></b></p><b>
+<h2 class="anchored">
+<center>
+Let’s look at how to find the <br>customer problem, if the<br>customer only hands you<br>the data and asks you<br>to figure it out
+</center>
+</h2>
+</b><p><b></b></p>
+<p></p>
+<p></p>
+<p><br></p>
+<p></p>
+</div>
+</section>
+<section id="visualizations-of-the-data-and-how-to-use-these-to-be-a-great-customer-problem-finder-in-the-data" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="visualizations-of-the-data-and-how-to-use-these-to-be-a-great-customer-problem-finder-in-the-data"><span class="header-section-number">6.3.3</span> Visualizations of the data, and how to use these to be a great customer problem finder in the data</h3>
+<p>Boxplot</p>
+<p>Histograms of the numeric values</p>
+<p>Target vs all of the features</p>
+<p>Correlation of the data</p>
+<p>Pairwise scatter plots</p>
+</section>
+<section id="visualization-of-the-the-model-results" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="visualization-of-the-the-model-results"><span class="header-section-number">6.3.4</span> Visualization of the the model results</h3>
+<p>Accuracy barchart</p>
+<p>Accuracy by model and resampling</p>
+<p>Best model predicted vs actual</p>
+<p>Best model histogram</p>
+<p>Best model residuals</p>
+<p>Bias plot by resample</p>
+<p>Bias plot by model</p>
+<p>Duration by model (barchart)</p>
+<p>Over or underfitting (barchart)</p>
+<p>Overfitting plot</p>
+</section>
+</section>
+<section id="one-of-your-own-add-a-model-to-the-individual-models-and-a-model-to-the-ensemble-of-models" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="one-of-your-own-add-a-model-to-the-individual-models-and-a-model-to-the-ensemble-of-models"><span class="header-section-number">6.4</span> One of your own: Add a model to the individual models, and a model to the ensemble of models</h2>
+<p>One of your own: Change the data, run it again, comment on the results</p>
+</section>
+<section id="post-your-results-on-social-media-in-a-way-that-a-non-technical-person-can-understand-them.-for-example" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="post-your-results-on-social-media-in-a-way-that-a-non-technical-person-can-understand-them.-for-example"><span class="header-section-number">6.5</span> Post your results on social media in a way that a non-technical person can understand them. For example:</h2>
+<p>“Just ran six individual and six ensemble models, very easy to do, no errors or warnings. I plan to do ensembles with other data sets soon.” #AIEnsembles</p>
+</section>
+<section id="exercises-to-help-you-improve-your-skills" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="exercises-to-help-you-improve-your-skills"><span class="header-section-number">6.6</span> Exercises to help you improve your skills:</h2>
+<p>Build an individual numerical model using each of the following model methods (it’s perfectly OK to check prior sections of the book, this is an example of delayed repetition):</p>
+<p>Gradient Boosted (from the gbm library)</p>
+<p>Rpart (from the rpart library)</p>
+<p>Support Vector Machines (tuned from the e1071 library)</p>
+<p>One model method of your own choosing</p>
+<p>Build an ensemble using those four methods, test it using the Boston Housing data set. Compare the results of this ensemble to the one made in the text of this chapter.</p>
+<p>Apply the function you made to a different numerical data set. This can be done in one line of code, once the ensemble is set up.</p>
+</section>
+<section id="post-the-results-of-your-new-ensemble-on-social-media-in-a-way-that-helps-others-understand-the-results-or-methods." class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="post-the-results-of-your-new-ensemble-on-social-media-in-a-way-that-helps-others-understand-the-results-or-methods."><span class="header-section-number">6.7</span> Post the results of your new ensemble on social media in a way that helps others understand the results or methods.</h2>
+</section>
+<section id="helping-leaders-make-the-best-possible-decisions-what-are-the-options-benefits-and-costs-how-strong-are-the-resultsrecommendations" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="helping-leaders-make-the-best-possible-decisions-what-are-the-options-benefits-and-costs-how-strong-are-the-resultsrecommendations"><span class="header-section-number">6.8</span> Helping leaders make the best possible decisions: What are the options, benefits and costs? How strong are the results/recommendations?</h2>
+</section>
+<section id="helping-leaders-make-the-best-possible-decisions-margins-of-errorreasons-for-error" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="helping-leaders-make-the-best-possible-decisions-margins-of-errorreasons-for-error"><span class="header-section-number">6.9</span> Helping leaders make the best possible decisions: Margins of error/reasons for error</h2>
+</section>
+<section id="helping-leaders-make-the-best-possible-decisions-highest-accuracy-strongest-predictors" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="helping-leaders-make-the-best-possible-decisions-highest-accuracy-strongest-predictors"><span class="header-section-number">6.10</span> Helping leaders make the best possible decisions: Highest accuracy, strongest predictor(s)</h2>
+</section>
+<section id="helping-your-customermanagerboard-to-start-thinking" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="helping-your-customermanagerboard-to-start-thinking"><span class="header-section-number">6.11</span> Helping your customer/manager/board to start thinking</h2>
+<div class="warning" style="padding:0.1em; background-color:#E9D8FD; color:#69337A">
+<p><span></span></p>
+<p style="margin-top:1em; text-align:center">
+</p><p><b>Data Science Essay #2: Testing for Humility vs Arrogance </b></p>
+<p></p>
+<p></p>
+<p></p>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

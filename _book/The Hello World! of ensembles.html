@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -235,8 +270,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#how-a-chicago-blizzard-led-to-the-very-unlikely-story-of-the-best-solutions-to-supervised-data" id="toc-how-a-chicago-blizzard-led-to-the-very-unlikely-story-of-the-best-solutions-to-supervised-data" class="nav-link active" data-scroll-target="#how-a-chicago-blizzard-led-to-the-very-unlikely-story-of-the-best-solutions-to-supervised-data"><span class="header-section-number">3.1</span> How a Chicago blizzard led to the very unlikely story of the best solutions to supervised data</a></li>
+  <li><a href="#saturday-october-15-2022-at-458-pm.-the-exact-time-the-ensembles-system-was-created" id="toc-saturday-october-15-2022-at-458-pm.-the-exact-time-the-ensembles-system-was-created" class="nav-link" data-scroll-target="#saturday-october-15-2022-at-458-pm.-the-exact-time-the-ensembles-system-was-created"><span class="header-section-number">3.2</span> Saturday, October 15, 2022 at 4:58 pm. The exact time the Ensembles system was created</a></li>
+  <li><a href="#what-most-strongly-predicts-accurate-results-for-predictions-and-forecasts" id="toc-what-most-strongly-predicts-accurate-results-for-predictions-and-forecasts" class="nav-link" data-scroll-target="#what-most-strongly-predicts-accurate-results-for-predictions-and-forecasts"><span class="header-section-number">3.3</span> What most strongly predicts accurate results for predictions and forecasts?</a></li>
+  <li><a href="#here-is-what-an-ensemble-of-models-looks-like-at-the-most-basic-level-using-the-boston-housing-data-set-as-an-example" id="toc-here-is-what-an-ensemble-of-models-looks-like-at-the-most-basic-level-using-the-boston-housing-data-set-as-an-example" class="nav-link" data-scroll-target="#here-is-what-an-ensemble-of-models-looks-like-at-the-most-basic-level-using-the-boston-housing-data-set-as-an-example"><span class="header-section-number">3.4</span> Here is what an ensemble of models looks like at the most basic level, using the Boston Housing data set as an example:</a></li>
+  <li><a href="#the-steps-to-build-your-first-ensemble-from-scratch" id="toc-the-steps-to-build-your-first-ensemble-from-scratch" class="nav-link" data-scroll-target="#the-steps-to-build-your-first-ensemble-from-scratch"><span class="header-section-number">3.5</span> The steps to build your first ensemble from scratch</a></li>
+  <li><a href="#building-the-first-actual-ensemble" id="toc-building-the-first-actual-ensemble" class="nav-link" data-scroll-target="#building-the-first-actual-ensemble"><span class="header-section-number">3.6</span> Building the first actual ensemble</a></li>
+  <li><a href="#were-ready-to-make-our-first-ensemble" id="toc-were-ready-to-make-our-first-ensemble" class="nav-link" data-scroll-target="#were-ready-to-make-our-first-ensemble"><span class="header-section-number">3.7</span> We’re ready to make our first ensemble!!</a></li>
+  <li><a href="#principle-what-is-one-improvement-that-can-be-made-use-a-diverse-set-of-models-and-ensembles-to-get-the-best-possible-result." id="toc-principle-what-is-one-improvement-that-can-be-made-use-a-diverse-set-of-models-and-ensembles-to-get-the-best-possible-result." class="nav-link" data-scroll-target="#principle-what-is-one-improvement-that-can-be-made-use-a-diverse-set-of-models-and-ensembles-to-get-the-best-possible-result."><span class="header-section-number">3.8</span> Principle: What is one improvement that can be made? Use a diverse set of models and ensembles to get the best possible result.</a></li>
+  <li><a href="#principle-randomizing-the-data-before-the-analysis-will-make-the-results-more-general-and-is-very-easy-to-do" id="toc-principle-randomizing-the-data-before-the-analysis-will-make-the-results-more-general-and-is-very-easy-to-do" class="nav-link" data-scroll-target="#principle-randomizing-the-data-before-the-analysis-will-make-the-results-more-general-and-is-very-easy-to-do"><span class="header-section-number">3.9</span> Principle: Randomizing the data before the analysis will make the results more general (and is very easy to do!)</a></li>
+  <li><a href="#try-it-yourself-repeat-the-previous-analysis-but-randomize-the-rows-before-the-analysis.-otherwise-keep-the-process-the-same.-share-your-results-on-social-media." id="toc-try-it-yourself-repeat-the-previous-analysis-but-randomize-the-rows-before-the-analysis.-otherwise-keep-the-process-the-same.-share-your-results-on-social-media." class="nav-link" data-scroll-target="#try-it-yourself-repeat-the-previous-analysis-but-randomize-the-rows-before-the-analysis.-otherwise-keep-the-process-the-same.-share-your-results-on-social-media."><span class="header-section-number">3.10</span> Try it yourself: Repeat the previous analysis, but randomize the rows before the analysis. Otherwise keep the process the same. Share your results on social media.</a></li>
+  <li><a href="#the-more-we-can-randomize-the-data-the-more-our-results-will-match-nature" id="toc-the-more-we-can-randomize-the-data-the-more-our-results-will-match-nature" class="nav-link" data-scroll-target="#the-more-we-can-randomize-the-data-the-more-our-results-will-match-nature"><span class="header-section-number">3.11</span> The more we can randomize the data, the more our results will match nature</a></li>
+  <li><a href="#principle-is-this-my-very-best-work" id="toc-principle-is-this-my-very-best-work" class="nav-link" data-scroll-target="#principle-is-this-my-very-best-work"><span class="header-section-number">3.12</span> Principle: “Is this my very best work?”</a></li>
+  <li><a href="#where-do-i-get-help-with-errors-or-warnings" id="toc-where-do-i-get-help-with-errors-or-warnings" class="nav-link" data-scroll-target="#where-do-i-get-help-with-errors-or-warnings"><span class="header-section-number">3.13</span> “Where do I get help with errors or warnings?”</a></li>
+  <li><a href="#is-there-an-easy-way-to-save-all-trained-models" id="toc-is-there-an-easy-way-to-save-all-trained-models" class="nav-link" data-scroll-target="#is-there-an-easy-way-to-save-all-trained-models"><span class="header-section-number">3.14</span> Is there an easy way to save all trained models?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -260,8 +314,736 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="how-a-chicago-blizzard-led-to-the-very-unlikely-story-of-the-best-solutions-to-supervised-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="how-a-chicago-blizzard-led-to-the-very-unlikely-story-of-the-best-solutions-to-supervised-data"><span class="header-section-number">3.1</span> How a Chicago blizzard led to the very unlikely story of the best solutions to supervised data</h2>
+<p>My journey to the most advanced AI in the world started with an actual blizzard in Chicago. It might seem like Chicago would never get a blizzard, but we did in 2011, and it was incredibly intense, as this video shows:</p>
+<p><a href="https://www.youtube.com/watch?v=cPiFn52ztd8" class="uri">https://www.youtube.com/watch?v=cPiFn52ztd8</a></p>
+<p>What does the <a href="https://en.wikipedia.org/wiki/2011_Groundhog_Day_blizzard">Chicago 2011 Snomageddon</a> have to do with the creation of the most advanced AI? Everything. Here’s the story.</p>
+<p>At the time of the 2011 Blizzard I worked a Recruiter for <a href="https://en.wikipedia.org/wiki/Kelly_Services">Kelly Services</a>, where I had worked since 1996. I agreed to work out of the Kelly Services office in Frankfort, Illinois at this time, though I worked out of nearly every Kelly Services office in the greater Chicago area at one time or another. The trip to Frankfort involved a daily commute to the office, but I was able to make the best use of the time on the road.</p>
+<p>My manager at the time let me know several days in advance that there was a very large amount of snow forecast, and that I might want to be prepared. The most recent forecasts for large amounts of snow in the Chicago area all amounted to nothing. The weather was perfectly normal days in the Chicago area without any snow, so I predicted this storm would also be nothing, based on the most recent results. This was a great example of a prior prediction not transferring well to a current situation.</p>
+<p>That morning I went to work as normal, and did not even look at the weather forecast. Around 2:45 pm my manager came out of her office and said “Russ, you need to come here and look at the weather radar!”. I walked into her office, and saw a map of a winter storm that was incredibly huge, one of the largest storms I ever saw. She had the image zoomed out, so it was possible to see several states, all covered by this gigantic storm. From what I could tell, the massive snow storm was barreling down on Chicago, and was about 15 minutes away from my location.</p>
+<p>I told the candidate I was interviewing that I was leaving immediately, and that he is not allowed to stay. He has to get home as fast as possible for his own safety.</p>
+<p>The storm started dropping snow on my trip north back home. The commute took around 50% longer than normal due to the rapidly falling snow.</p>
+<p>As I later learned, the storm was forecast to start in the Chicago area around 3:00 pm, finish up between 11:00 am - 1:00 pm two days later, and leave 17 - 19 inches of snow.</p>
+<p>How bad was it? Even City of Chicago snow plows were stopped by the snow</p>
+<p>To see what the forecasts looked like, check out this news report from the day:</p>
+<p><a href="https://www.nbcchicago.com/news/local/blizzard-unleashes-winter-fury/2096753/" class="uri">https://www.nbcchicago.com/news/local/blizzard-unleashes-winter-fury/2096753/</a></p>
+<p>It turns out all three predictions of the blizzard were accurate to a level that seemed uncanny to me, and I had never noticed before: Start time, accumulation, and end time were all accurate. This is the first time I recall ever seeing a prediction at this level of accuracy. I had no idea this type of predictive accuracy was even possible. This level of accuracy in predicting results totally blew me away. I had never seen anything with this level of accuracy, and now I wanted to know how it was done.</p>
+<p>I searched and searched for how the accuracy was so high for this forecast, but found nothing.</p>
+<p>The power of the method—whatever it was—was obvious to me. I realized that if it could work for the weather, the solution method could work in an incredibly broad range of situations. A few of many other areas include business forecasts, production work, modeling prices, and much, much more. But that this point I had no idea how the accurate prediction was done.</p>
+<p>Some months later a person wrote to <a href="https://en.wikipedia.org/wiki/Tom_Skilling">Tom Skilling</a>, chief meteorologist for WGN TV in Chicago, asking how the forecasts were so accurate. Tom posted an answer that opened up the solution for me. Here is the relevant part of <a href="https://www.facebook.com/TomSkilling/posts/531146448370303">Tom Skilling’s answer</a> to a 2011 storm how the forecast was so accurate:</p>
+<blockquote class="blockquote">
+<p>The Weather Service has developed an interesting “SNOWFALL ENSEMBLE FORECAST PROBABILITY SYSTEM” which draws upon a wide range of snow accumulation forecasts from a whole set of different computer models. By “blending” these model projections, probability of snowfalls falling within certain ranges becomes possible. Also, this “blending” of multiple forecasts “smooths” the sometimes huge model disparities in the amounts being predicted. The resulting probabilities therefore represent a “best case” forecast.</p>
+</blockquote>
+<p>So that was the first step. Ensembles were the way they achieved such extraordinary prediction accuracy.</p>
+<p>My next goal was to figure out how ensembles were made. As I looked up information, it became obvious that ensembles had been used for a while, such as the winning entry in the Netflix Prize Competition.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Netflix_Prize">Netflix Prize Competition</a> was sponsored by Netflix to create a method to accurately predict user ratings on films. The minimum winning score needed to beat the Netflix method (named Cinematch) by at least 10%. Several years of work went into solving this problem, and the results even included several published papers. The winning solution was an ensemble of methods that beat the Cinematch results by 10.09%.</p>
+<p>So it was now clear to me that ensembles were the path forward. However, I had no idea how to make ensembles.</p>
+<p>I went to graduate school to study data science and predictive analytics. My degree was completed in 2017, from Northwestern University. However, I still was not sure how ensembles of models were built, nor could I find any clear methods to build them (except for pre-made methods, such as random forests). While it is true there were packages that could do some of the work, nothing I found did what I was looking for: How to build ensembles of models in general. Despite playing with the idea and looking online, I was not able to build the ensembles I wanted to build.</p>
+</section>
+<section id="saturday-october-15-2022-at-458-pm.-the-exact-time-the-ensembles-system-was-created" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="saturday-october-15-2022-at-458-pm.-the-exact-time-the-ensembles-system-was-created"><span class="header-section-number">3.2</span> Saturday, October 15, 2022 at 4:58 pm. The exact time the Ensembles system was created</h2>
+<p>Everything changed on Saturday, October 15, 2022 at 4:58 pm. I was playing with various methods to make an ensemble, and got an ensemble that worked for the very first time. While the results were extremely modest by any standards, it was clear to me that the foundation was there to build a general solution that can work in an extremely wide range of areas.</p>
+<p>You might be asking yourself how I know the day and time. That is a very reasonable question. I’ve been keeping a journal since I was 19 years old, and have thousands of entries. As soon as I realized how to correctly build ensembles, I made this entry, which contains the key elements to make an ensemble, and we will do these steps in just a moment. Notice that the subject line in the journal matches the text above.</p>
+<p>One of the ways to improve your skills is to keep a journal, and we’ll be looking at that in more depth in this chapter and future chapters. The journal I use is <a href="https://danschimpf.com/">MacJournal</a>, though there are a large number of other options available on the market.</p>
+</section>
+<section id="what-most-strongly-predicts-accurate-results-for-predictions-and-forecasts" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="what-most-strongly-predicts-accurate-results-for-predictions-and-forecasts"><span class="header-section-number">3.3</span> What most strongly predicts accurate results for predictions and forecasts?</h2>
+<p>Philip Tetlock conducted research to determine if the forecasts of some people can be consistently more accurate than the general public or experts. He was able to find such people, and identified them as Superforecasters. In summary, Superforecasters are not necessarily smarter than others. What strongly predicts their accuracy is a set of skills the use when predicting and forecasting. Using these skills provides greater accuracy than the general public or experts.</p>
+<p>The Ensembles package, and the skills we will learn in this book, apply these skills to the problem of finding the best models for data. According to Tetlock, some of those traits include (page 191):</p>
+<p>• Cautious in thinking — Nothing is certain</p>
+<p>• Humble — Reality is infinitely complex</p>
+<p>• Nondeterministic — What happens is not meant to be and does not have to happen</p>
+<p>• Actively Open-Minded — Beliefs are hypotheses to be tested, not treasures to be protected</p>
+<p>• Probabilistic: Judge using many grades of maybe</p>
+<p>• Thoughtful updaters — When facts change, they change their minds</p>
+<p>There are more traits, and I highly recommend the <a href="https://en.wikipedia.org/wiki/Superforecasting:_The_Art_and_Science_of_Prediction">Superforecasting book</a> to get a more accurate understanding of the best skills in prediction and forecasting.</p>
+<p>As we will see in this book, we will combine diverse individual and ensembles of models, then repeat the process over and over again, to give the most accurate predictions and forecasts from the data.</p>
+<p>We will actively seek disconfirmation of our models by two different methods. One is testing our models against a neutral data set, the other is testing against totally unseen data. We will measure the accuracy of both methods, as we attempt to disprove the best models.</p>
+<p>As Tetlock says,</p>
+<blockquote class="blockquote">
+<p>The single strongest predictor of rising into the ranks of superforecasters is perpetual beta, the degree to which one is committed to belief updating and self-improvement. It is roughly three times as powerful a predictor (of being a superforecaster) as its closest rival, intelligence. (p.&nbsp;192)</p>
+</blockquote>
+<p>Thus we will continuously challenge our results, combine results into ensembles (and ensembles of ensembles), with a goal of achieving the highest possible accuracy.</p>
+<p>The combination of individual and ensembles of models, repeated with randomized data, provides much more accurate predictions and forecasts than models which do not use ensembles of models, nor randomize the data, as will be seen in many examples in this book. Over and over again, the ensemble models will beat the best published results, and usually by a large amount.</p>
+<p>We will measure our results against a baseline (the basic linear model, which is always one of the models that will be used), keep a track record of those results, and find the patterns of the models that have the highest accuracy. All of this will be done in a way that is totally transparent and reproducible, as the examples in this book will show.</p>
+</section>
+<section id="here-is-what-an-ensemble-of-models-looks-like-at-the-most-basic-level-using-the-boston-housing-data-set-as-an-example" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="here-is-what-an-ensemble-of-models-looks-like-at-the-most-basic-level-using-the-boston-housing-data-set-as-an-example"><span class="header-section-number">3.4</span> Here is what an ensemble of models looks like at the most basic level, using the Boston Housing data set as an example:</h2>
+<section id="head-of-boston-housing-data-set" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="head-of-boston-housing-data-set"><span class="header-section-number">3.4.1</span> Head of Boston Housing data set</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MASS<span class="sc">::</span>Boston, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      crim   zn indus chas   nox    rm   age    dis rad tax ptratio  black
+1  0.00632 18.0  2.31    0 0.538 6.575  65.2 4.0900   1 296    15.3 396.90
+2  0.02731  0.0  7.07    0 0.469 6.421  78.9 4.9671   2 242    17.8 396.90
+3  0.02729  0.0  7.07    0 0.469 7.185  61.1 4.9671   2 242    17.8 392.83
+4  0.03237  0.0  2.18    0 0.458 6.998  45.8 6.0622   3 222    18.7 394.63
+5  0.06905  0.0  2.18    0 0.458 7.147  54.2 6.0622   3 222    18.7 396.90
+6  0.02985  0.0  2.18    0 0.458 6.430  58.7 6.0622   3 222    18.7 394.12
+7  0.08829 12.5  7.87    0 0.524 6.012  66.6 5.5605   5 311    15.2 395.60
+8  0.14455 12.5  7.87    0 0.524 6.172  96.1 5.9505   5 311    15.2 396.90
+9  0.21124 12.5  7.87    0 0.524 5.631 100.0 6.0821   5 311    15.2 386.63
+10 0.17004 12.5  7.87    0 0.524 6.004  85.9 6.5921   5 311    15.2 386.71
+   lstat medv
+1   4.98 24.0
+2   9.14 21.6
+3   4.03 34.7
+4   2.94 33.4
+5   5.33 36.2
+6   5.21 28.7
+7  12.43 22.9
+8  19.15 27.1
+9  29.93 16.5
+10 17.10 18.9</code></pre>
+</div>
+</div>
+<p>We will start our first ensemble with a data set that only has numerical values. Our first example will use the Boston Housing data set, from the MASS package. While the Boston Housing data set is controversial (and we will discuss some of the controversies in our example making professional quality reports for the C-Suite), for now it works as a very well known data set to begin our journey into ensembles.</p>
+</section>
+</section>
+<section id="the-steps-to-build-your-first-ensemble-from-scratch" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="the-steps-to-build-your-first-ensemble-from-scratch"><span class="header-section-number">3.5</span> The steps to build your first ensemble from scratch</h2>
+<ul>
+<li><p>Load the packages we will need (MASS for the data, tree for the modeling method)</p></li>
+<li><p>Load the Boston Housing data set, and split it into train (60%) and test (40%) sections.</p></li>
+<li><p>Create a linear model by fitting the linear model on the training data, then make predictions on the Boston Housing test data. Measure the accuracy of the predictions against the actual values.</p></li>
+<li><p>Create a second model using trees by fitting the tree model on the training data, and making predictions on the Boston Housing test data. Measure the accuracy of the predictions against the actual values.</p></li>
+<li><p>Make a new data frame. This will be our ensemble of model predictions. One column will be the linear predictions, and one will be the tree predictions.</p></li>
+<li><p>Make a new column for the true values—these are the true values in the Boston Housing test data set</p></li>
+<li><p>Once we have the new ensemble data set, it’s simply another data set. No different in many ways from any other data set (except how it was made).</p></li>
+<li><p>Break the ensemble data set into train (60%) and test (40%) sections.</p></li>
+<li><p>Fit a linear model to the ensemble training data. Make predictions using the testing data, and measure the accuracy of the predictions against the test data.</p></li>
+<li><p>Summarize the results.</p></li>
+</ul>
+<p><strong>I suggest reading the over of the most basic steps to make an ensemble a couple of times, to make sure you are very familiar with the steps BEFORE you begin.</strong></p>
+</section>
+<section id="building-the-first-actual-ensemble" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="building-the-first-actual-ensemble"><span class="header-section-number">3.6</span> Building the first actual ensemble</h2>
+<p>Load the packages we will need (MASS, tree, Metrics, tidyverse):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS) <span class="co"># for the Boston Housing data set</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tree) <span class="co"># To make models using trees</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Metrics) <span class="co"># To calculate error rate (root mean squared error)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+✖ dplyr::select() masks MASS::select()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>Load the Boston Housing data set, and split it into train (60%) and test (40%) sections.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> MASS<span class="sc">::</span>Boston</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> df[<span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>, ]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> df[<span class="dv">401</span><span class="sc">:</span><span class="dv">505</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(train)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
+1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
+2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8 396.90  9.14
+3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8 392.83  4.03
+4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7 394.63  2.94
+5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7 396.90  5.33
+6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7 394.12  5.21
+  medv
+1 24.0
+2 21.6
+3 34.7
+4 33.4
+5 36.2
+6 28.7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        crim zn indus chas   nox    rm   age    dis rad tax ptratio  black
+401 25.04610  0  18.1    0 0.693 5.987 100.0 1.5888  24 666    20.2 396.90
+402 14.23620  0  18.1    0 0.693 6.343 100.0 1.5741  24 666    20.2 396.90
+403  9.59571  0  18.1    0 0.693 6.404 100.0 1.6390  24 666    20.2 376.11
+404 24.80170  0  18.1    0 0.693 5.349  96.0 1.7028  24 666    20.2 396.90
+405 41.52920  0  18.1    0 0.693 5.531  85.4 1.6074  24 666    20.2 329.46
+406 67.92080  0  18.1    0 0.693 5.683 100.0 1.4254  24 666    20.2 384.97
+    lstat medv
+401 26.77  5.6
+402 20.32  7.2
+403 20.31 12.1
+404 19.77  8.3
+405 27.38  8.5
+406 22.98  5.0</code></pre>
+</div>
+</div>
+<p>Create a linear model by fitting the linear model on the training data, then make predictions on the Boston Housing test data. Measure the accuracy of the predictions against the actual values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Boston_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train) <span class="co"># Fit the model to the training data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Boston_lm_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_lm, <span class="at">newdata =</span> test)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A quick look at the model predictions</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_lm_predictions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      401       402       403       404       405       406 
+12.618507 19.785728 20.919370 13.014507  6.946392  5.123039 </code></pre>
+</div>
+</div>
+<p>Calculate the error for the model</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Boston_linear_RMSE <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_lm_predictions)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Boston_linear_RMSE</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.108005</code></pre>
+</div>
+</div>
+<p>The error rate for the linear model is 6.108005. Let’s do the same using the tree method.</p>
+<p>Create a second model using trees by fitting the tree model on the training data, and making predictions on the Boston Housing test data. Measure the accuracy of the predictions against the actual values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Boston_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train) <span class="co"># Fit the model to the training data</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Boston_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_tree, <span class="at">newdata =</span> test)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A quick look at the predictions:</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_tree_predictions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     401      402      403      404      405      406 
+13.30769 13.30769 13.30769 13.30769 13.30769 13.30769 </code></pre>
+</div>
+</div>
+<p>Calculate the error rate for the tree model:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Boston_tree_RMSE <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_tree_predictions)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Boston_tree_RMSE</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.478017</code></pre>
+</div>
+</div>
+<p>The error rate for the tree model is lower (which is better). The error rate for the tree model is 5.478017.</p>
+</section>
+<section id="were-ready-to-make-our-first-ensemble" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="were-ready-to-make-our-first-ensemble"><span class="header-section-number">3.7</span> We’re ready to make our first ensemble!!</h2>
+<p>Make a new data frame. This will be our ensemble of model predictions, and one column for the true values.</p>
+<p>One column will be the linear predictions, and one will be the tree predictions. We’ll make a third column, the true values.</p>
+<p>Make a new column for the true values—these are the true values in the Boston Housing test data set</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'linear'</span> <span class="ot">=</span> Boston_lm_predictions,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'tree'</span> <span class="ot">=</span> Boston_tree_predictions,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'y'</span> <span class="ot">=</span> test<span class="sc">$</span>medv</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ensemble)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       linear     tree    y
+401 12.618507 13.30769  5.6
+402 19.785728 13.30769  7.2
+403 20.919370 13.30769 12.1
+404 13.014507 13.30769  8.3
+405  6.946392 13.30769  8.5
+406  5.123039 13.30769  5.0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ensemble)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 105   3</code></pre>
+</div>
+</div>
+<p>Once we have the new ensemble data set, it’s simply another data set. No different in many ways from any other data set (except how it was made).</p>
+<p>Break the ensemble data set into train (60%) and test (40%) sections. There is nothing special about the 60/40 split here, you may use any numbers you wish.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ensemble_train <span class="ot">&lt;-</span> ensemble[<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>, ]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ensemble_test <span class="ot">&lt;-</span> ensemble[<span class="dv">61</span><span class="sc">:</span><span class="dv">105</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ensemble_train)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       linear     tree    y
+401 12.618507 13.30769  5.6
+402 19.785728 13.30769  7.2
+403 20.919370 13.30769 12.1
+404 13.014507 13.30769  8.3
+405  6.946392 13.30769  8.5
+406  5.123039 13.30769  5.0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ensemble_test)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      linear     tree    y
+461 23.88984 13.30769 16.4
+462 23.29129 13.30769 17.7
+463 22.54055 21.84327 19.5
+464 25.50940 21.84327 20.2
+465 22.71231 21.84327 21.4
+466 20.83810 21.84327 19.9</code></pre>
+</div>
+</div>
+<p>Fit a linear model to the ensemble training data. Make predictions using the testing data, and measure the accuracy of the predictions against the test data. Notice how similar this is to our linear and tree models.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model to the training data</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>ensemble_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions using the model on the test data</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>ensemble_lm_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_lm, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate error rate for the ensemble predictions</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y, <span class="at">predicted =</span> ensemble_lm_predictions)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Report the error rate for the ensemble</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.826962</code></pre>
+</div>
+</div>
+<p>Summarize the results.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Model'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Linear'</span>, <span class="st">'Tree'</span>, <span class="st">'Ensemble'</span>),</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Error'</span> <span class="ot">=</span> <span class="fu">c</span>(Boston_linear_RMSE, Boston_tree_RMSE, ensemble_lm_rmse)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Model    Error
+1   Linear 6.108005
+2     Tree 5.478017
+3 Ensemble 4.826962</code></pre>
+</div>
+</div>
+<p>Clearly the ensemble had the lowest error rate of the three models. The ensemble is easily the best of the three models because it has the lowest error rate of all the models.</p>
+<section id="try-it-yourself-make-an-ensemble-where-the-ensemble-is-made-using-trees-instead-of-linear-models." class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="try-it-yourself-make-an-ensemble-where-the-ensemble-is-made-using-trees-instead-of-linear-models."><span class="header-section-number">3.7.1</span> Try it yourself: Make an ensemble where the ensemble is made using trees instead of linear models.</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model to the training data</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>ensemble_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(y <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions using the model on the test data</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>ensemble_tree_predict <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the predictions</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ensemble_tree_predict)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     461      462      463      464      465      466 
+14.80000 14.80000 18.94286 18.94286 18.94286 18.94286 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the error rate</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y, <span class="at">predicted =</span> ensemble_tree_predict)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.322011</code></pre>
+</div>
+</div>
+<p>How does this compare to our three other results? Let’s update the results table</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Model'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Linear'</span>, <span class="st">'Tree'</span>, <span class="st">'Ensemble_Linear'</span>, <span class="st">'Ensemble_Tree'</span>),</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Error'</span> <span class="ot">=</span> <span class="fu">c</span>(Boston_linear_RMSE, Boston_tree_RMSE, ensemble_lm_rmse, ensemble_tree_rmse)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Error)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Model    Error
+1 Ensemble_Linear 4.826962
+2   Ensemble_Tree 5.322011
+3            Tree 5.478017
+4          Linear 6.108005</code></pre>
+</div>
+</div>
+</section>
+<section id="both-of-the-ensemble-models-beat-both-of-the-individual-models-in-this-example" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="both-of-the-ensemble-models-beat-both-of-the-individual-models-in-this-example"><span class="header-section-number">3.7.2</span> Both of the ensemble models beat both of the individual models in this example</h3>
+</section>
+</section>
+<section id="principle-what-is-one-improvement-that-can-be-made-use-a-diverse-set-of-models-and-ensembles-to-get-the-best-possible-result." class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="principle-what-is-one-improvement-that-can-be-made-use-a-diverse-set-of-models-and-ensembles-to-get-the-best-possible-result."><span class="header-section-number">3.8</span> Principle: What is one improvement that can be made? Use a diverse set of models and ensembles to get the best possible result.</h2>
+<p>As we shall see when we go through and learn how to build ensembles, the numerical method we will use will build 27 individual models and 13 ensembles for a total of 40 results. When the goal is to get the best possible results, a diverse set of models and ensembles, such as the 40 results for numerical data, will produce much better results than a limited number of models and ensembles.</p>
+<p>We will do the same principal when we are looking at classification data, logistic, data, and time series forecasting data. We will use a large number of individual models and ensembles with the goal of achieving the best possible result.</p>
+</section>
+<section id="principle-randomizing-the-data-before-the-analysis-will-make-the-results-more-general-and-is-very-easy-to-do" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="principle-randomizing-the-data-before-the-analysis-will-make-the-results-more-general-and-is-very-easy-to-do"><span class="header-section-number">3.9</span> Principle: Randomizing the data before the analysis will make the results more general (and is very easy to do!)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="fu">nrow</span>(df)),] <span class="co"># Randomize the rows before the analysis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="try-it-yourself-repeat-the-previous-analysis-but-randomize-the-rows-before-the-analysis.-otherwise-keep-the-process-the-same.-share-your-results-on-social-media." class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="try-it-yourself-repeat-the-previous-analysis-but-randomize-the-rows-before-the-analysis.-otherwise-keep-the-process-the-same.-share-your-results-on-social-media."><span class="header-section-number">3.10</span> Try it yourself: Repeat the previous analysis, but randomize the rows before the analysis. Otherwise keep the process the same. Share your results on social media.</h2>
+<p>We’ll follow the exact same steps, except for randomizing the rows first.</p>
+<p>• Randomize the rows</p>
+<p>• Break the data into train and test sets</p>
+<p>• Fit the model to the training set</p>
+<p>• Make predictions and calculate error from the model on the test set</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="fu">nrow</span>(df)),] <span class="co"># Randomize the rows before the analysis</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> df[<span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>, ]</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> df[<span class="dv">401</span><span class="sc">:</span><span class="dv">505</span>, ]</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model to the training data</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>Boston_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions using the model on the test data</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>Boston_lm_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_lm, <span class="at">newdata =</span> test)</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the linear model predictions:</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_lm_predictions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     323      222      124      223      306      297 
+22.80375 24.51713 16.18745 32.79541 31.38501 27.59476 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>Boston_linear_rmse <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_lm_predictions)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Boston_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>Boston_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_tree, <span class="at">newdata =</span> test)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>Boston_tree_rmse <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_tree_predictions)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look at the tree model predictions:</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_tree_predictions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     323      222      124      223      306      297 
+25.59455 17.44578 17.44578 21.31429 21.04508 25.59455 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="st">'linear'</span> <span class="ot">=</span> Boston_lm_predictions, <span class="st">'tree'</span> <span class="ot">=</span> Boston_tree_predictions, <span class="st">'y_ensemble'</span> <span class="ot">=</span> test<span class="sc">$</span>medv )</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> ensemble[<span class="fu">sample</span>(<span class="fu">nrow</span>(ensemble)), ] <span class="co"># Randomizes the rows of the ensemble</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>ensemble_train <span class="ot">&lt;-</span> ensemble[<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>, ]</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>ensemble_test <span class="ot">&lt;-</span> ensemble[<span class="dv">61</span><span class="sc">:</span><span class="dv">105</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ensemble_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions for the ensemble linear model</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>ensemble_prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(ensemble_lm, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Root mean squared error for the ensemble linear model</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> ensemble_prediction)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Same for tree models</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>ensemble_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>ensemble_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> ensemble_tree_predictions)</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="st">'Linear'</span> <span class="ot">=</span> Boston_linear_rmse, <span class="st">'Trees'</span> <span class="ot">=</span> Boston_tree_rmse, <span class="st">'Ensembles_Linear'</span> <span class="ot">=</span> ensemble_lm_rmse, <span class="st">'Ensemble_Tree'</span> <span class="ot">=</span> ensemble_tree_rmse )</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Linear
+[1] 4.674404
+
+$Trees
+[1] 4.563906
+
+$Ensembles_Linear
+[1] 3.790946
+
+$Ensemble_Tree
+[1] 4.363811</code></pre>
+</div>
+</div>
+<p>The fact that our results are a bit different from our first ensemble is useful. This gives us another solid principle to use in our analysis methods:</p>
+</section>
+<section id="the-more-we-can-randomize-the-data-the-more-our-results-will-match-nature" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="the-more-we-can-randomize-the-data-the-more-our-results-will-match-nature"><span class="header-section-number">3.11</span> The more we can randomize the data, the more our results will match nature</h2>
+<p>Just watch: Repeat the results 100 times, return the mean of the results (hint: It’s two small changes)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># First the linear model with randomized data</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="fu">nrow</span>(df)),] <span class="co"># Randomize the rows before the analysis</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> df[<span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>, ]</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> df[<span class="dv">401</span><span class="sc">:</span><span class="dv">505</span>, ]</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>Boston_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>Boston_lm_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_lm, <span class="at">newdata =</span> test)</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look at the linear model predictions:</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_lm_predictions)</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the root mean squared error rate of the predictions:</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>Boston_linear_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_lm_predictions)</span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>Boston_linear_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(Boston_linear_rmse)</span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Use tree models</span></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>Boston_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a>Boston_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_tree, <span class="at">newdata =</span> test)</span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look at the tree model predictions:</span></span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_tree_predictions)</span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the root mean squared error rate of the predictions:</span></span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a>Boston_tree_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_tree_predictions) </span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a>Boston_tree_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(Boston_tree_rmse)</span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">'linear'</span> <span class="ot">=</span> Boston_lm_predictions, <span class="st">'tree'</span> <span class="ot">=</span> Boston_tree_predictions, <span class="st">'y_ensemble'</span> <span class="ot">=</span> test<span class="sc">$</span>medv )</span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> ensemble[<span class="fu">sample</span>(<span class="fu">nrow</span>(ensemble)), ] <span class="co"># Randomizes the rows of the ensemble</span></span>
+<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a>ensemble_train <span class="ot">&lt;-</span> ensemble[<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>, ]</span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a>ensemble_test <span class="ot">&lt;-</span> ensemble[<span class="dv">61</span><span class="sc">:</span><span class="dv">105</span>, ]</span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble linear modeling</span></span>
+<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>ensemble_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions for the ensemble linear model</span></span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>ensemble_prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(ensemble_lm, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Root mean squared error for the ensemble linear model</span></span>
+<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> ensemble_prediction)</span>
+<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_lm_rmse)</span>
+<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-59"><a href="#cb46-59" aria-hidden="true" tabindex="-1"></a>ensemble_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb46-60"><a href="#cb46-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-61"><a href="#cb46-61" aria-hidden="true" tabindex="-1"></a>ensemble_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree, <span class="at">newdata =</span> ensemble_test) </span>
+<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-63"><a href="#cb46-63" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> </span>
+<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a>ensemble_tree_predictions)</span>
+<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-66"><a href="#cb46-66" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_tree_rmse)</span>
+<span id="cb46-67"><a href="#cb46-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-68"><a href="#cb46-68" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb46-69"><a href="#cb46-69" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Linear'</span> <span class="ot">=</span> Boston_linear_rmse_mean,</span>
+<span id="cb46-70"><a href="#cb46-70" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Trees'</span> <span class="ot">=</span> Boston_tree_rmse_mean,</span>
+<span id="cb46-71"><a href="#cb46-71" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Ensembles_Linear'</span> <span class="ot">=</span> ensemble_lm_rmse_mean,</span>
+<span id="cb46-72"><a href="#cb46-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Ensemble_Tree'</span> <span class="ot">=</span> ensemble_tree_rmse_mean )</span>
+<span id="cb46-73"><a href="#cb46-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-74"><a href="#cb46-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-75"><a href="#cb46-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-76"><a href="#cb46-76" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Linear    Trees Ensembles_Linear Ensemble_Tree
+1 4.96297 4.911952         4.294945      5.258749</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>() <span class="co"># No warnings!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://r-pkgs.org"><img src="_book/images/automate_as_much_as_possible.jpg" class="img-fluid figure-img"></a></p>
+<figcaption>Automate as much as possible</figcaption>
+</figure>
+</div>
+</section>
+<section id="principle-is-this-my-very-best-work" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="principle-is-this-my-very-best-work"><span class="header-section-number">3.12</span> Principle: “Is this my very best work?”</h2>
+<p>This is your best work to build ensembles at this stage of your skills. We are going to make a number of improvements to the solutions we see here, so our final result will be much stronger than what we have here so far. Always strive to do your very best work, without any excuses.</p>
+</section>
+<section id="where-do-i-get-help-with-errors-or-warnings" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="where-do-i-get-help-with-errors-or-warnings"><span class="header-section-number">3.13</span> “Where do I get help with errors or warnings?”</h2>
+<p>It is extremely useful to check if your code returns any errors or warnings, and fix those as fast as possible. There are numerous sites to help address errors in your code:</p>
+<p><a href="https://stackoverflow.com" class="uri">https://stackoverflow.com</a></p>
+<p><a href="https://forum.posit.co" class="uri">https://forum.posit.co</a></p>
+<p><a href="https://www.r-project.org/help.html" class="uri">https://www.r-project.org/help.html</a></p>
+</section>
+<section id="is-there-an-easy-way-to-save-all-trained-models" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="is-there-an-easy-way-to-save-all-trained-models"><span class="header-section-number">3.14</span> Is there an easy way to save all trained models?</h2>
+<p>Absolutely! We will simply add the code at the end of this section that saves the four trained models (linear, tree, ensemble_linear and ensemble_tree), as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Metrics)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tree)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the linear model with randomized data</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="fu">nrow</span>(df)),] <span class="co"># Randomize the rows before the analysis</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> df[<span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>, ]</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> df[<span class="dv">401</span><span class="sc">:</span><span class="dv">505</span>, ]</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>Boston_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>Boston_lm_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_lm, <span class="at">newdata =</span> test)</span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look at the linear model predictions:</span></span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_lm_predictions)</span>
+<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the root mean squared error rate of the predictions:</span></span>
+<span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a>Boston_linear_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_lm_predictions) </span>
+<span id="cb49-28"><a href="#cb49-28" aria-hidden="true" tabindex="-1"></a>Boston_linear_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(Boston_linear_rmse)</span>
+<span id="cb49-29"><a href="#cb49-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-30"><a href="#cb49-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Use tree models</span></span>
+<span id="cb49-31"><a href="#cb49-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a>Boston_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb49-33"><a href="#cb49-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-34"><a href="#cb49-34" aria-hidden="true" tabindex="-1"></a>Boston_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> Boston_tree, <span class="at">newdata =</span> test)</span>
+<span id="cb49-35"><a href="#cb49-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-36"><a href="#cb49-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look at the tree model predictions:</span></span>
+<span id="cb49-37"><a href="#cb49-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-38"><a href="#cb49-38" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_tree_predictions)</span>
+<span id="cb49-39"><a href="#cb49-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-40"><a href="#cb49-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the root mean squared error rate of the predictions:</span></span>
+<span id="cb49-41"><a href="#cb49-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-42"><a href="#cb49-42" aria-hidden="true" tabindex="-1"></a>Boston_tree_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> test<span class="sc">$</span>medv, <span class="at">predicted =</span> Boston_tree_predictions) </span>
+<span id="cb49-43"><a href="#cb49-43" aria-hidden="true" tabindex="-1"></a>Boston_tree_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(Boston_tree_rmse)</span>
+<span id="cb49-44"><a href="#cb49-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-45"><a href="#cb49-45" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="st">'linear'</span> <span class="ot">=</span> Boston_lm_predictions, <span class="st">'tree'</span> <span class="ot">=</span> Boston_tree_predictions, <span class="st">'y_ensemble'</span> <span class="ot">=</span> test<span class="sc">$</span>medv )</span>
+<span id="cb49-46"><a href="#cb49-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-47"><a href="#cb49-47" aria-hidden="true" tabindex="-1"></a>ensemble <span class="ot">&lt;-</span> ensemble[<span class="fu">sample</span>(<span class="fu">nrow</span>(ensemble)), ] <span class="co"># Randomizes the rows of the ensemble</span></span>
+<span id="cb49-48"><a href="#cb49-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-49"><a href="#cb49-49" aria-hidden="true" tabindex="-1"></a>ensemble_train <span class="ot">&lt;-</span> ensemble[<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>, ]</span>
+<span id="cb49-50"><a href="#cb49-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-51"><a href="#cb49-51" aria-hidden="true" tabindex="-1"></a>ensemble_test <span class="ot">&lt;-</span> ensemble[<span class="dv">61</span><span class="sc">:</span><span class="dv">105</span>, ]</span>
+<span id="cb49-52"><a href="#cb49-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-53"><a href="#cb49-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble linear modeling</span></span>
+<span id="cb49-54"><a href="#cb49-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-55"><a href="#cb49-55" aria-hidden="true" tabindex="-1"></a>ensemble_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb49-56"><a href="#cb49-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-57"><a href="#cb49-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions for the ensemble linear model</span></span>
+<span id="cb49-58"><a href="#cb49-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-59"><a href="#cb49-59" aria-hidden="true" tabindex="-1"></a>ensemble_prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(ensemble_lm, <span class="at">newdata =</span> ensemble_test)</span>
+<span id="cb49-60"><a href="#cb49-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-61"><a href="#cb49-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Root mean squared error for the ensemble linear model</span></span>
+<span id="cb49-62"><a href="#cb49-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-63"><a href="#cb49-63" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> ensemble_prediction)</span>
+<span id="cb49-64"><a href="#cb49-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-65"><a href="#cb49-65" aria-hidden="true" tabindex="-1"></a>ensemble_lm_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_lm_rmse)</span>
+<span id="cb49-66"><a href="#cb49-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-67"><a href="#cb49-67" aria-hidden="true" tabindex="-1"></a>ensemble_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(y_ensemble <span class="sc">~</span> ., <span class="at">data =</span> ensemble_train)</span>
+<span id="cb49-68"><a href="#cb49-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-69"><a href="#cb49-69" aria-hidden="true" tabindex="-1"></a>ensemble_tree_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> ensemble_tree, <span class="at">newdata =</span> ensemble_test) </span>
+<span id="cb49-70"><a href="#cb49-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-71"><a href="#cb49-71" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse[i] <span class="ot">&lt;-</span> Metrics<span class="sc">::</span><span class="fu">rmse</span>(<span class="at">actual =</span> ensemble_test<span class="sc">$</span>y_ensemble, <span class="at">predicted =</span> ensemble_tree_predictions)</span>
+<span id="cb49-72"><a href="#cb49-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-73"><a href="#cb49-73" aria-hidden="true" tabindex="-1"></a>ensemble_tree_rmse_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(ensemble_tree_rmse)</span>
+<span id="cb49-74"><a href="#cb49-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-75"><a href="#cb49-75" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="st">'Linear'</span> <span class="ot">=</span> Boston_linear_rmse_mean, <span class="st">'Trees'</span> <span class="ot">=</span> Boston_tree_rmse_mean, <span class="st">'Ensembles_Linear'</span> <span class="ot">=</span> ensemble_lm_rmse_mean, <span class="st">'Ensemble_Tree'</span> <span class="ot">=</span> ensemble_tree_rmse_mean )</span>
+<span id="cb49-76"><a href="#cb49-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-77"><a href="#cb49-77" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb49-78"><a href="#cb49-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-79"><a href="#cb49-79" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Linear
+[1] 4.801945
+
+$Trees
+[1] 4.626815
+
+$Ensembles_Linear
+[1] 3.991772
+
+$Ensemble_Tree
+[1] 4.988568</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>Boston_lm <span class="ot">&lt;-</span> Boston_lm</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>Boston_tree <span class="ot">&lt;-</span> Boston_tree</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>ensemble_lm <span class="ot">&lt;-</span> ensemble_lm</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>ensemble_tree <span class="ot">&lt;-</span> ensemble_tree</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="what-about-classification-logistic-and-time-series-data" class="level3" data-number="3.14.1">
+<h3 data-number="3.14.1" class="anchored" data-anchor-id="what-about-classification-logistic-and-time-series-data"><span class="header-section-number">3.14.1</span> What about classification, logistic and time series data?</h3>
+<p>In subsequent chapters we will do similar processes with classification, logistic and time series data. It’s possible to build ensembles with all these types of data. The results are extremely similar to the results we’ve seen here with numerical data: While the ensembles won’t always have the best results, it is best to have a diverse set of models and ensembles to get the best possible results.</p>
+</section>
+<section id="principle-ensembles-can-work-with-many-types-of-data-and-we-will-do-that-in-this-book" class="level3" data-number="3.14.2">
+<h3 data-number="3.14.2" class="anchored" data-anchor-id="principle-ensembles-can-work-with-many-types-of-data-and-we-will-do-that-in-this-book"><span class="header-section-number">3.14.2</span> Principle: Ensembles can work with many types of data, and we will do that in this book</h3>
+</section>
+<section id="can-it-make-predictions-on-totally-new-data-from-the-trained-modelsincluding-the-ensembles" class="level3" data-number="3.14.3">
+<h3 data-number="3.14.3" class="anchored" data-anchor-id="can-it-make-predictions-on-totally-new-data-from-the-trained-modelsincluding-the-ensembles"><span class="header-section-number">3.14.3</span> Can it make predictions on totally new data from the trained models—including the ensembles?</h3>
+<p>The solution methods in this book are independent of the use of the data. We will look at everything from housing prices to business analysis to HR analytics to research in medicine. One of our later examples will do exactly what this question is asking—build individual and ensemble models from data, then use those pre-trained models to make predictions on totally unseen data. You will develop this set of skills later in the book, but it’s a minor extension of what you’re already seen and completed.</p>
+</section>
+<section id="steve-jobs" class="level3" data-number="3.14.4">
+<h3 data-number="3.14.4" class="anchored" data-anchor-id="steve-jobs"><span class="header-section-number">3.14.4</span> <img src="_book/images/Steve Jobs.png" class="img-fluid" alt="Steve Jobs"></h3>
+</section>
+<section id="the-way-i-was-taught-how-to-write-code-was-totally-wrong-for-me-the-best-way-for-me-is-to-start-at-the-end-and-work-backward-from-there.-the-similar-step-in-business-is-to-start-with-the-customer-experience-and-work-backwards-from-there.-do-not-start-coding-looking-for-a-solution-instead-start-with-the-ending-and-work-backwards-from-there." class="level3" data-number="3.14.5">
+<h3 data-number="3.14.5" class="anchored" data-anchor-id="the-way-i-was-taught-how-to-write-code-was-totally-wrong-for-me-the-best-way-for-me-is-to-start-at-the-end-and-work-backward-from-there.-the-similar-step-in-business-is-to-start-with-the-customer-experience-and-work-backwards-from-there.-do-not-start-coding-looking-for-a-solution-instead-start-with-the-ending-and-work-backwards-from-there."><span class="header-section-number">3.14.5</span> The way I was taught how to write code was totally wrong for me: The best way for me is to start at the end and work backward from there. The similar step in business is to start with the customer experience and work backwards from there. Do not start coding looking for a solution, instead, start with the ending and work backwards from there.</h3>
+<p><a href="https://www.youtube.com/watch?v=oeqPrUmVz-o">Start at the end and work backwards from there</a></p>
+<p>The biggest lesson for me in all of this work is how to make ensembles. You’ve already seen some of the steps, and there are more results to come. The second biggest lesson is that everything I was taught about how to do data science and AI was backwards to what actually works for me in real life. I’ve learned how I learn, and applied that skill (learning how I learn) to a wide range of skills, including:</p>
+<p>•&nbsp;Running a multi-million dollar division of a Fortune 1000 company, including full profit and loss responsibility for several years.</p>
+<p>• Performing at a professional level on many musical instruments</p>
+<p>•&nbsp;Able to communicate in English, Spanish and sign language in a professional setting</p>
+<p>•&nbsp;Earning the #1 place on the annual undergraduate university mathematics competition—twice</p>
+<p>• Completing a Master’s degree in Guidance and Counseling, allowing me to help many people in their path toward a healthier life</p>
+<p>• Leader of the Oak Park, Illinois chapter of Amnesty International for ten years, helping to release several Prisoners of Conscience</p>
+<p>• President of the Chicago Apple User Group for ten years, helping many people do extremely good work with their hardware and software</p>
+<p>• Leg press 1,000 pounds ten times in a row</p>
+<p>• Climbed a mountain in Colorado</p>
+<p>• Completed multiple skydives (and looking forward to doing more)</p>
+<p>The point here is that I have learned how I learn, and I’ve applied that skill to many areas. When I started learning data science/AI/coding, it was all very different from the way I was being creative my whole life. The way that works for me is to start at the end, work backward from there, and never give up. Maybe the best evidence of the success of this method is this fact:</p>
+<p><strong>When I started to write the code that led to the Ensembles package, I followed those steps: Start at the end, work backward from there, and never give up. I wound up writing an average of 1,000 lines of clean, error free code per month for 15 months. The Ensembles package is around 15,000 lines of clean, error free code.</strong></p>
+<p>I found my attitude was much more important than my skill set, by a long shot.</p>
+</section>
+<section id="how-i-stuck-with-it-all-the-way-to-the-end-the-best-career-advice-i-ever-received-was-from-a-homeless-man-i-never-met-and-answers-the-question-of-what-most-strongly-predicts-success." class="level3" data-number="3.14.6">
+<h3 data-number="3.14.6" class="anchored" data-anchor-id="how-i-stuck-with-it-all-the-way-to-the-end-the-best-career-advice-i-ever-received-was-from-a-homeless-man-i-never-met-and-answers-the-question-of-what-most-strongly-predicts-success."><span class="header-section-number">3.14.6</span> How I stuck with it all the way to the end: The best career advice I ever received was from a homeless man I never met, and answers the question of what most strongly predicts success.</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_book/images/Ashford_and_Simpson.png" class="img-fluid figure-img"></p>
+<figcaption>Ashford and Simpson</figcaption>
+</figure>
+</div>
+<p>Learning about building ensembles will help you make more accurate predictions. That’s an extremely good skill to have in any setting. But I found the most important thing to predict is success. This has been studied, and there are quite a few good works on the subject, both academic and for the general population.</p>
+<p>My favorite career advice—which I listened to nearly every day as I worked on the Ensembles project—is from a man who was homeless at the time he came up with the words.</p>
+<p>Nick Ashford was from Willow Run, Michigan. He moved to New York city, hoping to get into the entertainment world as a dancer. Unfortunately he ended up homeless on the streets of New York. He slept on park benches, and got food from soup kitchens.</p>
+<p>He heard that the people at White Rock Baptist Church would feed him (a homeless man) a normal meal, so Nick went there one Sunday morning. He met the people, especially the choir members, and started working with the piano player in the choir. Her name is Valerie Simpson.</p>
+<p>Soon Nick and Valerie were writing songs for the church choir. Nick mentioned that while he was homeless, he realized that New York wasn’t going to “do me in”. He was determined. The words he put down say:</p>
+<p><strong>Ain’t no mountain high enough</strong></p>
+<p><strong>Ain’t no valley long enough</strong></p>
+<p><strong>Ain’t no river wide enough</strong></p>
+<p>Valerie took those words, and set them to music. They sent that song to Motown, who released it with Marvin Gaye and Tammy Terrell covering the vocals. It was later re-done by Ashford and Simpson and Paul Riser, with Diana Ross singing the lead.</p>
+<p>As long as I am working on any project, I keep the words of Ashford and Simpson in mind. The very highest odds of success for everyone involved will be if we say there is no mountain high enough, no valley long enough or river wide enough to keep us from reaching our goal. I listened to those words nearly every day I was making the Ensembles package, and many days after while I was working on the Ensembles book that you are reading, and the website, <a href="https://www.ensembles1.com" class="uri">https://www.ensembles1.com</a>. Start from the end and work backwards. No matter what you are going through, the ending is absolutely worth the work that needs to be put in to get there, so just put the work in. In virtually all cases in my professional experience, the benefit has vastl outweighed the cost. Persisting until success has paid dividends far beyond anything I could have initially imagined.</p>
+<p>While I have the skill of knowing how I learn (which I will continue to share with you in this book), this attitude of working no matter how high the mountain or long the valley or wide the river, gives me the how and the why to keep moving toward success, until that success is fully achieved, and the benefits go to everyone involved.</p>
+</section>
+<section id="exercises" class="level3" data-number="3.14.7">
+<h3 data-number="3.14.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.14.7</span> Exercises:</h3>
+<ol type="1">
+<li>Find your data science Genesis. The data science idea that totally excites you and gets you out of bed every day. The idea that leads to the creation of many other ideas. The biggest and boldest dreams you can possibly have. The idea that is so strong that you have to do it. Not for yourself, but for the benefit of all who will use it and receive all the good it will create.</li>
+<li>Keep a journal of your progress. It’s much easier to see results over time when there is a record. Set the journal up today (or this week). I did not use Github as a journal. My journal was for crazy ideas, contradictory evidence, writing down my frustrations and successes, inspiration, the one next thing I worked on, and having a rock solid record of the path to success. Seeing the path I traversed was a huge motivation to finishing the project.</li>
+<li>Do your best to add journal entries to your regular schedule.</li>
+<li>Make an ensemble using the Boston Housing data set. Model any of the other 13 columns of data, not the median value of the home (14th column) which we have been working on in this chapter.</li>
+<li>Start planning for your comprehensive project. What types of data are you most interested in? What patterns would you like to discover? Begin looking online now for possible data sets, and so a little basic research. More examples will be provided as we get closer to that section of the book.</li>
+</ol>
+<div class="warning" style="padding:2em; background-color:#E9D8FD; color:#69337A">
+<p><span><b>Data Science Essay #1: How to Test What Is Most Important to your Customer (accuracy vs preparation) </b></span></p>
+<p>Many organizations believe their customer wants the most accurate models, and they work very hard to deliver those models to their customers. However, from a customer perspective, what they really want is to be prepared for anything that might come along. A very good data science solution will give the most accurate results, and also help the customer understand how these results can be used in a range of different perspectives.</p>
+<p>Let’s use our results on the Boston Housing data set as a good starting point. While we can model the price within a certain degree of accuracy, <strong>customers virtually always appreciate the broader truth in the data</strong>. Let them know the margin of error (right now that is ±4.2, or ±$4,223), and anything else which will help them be better prepared for any changes that will come along.</p>
+<p>We will achieve more accurate results in future chapters as we add more models and ensembles of models, but the best first step we can take is to be totally committed to the truth, as best we can report it, in a way that is as transparent as possible. We can also be committed to helping our customer be as well prepared as possible for changes which will happen, and show them how our models and help them be prepared for those changes.</p>
+<p>While accuracy is a great result, it’s even better if your work also allows your customer to be as fully prepared as possible, given the data and the changes which impact all organizations.</p>
+<p><strong>The test to give your customer</strong>: The mean result is (insert mean result). However, there is a 16% chance the actual result will be above the mean result, and a 16% chance the actual result will be below the mean result. My professional recommendation is to have plans ready for each of the three situations, so you are ready for all possible results. Please let me know if there are any questions completing this, so you are best prepared, no matter what the result.</p>
+<p><strong>Please note that many organizations do not actually want the best results, what is most important to those organizations is maintaining the status quo.</strong> They will fight the best results like they are fighting an invading army, even when the evidence is overwhelming that the best results will vastly improve performance over current results and the team presenting the best results is on their side. Many will fight to protect the status quo at all costs, even at the expense of the best possible results. It is possible the most important outcome to your customer is keeping things as they are, not providing the best results. That will be true even if it means losing customers, market share, and staff. If their only path is to continue with the current results at all costs and against all options, the only solution I know is to walk away and work on something else. I have never had any success convincing any organization to pursue the best possible results if they are totally committed to the status quo at all costs and against all options.</p>
+<p>This is a test.</p>
+<p></p>
+<p></p>
+<p></p>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

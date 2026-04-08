@@ -3,3 +3,124 @@ title: "60 Open Data Sources"
 format: html
 ---
 
+Here is a list of 60 sources of data which may be used for the One of Your Own exercises.
+
+Africa open data sets: <https://www.open.africa/dataset>
+
+American Psychological Association: <https://www.apa.org/research-practice/conduct-research/data-links>
+
+AWS: <https://registry.opendata.aws>
+
+Bureau of Economic Analysis: <https://www.bea.gov/open-data>
+
+Bureau of Justice Statistics: <https://bjs.ojp.gov>
+
+Bureau of labor statistics: <https://www.bls.gov>
+
+British Film Industry: <https://www.bfi.org.uk/industry-data-insights>
+
+Canada (Government): <https://open.canada.ca/en>
+
+Census Bureau: <https://www.census.gov/data.html>
+
+Census: <https://www.census.gov/topics/business-economy/data/datasets.html>
+
+Cern: <https://opendata.cern.ch>
+
+Chicago: <https://data.cityofchicago.org>
+
+Cook County (Illinois): <https://datacatalog.cookcountyil.gov>
+
+Datahub: <https://datahub.io/collections>
+
+Dataverse: <https://dataverse.org>
+
+DataWorld: <https://data.world>
+
+DataWorld Business: <https://data.world/datasets/business>
+
+DC (District of Columbia): <https://opendata.dc.gov>
+
+Department of Agriculture: <https://www.nass.usda.gov/Data_and_Statistics/index.php>
+
+Detroit Open Data: <https://data.detroitmi.gov>
+
+Earth data: <https://www.earthdata.nasa.gov>
+
+Economic Research Service of the Department of Agriculture: <https://www.ers.usda.gov/data-products/>
+
+Energy Information Administration: <https://www.eia.gov/tools/>
+
+Environmental Protection Agency: <https://www.epa.gov/data>
+
+Federal Emergency Management Association: <https://www.fema.gov/about/openfema/data-sets>
+
+Five ThirtyEight: <https://data.fivethirtyeight.com>
+
+Github: <https://github.com/datasets>
+
+Google datasets: <https://datasetsearch.research.google.com>
+
+Harvard datasets: <https://dataverse.harvard.edu>
+
+Ireland Open Data: <https://data.gov.ie>
+
+Kaggle: <https://www.kaggle.com/datasets>
+
+Malaysia Open Data: <https://data.gov.my>
+
+Michigan (state): <https://data.michigan.gov>
+
+National Cancer Institute: <https://datacommons.cancer.gov/explore/datasets>
+
+National Center for Charitable Statistics: <https://nccs.urban.org/nccs/datasets/>
+
+National Center for Education Statistics: <https://nces.ed.gov/datatools/>
+
+National Center for Health Statistics: <https://www.cdc.gov/nchs/>
+
+National Interagency Fire Center: <https://data-nifc.opendata.arcgis.com>
+
+National Institutes of Health: <https://www.nihlibrary.nih.gov/services/data/finding-datasets-data-repositories-and-data-standards>
+
+NASA: <https://data.nasa.gov>
+
+NASA Earth Data: <https://www.earthdata.nasa.gov>
+
+New Your City open data: <https://opendata.cityofnewyork.us>
+
+Nonprofit Open Data Collective: <https://nonprofit-open-data-collective.github.io>
+
+Open data Philly: <https://opendataphilly.org>
+
+PLoS: <https://plos.org/open-science/open-data/>
+
+Over 1,000 R packages with data: <https://vincentarelbundock.github.io/Rdatasets/datasets.html>
+
+Phoenix, Arizona: <https://phoenixopendata.com>
+
+Securities and Exchange Commission (SEC): <https://www.sec.gov/data-research/sec-markets-data>
+
+Small Business Administration: <https://data.sba.gov>
+
+South Africa Open Data: <https://southafrica.opendataforafrica.org>
+
+Springer: <https://www.springernature.com/gp/open-science/open-data>
+
+Statistics Canada: <https://www.statcan.gc.ca/en/lode/databases>
+
+UCI Machine Learning Repository: <https://archive.ics.uci.edu>
+
+Unicef: <https://data.unicef.org/resources/resource-type/datasets/>
+
+United Nations: <https://data.un.org>
+
+US Government’s Open Data: <https://data.gov>
+
+Veterans Affairs: <https://www.data.va.gov>
+
+World Bank: <https://data.worldbank.org>
+
+World Health Organization: <https://www.who.int/data/gho/>
+
+Yelp: <https://www.yelp.com/dataset>
