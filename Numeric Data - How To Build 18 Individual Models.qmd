@@ -40,7 +40,7 @@ Boston Housing. The winning score (lowest RMSE) was 2.42143. The competition had
 You may either download the data from the Kaggle.com website. Here are the first ten rows of the data:
 
 |    crim |   zn | indus | chas |    nox |    rm |  age |    dis | rad | tax | ptratio |  black | lstat | medv |
-|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|
+|--------:|-----:|------:|-----:|-------:|------:|-----:|-------:|----:|----:|--------:|-------:|------:|-----:|
 | 0.00632 | 18.0 |  2.31 |    0 | 0.5380 | 6.575 | 65.2 | 4.0900 |   1 | 296 |    15.3 | 396.90 |  4.98 | 24.0 |
 | 0.02731 |  0.0 |  7.07 |    0 | 0.4690 | 6.421 | 78.9 | 4.9671 |   2 | 242 |    17.8 | 396.90 |  9.14 | 21.6 |
 | 0.02729 |  0.0 |  7.07 |    0 | 0.4690 | 7.185 | 61.1 | 4.9671 |   2 | 242 |    17.8 | 392.83 |  4.03 | 34.7 |
@@ -286,13 +286,21 @@ As we can see the Insurance data set has seven columns. Three of the columns are
 
 We are going to follow the same steps we used for the Boston Housing data set, except that several of the columns are factors.
 
-<h4>1. What does the really customer want?</h4>
+<h4>
+
+1.  What does the really customer want?
+
+    </h4>
 
 This is an insurance data set, the customer wants to model the charges (the seventh column). Specifically, they want to model the charges in a way that minimizes the charges they will pay, and meet their business obligations.
 
 This is a very typical set of requirements from customers: Given the data from the customer, what is the best action the customer can take? Our modeling and recommendations will have a direct impact on their business decisions.
 
-<h4>2. Before we run any code, let's ALWAYS take a look at the data to see what it suggests</h4>
+<h4>
+
+2.  Before we run any code, let's ALWAYS take a look at the data to see what it suggests
+
+    </h4>
 
 In this section we are going to do an Exploratory Data Analysis. This was first published in 1961 by John Tukey. His definition states:
 
@@ -327,7 +335,11 @@ Several results stand out from the exploratory data analysis, and we would do we
 
 3.  Average and maximum charges for smokers are much higher than for non-smokers
 
-<h4>3. Setting up models</h4>
+<h4>
+
+3.  Setting up models
+
+    </h4>
 
 ```{r borrowing from our code for Boston Housing}
 
@@ -403,7 +415,7 @@ We will follow the same sequence we used in this chapter:
 
 We will change the 'Strength' variable to 'y', that way we can use the same methods we used previously.
 
-```{r Rename final column to 'y'}
+```{r Rename final column to y}
 
 colnames(df)[9] <- 'y'
 
@@ -531,12 +543,12 @@ str(df)
 
 First we are going to change the 'price' column to 'y', then move that column to the far right in the data set.
 
-```{r Change price column to 'y'}
+```{r Change price column to y}
 colnames(df)[3] <- 'y'
 str(df)
 ```
 
-```{r Move 'y' column to the far right}
+```{r Move y column to the far right}
 
 df <- df %>% dplyr::relocate(y, .after = last_col()) # Moves the target column to the last column on the right
 
@@ -609,7 +621,6 @@ results
 
 ```{r Predicted vs actual plots for BMW car prices}
 
-{r predicted vs actual plots}
 bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
 ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
   ggplot2::geom_point() +
@@ -648,7 +659,6 @@ ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test)
 
 ```{r Summary tables for BMW car price models}
 
-library(reactable)
 summary_table <- data.frame('Model_name' = c('Bagging', 'BayesRNN', 'Earth', 'Linear', 'Random Forest', 'Support Vector Machines', 'Trees'), 'Mean_RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
 
 summary_table

@@ -5,7 +5,7 @@ format: html
 
 # Building ensembles of classification models
 
-In this section we will be building two ensembles of classification models. We will use six classification models, and six ensembles, for a total of 12 results.
+In this section we will be building two ensembles of classification models. We will use six individual classification models, and six ensembles, for a total of 12 results.
 
 ### Let's start at the end and work backwards
 
@@ -43,7 +43,15 @@ XGBoost
 
 Note that there is nothing special about using five models. Any number of models may be used, but this set will be a very good start.
 
-For this solution we will also add a mean duration by model to the finished report.
+There is also nothing special about these five classification models. For your work you may use these models or any other classification models that work for you.
+
+One point I want to know is how much time each model takes to run. Therefore we will also add a mean duration by model to the finished report.
+
+Why add a duration report?
+
+One of the best ways to solve data science problems is to start with a small data set, as we will do here. It can happen that one (or more) of the models will take much more time than other models. That's easy to fix once we know the mean duration of each report.
+
+The goal is to have an error-free set of models that will run in as little time as possible.
 
 Since we have our basic outline, and we know where we want to end, we are ready to begin.
 
@@ -295,7 +303,7 @@ xgb_model <- xgboost::xgb.train(
     verbose = 1
   )
 
-xgb_preds <- predict(xgb_model, as.matrix(X_train), reshape = TRUE)
+xgb_preds <- predict(xgb_model, as.matrix(X_train))
 xgb_preds <- as.data.frame(xgb_preds)
 colnames(xgb_preds) <- levels(df$y)
 
@@ -331,7 +339,7 @@ xgb_model <- xgboost::xgb.train(
     verbose = 1
   )
 
-xgb_preds <- predict(xgb_model, as.matrix(X_test), reshape = TRUE)
+xgb_preds <- predict(xgb_model, as.matrix(X_test))
 xgb_preds <- as.data.frame(xgb_preds)
 colnames(xgb_preds) <- levels(df$y)
 
@@ -503,7 +511,7 @@ warnings()
 
 ```{r Demo of the function with a totally different data set}
 
-df1 <- Ensembles::dry_beans_small
+df1 <- ClassificationEnsembles::Dry_Beans
 
 classification_1(data = df1, colnum = 17, numresamples = 5, train_amount = 0.60, test_amount = 0.40)
 warnings()

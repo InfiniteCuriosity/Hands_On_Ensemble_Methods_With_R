@@ -330,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ dplyr     1.2.1     ✔ readr     2.2.0
 ✔ forcats   1.0.1     ✔ stringr   1.6.0
 ✔ ggplot2   4.0.2     ✔ tibble    3.3.1
 ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
@@ -427,19 +427,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
             Model Error_Rate
-1 Ensemble_Linear   4.410066
-2   Ensemble_tree   4.903172
-3            Tree   4.952794
-4          Linear   5.030512</code></pre>
+1 Ensemble_Linear   4.140818
+2   Ensemble_tree   4.627877
+3            Tree   4.809797
+4          Linear   4.878467</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>What we will be doing in this section is making a weighted ensemble using 17 models of numerical data, then using that ensemble to measure the accuracy of the models on the holdout (test) data.</p>
+<p>What we will be doing in this section is making a weighted ensemble using 17 models of numerical data, then using that ensemble to measure the accuracy of the models on the holdout data.</p>
 <section id="think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning." class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="think-before-you-do-something.-this-will-help-when-we-start-at-the-end-and-work-backwards-toward-the-beginning."><span class="header-section-number">6.1</span> Think before you do something. This will help when we start at the end and work backwards toward the beginning.</h2>
-<p>We are going to make an ensemble. The ensemble is going to a made of predictions from numerical models. You’ve already seen a couple of ensembles. This one will be extremely similar, but will involve more models.</p>
+<p>We are going to make an ensemble. The ensemble is going to be made of predictions from numerical models. You’ve already seen a couple of ensembles. This one will be extremely similar, but will involve more models.</p>
 <p>Starting at the end, we want the error rate (root mean squared error) for the ensemble and prediction models.</p>
-<p>That means we’ll need to make an ensemble. That means we’ll need individual model predictions, because that’s how an ensemble is made. If an ensemble is made of individual model predictions, that means we’ll need individual models. We already know how to do that, because we did it in the last chapter.</p>
+<p>That means we’ll need to make an ensemble and we’ll need individual model predictions, because that’s how an ensemble is made. If an ensemble is made of individual model predictions, that means we’ll need individual models. We already know how to do that, because we did it in the last chapter.</p>
 <p>We’re going to build a simple ensemble with seven models, and then use that ensemble with four very different methods. The Ensembles package actually works with a total of 40 different models. The process is exactly the same, whether we are working with seven individual models or 23 individual models, five ensemble models or 17 ensemble models. The structre and methods are the same.</p>
 <p>So let’s get started!</p>
 <p>The seven individual models we will be building are:</p>
@@ -844,59 +844,7 @@ Attaching package: 'randomForest'</code></pre>
 <pre><code>Number of parameters (weights and biases) to estimate: 32 
 Nguyen-Widrow method
 Scaling factor= 0.701542 
-gamma= 30.8737   alpha= 4.7979   beta= 26126.65 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7038614 
-gamma= 14.6664   alpha= 2.7042   beta= 5802.515 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 32 
-Nguyen-Widrow method
-Scaling factor= 0.7015275 
-gamma= 31.358    alpha= 5.4756   beta= 14835.04 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7045493 
-gamma= 13.6519   alpha= 2.0394   beta= 7843.542 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 32 
-Nguyen-Widrow method
-Scaling factor= 0.7015569 
-gamma= 30.3448   alpha= 5.1869   beta= 22808.1 </code></pre>
+gamma= 30.9156   alpha= 4.2067   beta= 14651.38 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -911,7 +859,7 @@ Using 100 trees...</code></pre>
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
 Scaling factor= 0.7043849 
-gamma= 13.5113   alpha= 2.1072   beta= 8263.686 </code></pre>
+gamma= 13.8718   alpha= 1.8533   beta= 7259.473 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -921,391 +869,8 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 32 
 Nguyen-Widrow method
-Scaling factor= 0.7016246 
-gamma= 31.3989   alpha= 5.1823   beta= 16349.16 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7039559 
-gamma= 14.096    alpha= 2.3824   beta= 5797.139 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 32 
-Nguyen-Widrow method
-Scaling factor= 0.7015771 
-gamma= 30.2448   alpha= 4.6572   beta= 17368.07 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7039559 
-gamma= 12.1858   alpha= 1.5876   beta= 10550.53 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                       Model     Error
-1          Ensemble_BayesGLM 0.1438557
-2                   BayesRNN 0.1458125
-3          Ensemble_BayesRNN 0.2153348
-4     Ensemble_Random_Forest 0.7505616
-5              Random_Forest 1.7136582
-6             Ensemble_Trees 1.8072801
-7  Ensemble_Gradient_Boosted 2.5935901
-8           Gradient_Boosted 3.3166984
-9                      Trees 4.7828252
-10                  BayesGLM 4.9306726
-11                    Linear 4.9519849</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Here’s the very cool part of setting it up this way. If you have a totally different data set, all you need to do is put the information into the function, and everything runs. Check this out:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">numerical</span>(<span class="at">data =</span> ISLR<span class="sc">::</span>Auto[, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ISLR<span class="sc">::</span>Auto)<span class="sc">-</span><span class="dv">1</span>], <span class="at">colnum =</span> <span class="dv">1</span>, <span class="at">numresamples =</span> <span class="dv">25</span>, <span class="at">train_amount =</span> <span class="fl">0.50</span>, <span class="at">test_amount =</span> <span class="fl">0.50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7023366 
-gamma= 19.2977   alpha= 3.5771   beta= 10242.55 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7055993 
-gamma= 13.7302   alpha= 2.7372   beta= 4343.865 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7026419 
-gamma= 18.9618   alpha= 3.1426   beta= 22617.97 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7045493 
-gamma= 12.6216   alpha= 2.231    beta= 4859.664 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7025055 
-gamma= 19.6119   alpha= 3.3069   beta= 9988.613 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7050725 
-gamma= 13.3212   alpha= 2.3144   beta= 4921.446 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7026419 
-gamma= 19.0482   alpha= 3.6592   beta= 10261.9 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7047266 
-gamma= 11.4571   alpha= 2.3517   beta= 5502.901 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7026419 
-gamma= 18.958    alpha= 3.5491   beta= 8859.167 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7040214 
-gamma= 13.1418   alpha= 2.4187   beta= 5560.934 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7025856 
-gamma= 18.8168   alpha= 3.3724   beta= 8558.507 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7046363 
-gamma= 13.6065   alpha= 2.1349   beta= 4724.881 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7024799 
-gamma= 18.6648   alpha= 1.7828   beta= 86745.81 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7050725 
-gamma= 9.7132    alpha= 2.2059   beta= 4371.147 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7023942 
-gamma= 17.7661   alpha= 3.4158   beta= 9302.441 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7053523 
-gamma= 12.3045   alpha= 1.4971   beta= 8758.936 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7025449 
-gamma= 18.0345   alpha= 2.9614   beta= 9270.865 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7049182 
-gamma= 12.6845   alpha= 2.5911   beta= 4458.903 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7024061 
-gamma= 19.0083   alpha= 3.626    beta= 9269.028 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7052939 
-gamma= 9.3911    alpha= 1.7196   beta= 4513.115 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7028266 
-gamma= 19.4556   alpha= 3.7375   beta= 8319.242 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7045071 
-gamma= 15.2396   alpha= 1.8639   beta= 8386.276 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7025055 
-gamma= 19.216    alpha= 3.4682   beta= 12024.25 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7046363 
-gamma= 13.3048   alpha= 2.8377   beta= 5680.569 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7026135 
-gamma= 19.0226   alpha= 3.7555   beta= 10583.12 </code></pre>
+Scaling factor= 0.701542 
+gamma= 30.8737   alpha= 4.3626   beta= 17357.42 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1320,7 +885,7 @@ Using 100 trees...</code></pre>
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
 Scaling factor= 0.7043456 
-gamma= 13.2253   alpha= 2.3171   beta= 5062.163 </code></pre>
+gamma= 12.8236   alpha= 2.4595   beta= 5002.497 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1328,36 +893,10 @@ gamma= 13.2253   alpha= 2.3171   beta= 5062.163 </code></pre>
 Using 100 trees...</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
 Nguyen-Widrow method
-Scaling factor= 0.7025719 
-gamma= 17.9626   alpha= 2.8959   beta= 8797.079 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7050725 
-gamma= 13.4278   alpha= 2.4264   beta= 8202.636 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7023593 
-gamma= 18.4847   alpha= 2.718    beta= 9482.901 </code></pre>
+Scaling factor= 0.7015771 
+gamma= 30.8886   alpha= 4.4489   beta= 26470.77 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1371,8 +910,8 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.7060159 
-gamma= 14.3083   alpha= 2.5279   beta= 5141.372 </code></pre>
+Scaling factor= 0.7038614 
+gamma= 13.9699   alpha= 2.604    beta= 6045.549 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1380,36 +919,10 @@ gamma= 14.3083   alpha= 2.5279   beta= 5141.372 </code></pre>
 Using 100 trees...</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
 Nguyen-Widrow method
-Scaling factor= 0.7024673 
-gamma= 19.122    alpha= 3.4476   beta= 8961.127 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.704681 
-gamma= 11.9973   alpha= 1.7899   beta= 8769.623 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7024302 
-gamma= 17.8016   alpha= 2.9587   beta= 23586.8 </code></pre>
+Scaling factor= 0.701542 
+gamma= 30.4891   alpha= 4.6166   beta= 21232.53 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1423,8 +936,8 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.7048205 
-gamma= 12.6967   alpha= 2.3235   beta= 4968.189 </code></pre>
+Scaling factor= 0.7039884 
+gamma= 13.435    alpha= 2.1559   beta= 7519.075 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1432,36 +945,10 @@ gamma= 12.6967   alpha= 2.3235   beta= 4968.189 </code></pre>
 Using 100 trees...</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
+<pre><code>Number of parameters (weights and biases) to estimate: 32 
 Nguyen-Widrow method
-Scaling factor= 0.7023708 
-gamma= 19.1758   alpha= 3.5857   beta= 11916.91 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7048689 
-gamma= 12.6879   alpha= 2.1792   beta= 6166.056 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7023942 
-gamma= 18.8879   alpha= 3.04     beta= 10104.29 </code></pre>
+Scaling factor= 0.7016986 
+gamma= 29.0587   alpha= 2.6074   beta= 14844.45 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1475,8 +962,8 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.7047731 
-gamma= 13.1021   alpha= 2.5181   beta= 6651.85 </code></pre>
+Scaling factor= 0.7034496 
+gamma= 13.5567   alpha= 2.4826   beta= 6425.046 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1484,36 +971,29 @@ gamma= 13.1021   alpha= 2.5181   beta= 6651.85 </code></pre>
 Using 100 trees...</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7025719 
-gamma= 17.8836   alpha= 2.9026   beta= 9376.929 </code></pre>
+<pre><code>                       Model     Error
+1                   BayesRNN 0.1280104
+2          Ensemble_BayesGLM 0.1296930
+3          Ensemble_BayesRNN 0.2102472
+4     Ensemble_Random_Forest 1.0258664
+5              Random_Forest 1.5289439
+6             Ensemble_Trees 1.8968819
+7  Ensemble_Gradient_Boosted 2.4211260
+8           Gradient_Boosted 3.3666693
+9                   BayesGLM 4.6172014
+10                     Trees 5.1342682
+11                    Linear 5.1971507</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Here’s the very cool part of setting it up this way. If you have a totally different data set, all you need to do is put the information into the function, and everything runs. Check this out:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">numerical</span>(<span class="at">data =</span> ISLR<span class="sc">::</span>Auto[, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ISLR<span class="sc">::</span>Auto)<span class="sc">-</span><span class="dv">1</span>], <span class="at">colnum =</span> <span class="dv">1</span>, <span class="at">numresamples =</span> <span class="dv">25</span>, <span class="at">train_amount =</span> <span class="fl">0.50</span>, <span class="at">test_amount =</span> <span class="fl">0.50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.7055354 
-gamma= 11.2406   alpha= 1.8478   beta= 3946.04 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7024061 
-gamma= 19.7169   alpha= 3.1671   beta= 9913.546 </code></pre>
+Scaling factor= 0.7024548 
+gamma= 17.6622   alpha= 3.0234   beta= 10066.29 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1527,8 +1007,8 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.705412 
-gamma= 12.302    alpha= 2.2513   beta= 5853.186 </code></pre>
+Scaling factor= 0.704307 
+gamma= 13.1304   alpha= 2.116    beta= 9177.318 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1538,8 +1018,34 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.7025055 
-gamma= 18.7806   alpha= 3.5029   beta= 8790.395 </code></pre>
+Scaling factor= 0.7026419 
+gamma= 18.7637   alpha= 3.7373   beta= 9080.463 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045493 
+gamma= 12.601    alpha= 2.054    beta= 7011.144 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025185 
+gamma= 18.6372   alpha= 2.9851   beta= 8749.589 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1554,7 +1060,7 @@ Using 100 trees...</code></pre>
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
 Scaling factor= 0.7051261 
-gamma= 14.3009   alpha= 2.6665   beta= 4872.298 </code></pre>
+gamma= 12.8196   alpha= 2.5628   beta= 4165.871 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1564,60 +1070,8 @@ Using 100 trees...</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
-Scaling factor= 0.7028432 
-gamma= 18.2234   alpha= 3.7092   beta= 7827.355 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7044656 
-gamma= 14.3202   alpha= 1.9546   beta= 7197.727 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7024799 
-gamma= 17.4553   alpha= 3.1819   beta= 16868.14 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7045924 
-gamma= 13.1014   alpha= 2.2159   beta= 4656.105 </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using 100 trees...
-
-Using 100 trees...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of parameters (weights and biases) to estimate: 20 
-Nguyen-Widrow method
-Scaling factor= 0.7025185 
-gamma= 18.9804   alpha= 3.3954   beta= 9198.176 </code></pre>
+Scaling factor= 0.7023033 
+gamma= 19.3395   alpha= 3.5726   beta= 18964.99 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1632,7 +1086,553 @@ Using 100 trees...</code></pre>
 <pre><code>Number of parameters (weights and biases) to estimate: 20 
 Nguyen-Widrow method
 Scaling factor= 0.7051808 
-gamma= 13.4591   alpha= 2.3958   beta= 8385.017 </code></pre>
+gamma= 12.6248   alpha= 2.1544   beta= 5483.084 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.702271 
+gamma= 19.1617   alpha= 3.6294   beta= 10858.87 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.705473 
+gamma= 11.7554   alpha= 2.0892   beta= 4595.077 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024181 
+gamma= 18.6019   alpha= 2.1535   beta= 12959.35 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7049182 
+gamma= 12.1135   alpha= 2.6619   beta= 4587.383 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023942 
+gamma= 18.502    alpha= 2.1252   beta= 27330.94 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7055993 
+gamma= 9.8983    alpha= 1.6989   beta= 4149.701 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026135 
+gamma= 18.8606   alpha= 3.3458   beta= 9991.542 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7047731 
+gamma= 12.1155   alpha= 1.5918   beta= 9393.489 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024061 
+gamma= 18.3036   alpha= 3.0939   beta= 11439.65 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7052939 
+gamma= 12.6493   alpha= 1.8564   beta= 6531.724 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026135 
+gamma= 19.2204   alpha= 2.982    beta= 8901.185 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7049182 
+gamma= 12.6686   alpha= 1.5643   beta= 10355 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023033 
+gamma= 18.2352   alpha= 2.9775   beta= 9865.26 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7056647 
+gamma= 13.0442   alpha= 1.9793   beta= 3790.326 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024061 
+gamma= 17.5756   alpha= 2.1941   beta= 9745.05 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7049182 
+gamma= 12.6187   alpha= 2.5806   beta= 7825.256 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025449 
+gamma= 18.6495   alpha= 2.702    beta= 8805.1 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7051261 
+gamma= 12.8051   alpha= 2.031    beta= 5932.648 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026135 
+gamma= 19.3619   alpha= 3.8162   beta= 8565.239 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7051808 
+gamma= 12.1481   alpha= 2.1484   beta= 5519.713 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026419 
+gamma= 19.3632   alpha= 3.7446   beta= 8660.408 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045493 
+gamma= 13.6053   alpha= 2.5605   beta= 4718.552 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7022499 
+gamma= 19.4806   alpha= 2.7445   beta= 10921.26 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7067715 
+gamma= 12.3549   alpha= 1.8584   beta= 15419.28 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025185 
+gamma= 19.3351   alpha= 3.5365   beta= 8732.693 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7049182 
+gamma= 13.9616   alpha= 2.1219   beta= 5185.87 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024548 
+gamma= 18.2923   alpha= 3.4287   beta= 11658.78 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7050725 
+gamma= 12.5989   alpha= 2.5785   beta= 5583.678 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7025055 
+gamma= 17.064    alpha= 2.8942   beta= 15786.38 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.70502 
+gamma= 13.0448   alpha= 2.5044   beta= 4331.502 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024926 
+gamma= 18.871    alpha= 3.2101   beta= 9915.895 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045493 
+gamma= 14.1173   alpha= 2.9196   beta= 4873.343 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026564 
+gamma= 18.4911   alpha= 3.2542   beta= 13891.42 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.704307 
+gamma= 11.8255   alpha= 2.2935   beta= 5257.674 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7026276 
+gamma= 17.1938   alpha= 2.854    beta= 9983.149 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7046363 
+gamma= 12.9993   alpha= 2.3467   beta= 4814.088 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.702671 
+gamma= 18.6302   alpha= 3.4128   beta= 16250.43 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7045493 
+gamma= 14.1308   alpha= 2.0951   beta= 5446.668 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7024548 
+gamma= 19.1591   alpha= 3.1322   beta= 10450.02 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7043456 
+gamma= 12.5068   alpha= 2.3277   beta= 5188.502 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.7023708 
+gamma= 19.3052   alpha= 3.1619   beta= 10524.85 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...
+
+Using 100 trees...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of parameters (weights and biases) to estimate: 20 
+Nguyen-Widrow method
+Scaling factor= 0.70502 
+gamma= 11.5341   alpha= 1.6108   beta= 25821.21 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using 100 trees...
@@ -1641,17 +1641,17 @@ Using 100 trees...</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                       Model     Error
-1          Ensemble_BayesGLM 0.1289919
-2                   BayesRNN 0.1308277
-3          Ensemble_BayesRNN 0.1879184
-4     Ensemble_Random_Forest 0.8190973
-5  Ensemble_Gradient_Boosted 1.4796541
-6              Random_Forest 1.6091401
-7             Ensemble_Trees 1.6143374
-8           Gradient_Boosted 2.8706998
-9                   BayesGLM 3.3689717
-10                    Linear 3.6137565
-11                     Trees 3.6805723</code></pre>
+1          Ensemble_BayesGLM 0.1329000
+2                   BayesRNN 0.1391364
+3          Ensemble_BayesRNN 0.1777192
+4     Ensemble_Random_Forest 0.8090698
+5  Ensemble_Gradient_Boosted 1.5281521
+6              Random_Forest 1.6004915
+7             Ensemble_Trees 1.6590483
+8           Gradient_Boosted 2.8924526
+9                   BayesGLM 3.3891097
+10                    Linear 3.7060033
+11                     Trees 3.7126109</code></pre>
 </div>
 </div>
 <div class="warning" style="padding:0.1em; background-color:#E9D8FD; color:#69337A">

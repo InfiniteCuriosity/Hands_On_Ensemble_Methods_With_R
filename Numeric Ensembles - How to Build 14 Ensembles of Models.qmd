@@ -113,15 +113,15 @@ numerical_1(data = MASS::Boston, colnum = 14, train_amount = 0.60, test_amount =
 warnings()
 ```
 
-What we will be doing in this section is making a weighted ensemble using 17 models of numerical data, then using that ensemble to measure the accuracy of the models on the holdout (test) data.
+What we will be doing in this section is making a weighted ensemble using 17 models of numerical data, then using that ensemble to measure the accuracy of the models on the holdout data.
 
 ## Think before you do something. This will help when we start at the end and work backwards toward the beginning.
 
-We are going to make an ensemble. The ensemble is going to a made of predictions from numerical models. You've already seen a couple of ensembles. This one will be extremely similar, but will involve more models.
+We are going to make an ensemble. The ensemble is going to be made of predictions from numerical models. You've already seen a couple of ensembles. This one will be extremely similar, but will involve more models.
 
 Starting at the end, we want the error rate (root mean squared error) for the ensemble and prediction models.
 
-That means we'll need to make an ensemble. That means we'll need individual model predictions, because that's how an ensemble is made. If an ensemble is made of individual model predictions, that means we'll need individual models. We already know how to do that, because we did it in the last chapter.
+That means we'll need to make an ensemble and we'll need individual model predictions, because that's how an ensemble is made. If an ensemble is made of individual model predictions, that means we'll need individual models. We already know how to do that, because we did it in the last chapter.
 
 We're going to build a simple ensemble with seven models, and then use that ensemble with four very different methods. The Ensembles package actually works with a total of 40 different models. The process is exactly the same, whether we are working with seven individual models or 23 individual models, five ensemble models or 17 ensemble models. The structre and methods are the same.
 

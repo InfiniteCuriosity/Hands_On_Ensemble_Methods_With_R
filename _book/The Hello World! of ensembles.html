@@ -429,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ dplyr     1.2.1     ✔ readr     2.2.0
 ✔ forcats   1.0.1     ✔ stringr   1.6.0
 ✔ ggplot2   4.0.2     ✔ tibble    3.3.1
 ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
@@ -695,8 +695,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_lm_predictions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     323      222      124      223      306      297 
-22.80375 24.51713 16.18745 32.79541 31.38501 27.59476 </code></pre>
+<pre><code>      91      117      164      249      272       99 
+27.71140 23.74860 41.32016 20.97375 27.25534 35.43227 </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -710,8 +710,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston_tree_predictions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     323      222      124      223      306      297 
-25.59455 17.44578 17.44578 21.31429 21.04508 25.59455 </code></pre>
+<pre><code>      91      117      164      249      272       99 
+23.57113 20.51250 46.66842 23.57113 23.57113 38.06667 </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -744,16 +744,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Linear
-[1] 4.674404
+[1] 4.853481
 
 $Trees
-[1] 4.563906
+[1] 4.52335
 
 $Ensembles_Linear
-[1] 3.790946
+[1] 4.125516
 
 $Ensemble_Tree
-[1] 4.363811</code></pre>
+[1] 4.896247</code></pre>
 </div>
 </div>
 <p>The fact that our results are a bit different from our first ensemble is useful. This gives us another solid principle to use in our analysis methods:</p>
@@ -839,8 +839,8 @@ $Ensemble_Tree
 <span id="cb46-75"><a href="#cb46-75" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-76"><a href="#cb46-76" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Linear    Trees Ensembles_Linear Ensemble_Tree
-1 4.96297 4.911952         4.294945      5.258749</code></pre>
+<pre><code>    Linear    Trees Ensembles_Linear Ensemble_Tree
+1 4.861654 4.779094         4.302113      5.144296</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>() <span class="co"># No warnings!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -947,16 +947,16 @@ $Ensemble_Tree
 <span id="cb49-79"><a href="#cb49-79" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Linear
-[1] 4.801945
+[1] 4.876495
 
 $Trees
-[1] 4.626815
+[1] 4.657241
 
 $Ensembles_Linear
-[1] 3.991772
+[1] 4.069479
 
 $Ensemble_Tree
-[1] 4.988568</code></pre>
+[1] 5.007166</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">warnings</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>

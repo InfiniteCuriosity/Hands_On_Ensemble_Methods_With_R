@@ -19,7 +19,7 @@ Download the data set, and open it in your system. For example,
 
 ```{r Open the Pima Indians data set}
 
-diabetes <- read.csv('/Users/russconte/diabetes.csv')
+diabetes <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/diabetes.csv')
 head(diabetes)
 ```
 
@@ -103,7 +103,7 @@ glm_holdout_accuracy_mean <- mean(glm_test_accuracy)
 
 glm_roc_obj <- pROC::roc(as.numeric(c(test$y)), c(glm_test_pred))
 glm_auc <- round((pROC::auc(c(test$y), as.numeric(c(glm_test_pred)) - 1)), 4)
-print(pROC::ggroc(glm_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(glm_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Generalized Linear Models ", "(AUC = ", glm_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -188,7 +188,7 @@ adaboost_test_accuracy_mean <- mean(adaboost_test_accuracy)
 
 adaboost_roc_obj <- pROC::roc(as.numeric(c(test$y)), c(adaboost_test_pred))
 adaboost_auc <- round((pROC::auc(c(test$y), as.numeric(c(adaboost_test_pred)) - 1)), 4)
-print(pROC::ggroc(adaboost_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(adaboost_roc_obj, color = "steelblue", linewidth = 2) +
             ggplot2::ggtitle(paste0("ADAboost Models ", "(AUC = ", adaboost_auc, ")")) +
             ggplot2::labs(x = "Specificity", y = "Sensitivity") +
             ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -265,7 +265,7 @@ bayesglm_test_accuracy_mean <- mean(bayesglm_test_accuracy)
 
 bayesglm_roc_obj <- pROC::roc(as.numeric(c(test$y)), c(bayesglm_test_pred))
 bayesglm_auc <- round((pROC::auc(c(test$y), as.numeric(c(bayesglm_test_pred)) - 1)), 4)
-print(pROC::ggroc(bayesglm_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(bayesglm_roc_obj, color = "steelblue", linewidth = 2) +
             ggplot2::ggtitle(paste0("Bayesglm Models ", "(AUC = ", bayesglm_auc, ")")) +
             ggplot2::labs(x = "Specificity", y = "Sensitivity") +
             ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -340,7 +340,7 @@ C50_test_accuracy_mean <- mean(C50_test_accuracy)
 
 C50_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(C50_test_predictions)))
 C50_auc <- round((pROC::auc(c(test$y), as.numeric(c(C50_test_predictions)) - 1)), 4)
-print(pROC::ggroc(C50_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(C50_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("C50 ROC curve ", "(AUC = ", C50_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -414,7 +414,7 @@ cubist_test_accuracy_mean <- mean(cubist_test_accuracy)
 
 cubist_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(cubist_test_pred)))
 cubist_auc <- round((pROC::auc(c(test$y), as.numeric(c(cubist_test_pred)) - 1)), 4)
-print(pROC::ggroc(cubist_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(cubist_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Cubist ROC curve ", "(AUC = ", cubist_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -489,7 +489,7 @@ gb_test_accuracy_mean <- mean(gb_test_accuracy)
 
 gb_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(gb_test_pred)))
 gb_auc <- round((pROC::auc(c(test$y), as.numeric(c(gb_test_pred)) - 1)), 4)
-print(pROC::ggroc(gb_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(gb_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Gradient Boosted ROC curve ", "(AUC = ", gb_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -564,7 +564,7 @@ rf_test_accuracy_mean <- mean(rf_test_accuracy)
 
 rf_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(rf_test_probabilities)))
 rf_auc <- round((pROC::auc(c(test$y), as.numeric(c(rf_test_probabilities)) - 1)), 4)
-print(pROC::ggroc(rf_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(rf_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Random Forest ", "(AUC = ", rf_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -637,7 +637,7 @@ svm_test_accuracy_mean <- mean(svm_test_accuracy)
 
 svm_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(svm_test_pred)))
 svm_auc <- round((pROC::auc(c(test$y), as.numeric(c(svm_test_pred)) - 1)), 4)
-print(pROC::ggroc(svm_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(svm_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Random Forest ", "(AUC = ", svm_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -711,7 +711,7 @@ xgb_test <- xgboost::xgb.DMatrix(data = test_x, label = test_y)
 watchlist <- list(train = xgb_train)
 watchlist_test <- list(train = xgb_train, test = xgb_test)
 
-xgb_model <- xgboost::xgb.train(data = xgb_train, max.depth = 3, watchlist = watchlist_test, nrounds = 70)
+xgb_model <- xgboost::xgb.train(data = xgb_train, evals = watchlist, nrounds = 70)
     
 xgb_min <- which.min(xgb_model$evaluation_log$validation_rmse)
     
@@ -729,7 +729,7 @@ xgb_test_accuracy_mean <- mean(xgb_test_accuracy)
 
 xgb_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(xgb_test_pred)))
 xgb_auc <- round((pROC::auc(c(test$y), as.numeric(c(xgb_test_pred)) - 1)), 4)
-print(pROC::ggroc(xgb_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(xgb_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("XGBoost ", "(AUC = ", xgb_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")

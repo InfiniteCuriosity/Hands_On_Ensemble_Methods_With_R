@@ -34,16 +34,14 @@ Here's an image of Lebron in play.
 There is a LOT of data in sports and HR analytics (which are extremely similar in some ways). A lot of the data is set up as logistic data. For example, here is a data set of the performance of Lebron James. The main column of interest is "result", which is either 1 or 0. Thus it perfectly fits our requirements for logistic analysis.
 
 ```{r Head of the data about Lebron James performance on the court}
-
-library(Ensembles)
+lebron <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/Lebron.csv')
 head(lebron, n = 20)
 ```
 
 Let's look at the structure of the data:
 
 ```{r Look at the structure of the data about Lebron}
-lebron <- Ensembles::lebron
-str(Ensembles::lebron)
+str(lebron)
 ```
 
 We see that all of these are numbers. It might be easier if "qtr" and "opponent" were changed to factors, so we'll do that first.
@@ -81,8 +79,7 @@ We will also show the ROC curves for each of the results, and save all the train
 ```{r Logistic ensemble}
 
 # Load libraries - note these will work with individual and ensemble models
-library(arm) # to use with BayesGLM
-library(C50) # To use with C50
+library(arm) # to use with Baylibrary(C50) # To use with C50
 library(Cubist) # To use with Cubist modeling
 library(MachineShop)# To use with ADABoost
 library(randomForest) # Random Forest models
@@ -197,7 +194,7 @@ adaboost_test_accuracy_mean <- mean(adaboost_test_accuracy)
 
 adaboost_roc_obj <- pROC::roc(as.numeric(c(test$y)), c(adaboost_test_pred))
 adaboost_auc <- round((pROC::auc(c(test$y), as.numeric(c(adaboost_test_pred)) - 1)), 4)
-print(pROC::ggroc(adaboost_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(adaboost_roc_obj, color = "steelblue", linewidth = 2) +
             ggplot2::ggtitle(paste0("ADAboost Models ", "(AUC = ", adaboost_auc, ")")) +
             ggplot2::labs(x = "Specificity", y = "Sensitivity") +
             ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -222,7 +219,7 @@ bayesglm_test_accuracy_mean <- mean(bayesglm_test_accuracy)
 
 bayesglm_roc_obj <- pROC::roc(as.numeric(c(test$y)), c(bayesglm_test_pred))
 bayesglm_auc <- round((pROC::auc(c(test$y), as.numeric(c(bayesglm_test_pred)) - 1)), 4)
-print(pROC::ggroc(bayesglm_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(bayesglm_roc_obj, color = "steelblue", linewidth = 2) +
             ggplot2::ggtitle(paste0("Bayesglm Models ", "(AUC = ", bayesglm_auc, ")")) +
             ggplot2::labs(x = "Specificity", y = "Sensitivity") +
             ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -246,7 +243,7 @@ C50_test_accuracy_mean <- mean(C50_test_accuracy)
 
 C50_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(C50_test_predictions)))
 C50_auc <- round((pROC::auc(c(test$y), as.numeric(c(C50_test_predictions)) - 1)), 4)
-print(pROC::ggroc(C50_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(C50_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("C50 ROC curve ", "(AUC = ", C50_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -268,7 +265,7 @@ cubist_test_accuracy_mean <- mean(cubist_test_accuracy)
 
 cubist_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(cubist_test_pred)))
 cubist_auc <- round((pROC::auc(c(test$y), as.numeric(c(cubist_test_pred)) - 1)), 4)
-print(pROC::ggroc(cubist_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(cubist_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Cubist ROC curve ", "(AUC = ", cubist_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -291,7 +288,7 @@ rf_test_accuracy_mean <- mean(rf_test_accuracy)
 
 rf_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(rf_test_probabilities)))
 rf_auc <- round((pROC::auc(c(test$y), as.numeric(c(rf_test_probabilities)) - 1)), 4)
-print(pROC::ggroc(rf_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(rf_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Random Forest ", "(AUC = ", rf_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -331,7 +328,7 @@ xgb_test_accuracy_mean <- mean(xgb_test_accuracy)
 
 xgb_roc_obj <- pROC::roc(as.numeric(c(test$y)), as.numeric(c(xgb_test_pred)))
 xgb_auc <- round((pROC::auc(c(test$y), as.numeric(c(xgb_test_pred)) - 1)), 4)
-print(pROC::ggroc(xgb_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(xgb_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("XGBoost ", "(AUC = ", xgb_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -374,7 +371,7 @@ ensemble_adaboost_holdout_accuracy_mean <- mean(ensemble_adaboost_test_accuracy)
     
 ensemble_adaboost_roc_obj <- pROC::roc(as.numeric(c(ensemble_test$y)), as.numeric(c(ensemble_adaboost_test_pred)))
 ensemble_adaboost_auc <- round((pROC::auc(c(ensemble_test$y), as.numeric(c(ensemble_adaboost_test_pred)) - 1)), 4)
-print(pROC::ggroc(ensemble_adaboost_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(ensemble_adaboost_roc_obj, color = "steelblue", linewidth = 2) +
             ggplot2::ggtitle(paste0("Ensemble Adaboostoost ", "(AUC = ", ensemble_adaboost_auc, ")")) +
             ggplot2::labs(x = "Specificity", y = "Sensitivity") +
             ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -398,7 +395,7 @@ ensemble_C50_test_accuracy_mean <- mean(ensemble_C50_test_accuracy)
 
 ensemble_C50_roc_obj <- pROC::roc(as.numeric(c(ensemble_test$y)), as.numeric(c(ensemble_C50_test_pred[, 2])))
 ensemble_C50_auc <- round((pROC::auc(c(ensemble_test$y), as.numeric(c(ensemble_C50_test_pred[, 2])) - 1)), 4)
-print(pROC::ggroc(ensemble_C50_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(ensemble_C50_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Ensemble_C50 ", "(AUC = ", ensemble_C50_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -422,7 +419,7 @@ ensemble_rf_test_accuracy_mean <- mean(ensemble_rf_test_accuracy)
 
 ensemble_rf_roc_obj <- pROC::roc(as.numeric(c(ensemble_test$y)), as.numeric(c(ensemble_rf_test_predictions)))
 ensemble_rf_auc <- round((pROC::auc(c(ensemble_test$y), as.numeric(c(ensemble_rf_test_predictions)) - 1)), 4)
-print(pROC::ggroc(ensemble_rf_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(ensemble_rf_roc_obj, color = "steelblue", linewidth = 2) +
         ggplot2::ggtitle(paste0("Ensemble_rf ", "(AUC = ", ensemble_rf_auc, ")")) +
         ggplot2::labs(x = "Specificity", y = "Sensitivity") +
         ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
@@ -463,7 +460,7 @@ ensemble_xgb_test_accuracy_mean <- mean(ensemble_xgb_test_accuracy)
 
 ensemble_xgb_roc_obj <- pROC::roc(as.numeric(c(ensemble_test$y)), as.numeric(c(ensemble_xgb_test_pred)))
 ensemble_xgb_auc <- round((pROC::auc(c(ensemble_test$y), as.numeric(c(ensemble_xgb_test_pred)) - 1)), 4)
-print(pROC::ggroc(ensemble_xgb_roc_obj, color = "steelblue", size = 2) +
+print(pROC::ggroc(ensemble_xgb_roc_obj, color = "steelblue", linewidth = 2) +
   ggplot2::ggtitle(paste0("Ensemble XGBoost ", "(AUC = ", ensemble_xgb_auc, ")")) +
   ggplot2::labs(x = "Specificity", y = "Sensitivity") +
   ggplot2::annotate("segment", x = 1, xend = 0, y = 0, yend = 1, color = "grey")
