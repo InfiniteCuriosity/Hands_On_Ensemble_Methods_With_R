@@ -854,136 +854,60 @@ ggplot(bayesrnn_residuals, aes(x = residuals)) +
 
 <h4>Lab 1: Introduction to individual numeric models</h4>
 
-Let's start with a data set that only has numeric values, the famous Strength of Concrete (sometimes called Concrete Compressive Strength) data set. The full data set may be found at either:
+1.  Do an analysis of the New Boston Housing data set. The data is posted on the book's github site, and can be found here:
 
-<https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength>
+    <https://raw.githubusercontent.com/InfiniteCuriosity/Hands_On_Ensemble_Methods_With_R/refs/heads/main/Data/New_Boston_Housing.csv>
 
-Or I cleaned it up and posted it online:
+    Note the new data has strings (names) in the data, and the medv column has been moved. It is the 5th column in the New_Boston_Housing.csv data set. Also, the New_Boston_Housing data set includes corrected values for medv, the sixth column is named CMEDV, so that is the target column. You may drop the medv column from New_Boston_Housing.csv, as it has been corrected.
 
-```{r Lab: Basic numeric models}
-df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/Concrete_Data.csv')
+2.  Here is how to get started with New_Boston_Housing.csv:
 
-head(df) # get a look at the data set
+    ```{r Importing New_Boston_Housing.csv}
 
-str(df)
+    df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/Hands_On_Ensemble_Methods_With_R/refs/heads/main/Data/New_Boston_Housing.csv')
+    df <- df[, -c(5)] # drops the 5th column, medv, because it has incorrect data
+    head(df)
+    str(df)
+    ```
+
+Practice building statistical models for the CMEDV column. Find the model with the lowest root mean squared error, and compare your results with the results for the original Boston Housing data set.
+
+Include at least one new model in your analysis. Here are five possible choices (and there are many more options available):
+
+```{r More models to test for the New_Boston_Housing data set}
+
+install.packages('arm', repos = "http://cran.us.r-project.org") # for the Bayesglm package
+
+install.packages('earth', repos = "http://cran.us.r-project.org") # Installs the earth package
+
+install.packages('nnet', repos = "http://cran.us.r-project.org") # Installs the neuralnet package
+
+install.packages('rpart', repos = "http://cran.us.r-project.org") # Installs the rpart package
+
+install.packages('e1071', repos = "http://cran.us.r-project.org") # Installs the e1071 package, has several modeling methods available
 ```
 
-The data set has a total of nine numeric features, eight predictors, and Concrete Compressive Strength.
+```{r Modeling methods with the new packages}
 
-We will follow the same sequence we used in this chapter:
+bayesglm_train_fit <- arm::bayesglm(y ~ ., data = train, family = gaussian(link = "identity"))
 
-<h4>Set the data set up so it is easy to use (rename the target column as 'y')</h4>
+earth_train_fit <- earth::earth(x = train[, 1:ncol(train) - 1], y = train$y)
 
-We will change the 'Strength' variable to 'y', that way we can use the same methods we used previously.
+neuralnet_train_fit <- nnet::nnet(train$y ~ ., data = train, size = 0, linout = TRUE, skip = TRUE)
 
-```{r Rename final column to y}
+rpart_train_fit <- rpart::rpart(train$y ~ ., data = train)
 
-colnames(df)[9] <- 'y'
-
-head(df) # Check, this worked fine
+svm_train_fit <- e1071::tune.svm(x = train, y = train$y, data = train)
 ```
 
-<h4>Exploratory data analysis</h4>
+The original article was published in 1978 was focused on the pollution in the area. The pollution is measured in the NOX feature, the tenth column. Build statistical models to measure NOX. Resample 25 times, and report the root mean squared error for each of the models.
 
-```{r Histograms of the numeric values for strength of concrete}
-library(tidyverse)
-df1 <- df %>% purrr::keep(is.numeric)
- ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
-  ggplot2::geom_histogram(bins = round(nrow(df1))) +
-  ggplot2::facet_wrap(. ~ cols, scales = "free") +
-  ggplot2::labs(title = "Histograms of each numeric column.")
-```
+Produce diagnostic plots for each of the models: Predicted vs actual, histogram of residuals, histograms, and Q-Q plot.
 
-```{r Predictors vs target for strength of concrete}
+#### Help for you building these models:
 
-df %>%
-  tidyr::gather(-y, key = "var", value = "value") %>%
-  ggplot2::ggplot(aes(x = value, y = y)) +
-  ggplot2::geom_point() +
-  ggplot2::facet_wrap(~ var, scales = "free") +
-  ggplot2::theme_bw()+
-  ggplot2::labs(title = "y (predictor variable) vs target variables")
-```
+Look in the Appendix in this book. There are completed examples of reports written in Quarto that show the entire process with the New_Boston_Housing data set, Wine Quality Color, AutoMPG (miles per gallon), and Facebook Metrics.
 
-<h4>Building models</h4>
+**Post on social media**
 
-```{r building models for the strength of concrete data set}
-
-bagging_predicted <- 0
-bagging_rmse <- 0
-bayesRNN_rmse <- 0
-earth_rmse <- 0
-linear_rmse <- 0
-randForest_rmse <- 0
-svm_rmse <- 0
-tree_rmse <- 0
-
-for (i in 1:5) {
-  sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
-train  <- df[sample, ]
-test   <- df[!sample, ]
-
-bagging <- ipred::bagging(y ~ ., data = train)
-bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
-earth <- earth::earth(y ~ ., data = train)
-linear <- lm(y ~ ., data = train)
-randForest <- e1071::tune.randomForest(y ~ ., data = train)
-svm <- e1071::tune.svm(y ~ ., data = train)
-tree <- tree::tree(y ~ ., data = train)
-
-bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
-bagging_predicted[i] <- predict(object = bagging, newdata = test)
-
-bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
-earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
-linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
-randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
-svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
-tree_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
-
-results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
-results <- results %>% arrange(RMSE)
-}
-results
-```
-
-```{r Summary plots for Strength of Concrete}
-
-bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
-ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Bagging predicted vs actual', x = 'Actual', y = 'Predicted')
-
-bayesrnn_plot <- data.frame(x = predict(object = bayesRNN, newdata = test), y = test$y)
-ggplot(bayesrnn_plot, mapping = aes(x = x, y = y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Bayesrnn predicted vs actual', x = 'Actual', y = 'Predicted')
-
-earth_plot <- data.frame(x = predict(object = earth, newdata = test), y = test$y)
-ggplot(earth_plot, mapping = aes(x = predict(object = earth, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Earth predicted vs actual', x = 'Actual', y = 'Predicted')
-
-linear_plot <- data.frame(x = predict(object = linear, newdata = test), y = test$y)
-ggplot(linear_plot, mapping = aes(x = predict(object = linear, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
-
-randForest_plot <- data.frame(x = predict(object = randForest$best.model, newdata = test), y = test$y)
-ggplot(randForest_plot, mapping = aes(x = predict(object = randForest$best.model, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Random Forest predicted vs actual', x = 'Actual', y = 'Predicted')
-
-svm_plot <- data.frame(x = predict(object = svm$best.model, newdata = test), y = test$y)
-ggplot(randForest_plot, mapping = aes(x = predict(object = svm$best.model, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Support Vector Machines predicted vs actual', x = 'Actual', y = 'Predicted')
-
-tree_plot <- data.frame(x = predict(object = tree, newdata = test), y = test$y)
-ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
-
-```
-
-<h4>Summary report and recommendations</h4>
+You may use any social media you prefer, such as TikTok, YouTube, BlueSky, Instagram, or any other social media platform of your choice. Post on social media about your work in this chapter. Use at least three hashtags, and tag at least two other people in your post.
