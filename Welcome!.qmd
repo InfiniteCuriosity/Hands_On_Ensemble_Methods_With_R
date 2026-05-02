@@ -1,12 +1,50 @@
-# Introduction
+# Introduction: Improving How You Think
 
 Welcome to Hands On Ensemble Methods With R! I hope you find this to be a very rewarding book. This has been a pure delight and joy to work on and create, and I hope that sense is communicated to you!
 
 ::: {.callout-note appearance="minimal"}
-The purpose of this chapter is to give you an overview of the book, so you are well prepared to get the most from the contents.
+What if I told you that you can get much better results by improving the way you think, and that improving how you think is much more effective than adding new tools to your analysis process?
 :::
 
-The book is in two sections: Building ensembles of models (chapters 1 - 8), and working in the industry (chapters 9 - 15).
+The goal of this book is to give you new eyes to see, and the tools are only a means to that end. My goal is that seeing with much greater clarity will give results that are more reproducible, faster to process, amd contain fewer (if any) errors.
+
+In this book you will produce results that beat ten years of Kaggle data science competition winners for the Boston Housing data set (chapter 5), forecast winning times for marathons more accurately than any other source (chapter 11), use classification methods to diagnose diseases in a way that is totally non-invasive (chapter 7), and much more.
+
+The book is in two sections: Building ensembles of models (chapters 1 - 8), and working in the industry (chapters 9 - 15). But first, three big secrets about getting the best results from your data:
+
+<h2>Secret #1: Start at the end and work backwards</h2>
+
+> "Once you nail down where you need to go, your brain's natural powers will take over and create a plan to get there." @fletcher2015
+
+Once we have a data set, the first question that will help us improve the accuracy of our thinking is to ask what type of result we are looking for. We will be asking "What is our end goal?", and testing our answer multiple times. There are only a few types of data that cover a majority of data sets:
+
+-   Numeric data (such as housing prices)
+
+-   Classification data (such as medical diagnoses)
+
+-   Logistic data (such as probability of customer turnover)
+
+-   Time series data (such as sales forecasts)
+
+-   Clustering data (need example)
+
+-   Survival data, such as calculating life expectancy given a diagnosis and medical history
+
+> <b>Focus on a single outcome:</b> People are often surprised to learn that limiting your choices greatly increases your options, but the evidence and lots of research shows this claim to be true in a very wide range of situations.
+
+Jony Ive, the head of Design at Apple during the last part of Steve Jobs's tenure, said about him:
+
+> “This sounds really simplistic, but it shocks me how few people actually practice this – and it’s a struggle to practice. Steve was the most remarkably focused person I've ever met in my life. This thing with focus is it's not this thing you aspire to or you decided to do on Monday, 'You know what, I'm going to be focused', it is every minute, 'Why are we talking about this? This (points in a different direction) is what we're talking about. <b>You can achieve so much when you truly focus.</b> @ive2025
+
+I've observed many people (and groups, teams, companies) whose attention is spread on a very wide range of issues when they solve problems: The size of the data set, the type of data, the history of the data, what other people have done, and much more. But my prediction is you will get results that are faster, more accurate, and more reproducible when you focus on a single outcome and not have your attention spread in different directions.
+
+We are going to focus 100% on being focused. The decision to focus will do more to improve your results than any tools you can ever find.
+
+<h2>Secret #2: Focus, focus, focus. Always keep your eye on the goal</h2>
+
+It's a very fair question to ask which goal will get the most valuable results. My decades of experience have shown that solving real issues with real customers is the most important issue to focus on, bar none.
+
+<h2>Secret #3: Re-use solutions that work as much as possible.</h2>
 
 <h2>Part 1: Building ensembles of models</h2>
 
@@ -155,3 +193,7 @@ The more accurately you understand the customer's needs, the less time you'll ne
 <h2>Quick wrap-up</h2>
 
 The book has two sections: Building models and working in the industry. The goal for both sections is to provide the best skills in modeling and working in the industry.
+
+Footnotes:
+
+\[\^1\]: <https://shop.thegreatcourses.com/screenwriting-101-mastering-the-art-of-story>

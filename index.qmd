@@ -69,7 +69,7 @@ I was talking with a friend of mine who is not a math person, he's a 911 Operato
 I used time series (which we will cover in chapters 10 and 11) to predict the winning times in the men's and women's 2024 London marathon. The day before the marathon I posted my predictions on YouTube, and then waited for the results. I was willing to call the predictions good if they were ±30 seconds on a 2 hour race. Here are my posted predictions vs the actual results:
 
 | 2024 London Marathon Winning Times Prediction by Russ Conte | Men (Predicted) | Men (Actual) | Women (Predicted) | Women (Actual) |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 |  | 2:03:21 - 2:04:21 | 2:04:01 | 2:17:51 - 2:18:51 | 2:16:16 |
 
 The men's winning time is 100% in the predicted range, but the women completed the London Marathon faster than my prediction for them. You can see my predictions the day before (<https://www.youtube.com/shorts/7rQSLCe8bYA>) and after the results were announced (<https://www.youtube.com/shorts/ZXGR_PpMIdU>).

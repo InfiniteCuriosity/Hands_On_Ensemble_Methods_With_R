@@ -3,11 +3,11 @@ title: "Numeric Data - How To Build 8 Individual Models.qmd"
 format: html
 ---
 
-# How to build numeric models that beat Kaggle data science competition winners
+## How to build numeric models that beat Kaggle data science winners
 
-Welcome to the chapter on building individual numeric models. This is the first of two chapters to analyze numeric data, the second (next) chapter will build on the foundation of this chapter and show how to build ensembles of numeric models. In many ways, this is an excellent place to start. Everyone is familiar with numeric data, and this pair of chapters will show you how to get the most accurate results from virtually any numeric data set.
+Welcome to the chapter on building individual numeric models. This is the first of two parts to analyze numeric data, the second (next) chapter will build on the foundation of this chapter and show how to build ensembles of numeric models. In many ways, this is an excellent place to start. Everyone is familiar with numeric data, and this pair of chapters will show you how to get the most accurate results from virtually any numeric data set.
 
-Once you are comfortable analyzing numeric data, you will be able to work with data that predicts all of these types of results and many more:
+Once you are comfortable, analyzing numeric data, you will be able to work with data that predicts all of these types of results and many more:
 
 -   Sale price of houses
 
@@ -25,9 +25,7 @@ Once you are comfortable analyzing numeric data, you will be able to work with d
 
 -   Soybean yield
 
-Many other types of data will also work with the methods to solve numeric data sets we will learn in these two chapters. You will be equipped to do an enormous amount of good with the skills you learn in these two chapters analyzing numeric data sets. This promises to be a lot of fun and very practical, so let's get started!
-
-------------------------------------------------------------------------
+Many other types of data will also work with the methods we will learn in these two chapters. You will be equipped to do an enormous amount of good with the skills you learn in these two chapters analyzing numeric data sets. This promises to be a lot of fun and very practical, so let's get started!
 
 ## Summary of what is coming
 
@@ -55,15 +53,13 @@ This chapter will show how to build individual numeric models of housing prices,
 
 -   Actual code you may use or adapt for your own projects and keep in your code library for future use
 
-------------------------------------------------------------------------
-
 ## A Kaggle data science competition to use as a baseline for the first example
 
 Our very first example is one I am looking forward to sharing with you, but not for all the reasons you might expect. We will be looking at the famous Boston housing data set. The data set was originally created in 1970 and used in an article published in 1978. Compared to almost anything else you will ever work with in your entire career, this data is ancient!
 
-One huge advantage of using the Boston Housing data set is that it has been used by a large number of previous investigators, so it serves as a benchmark for the accuracy of algorithms.
+A huge advantage of using the Boston Housing data set is that it has been used by a large number of previous investigators, so it serves as a benchmark for the accuracy of algorithms.
 
-The data also has a substantial number of problems which we are going to work to identify, and that's one of the reasons I'm interested in sharing it with you. The data set has been criticized, correctly, for several issues. As we build our library of solutions, we want to test if these issues show up. Assuming they show up for the Boston housing data set (and the issues will show up!), it is a reasonable conclusion that similar issues will also show up for other data sets, and in my experience, this is very true.
+The data also has a substantial number of problems which we are going to work to identify, and that's why I'm interested in sharing it with you. The data set has been criticized, correctly, for several issues. As we build our library of solutions, we want to test if these issues show up. Assuming they show up for the Boston housing data set (and the issues will show up!), it is a reasonable conclusion that similar issues will also show up for other data sets, and in my experience, this is very true.
 
 **Better than AI Solution:** Every AI system is trained on lots of data, and designed to predict the most likely outcome. Our solutions will return great results (of course), but we will use human intelligence to see things no AI system is going to return to you. One of those will be training you to use your judgement when there are problems in the data. The problems can be how the data was recorded, poor ethical choices by prior researchers, clear examples of discrimination, and much more.
 
@@ -87,21 +83,22 @@ Jacob Collier, <https://youtube.com/shorts/QnGXDfi_itI?si=NM2ispZEpwcUuNUX>
 — Joy Buolamwini (Computer Scientist & Digital Activist), *Unmasking AI: My Mission to Protect What Is Human in a World of Machines*, 2023, p. xix
 :::
 
-------------------------------------------------------------------------
-
 **First** Let's start by becoming familiar with the Boston housing data set.
 
-You may either download the data from the Kaggle.com website, or load it from the MASS package. To get the Boston Housing data set fro the MASS package, and look at the first ten rows:
+You may either download the data from the Kaggle.com website. Here are the first ten rows of the data (total of 506 rows in the original data):
 
-```{r Get the Boston Housing data set from the MASS package}
-
-df <- MASS::Boston
-head(df, n = 10)
-```
+|    crim |   zn | indus | chas |    nox |    rm |  age |    dis | rad | tax | ptratio |  black | lstat | medv |
+|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|----:|
+| 0.00632 | 18.0 |  2.31 |    0 | 0.5380 | 6.575 | 65.2 | 4.0900 |   1 | 296 |    15.3 | 396.90 |  4.98 | 24.0 |
+| 0.02731 |  0.0 |  7.07 |    0 | 0.4690 | 6.421 | 78.9 | 4.9671 |   2 | 242 |    17.8 | 396.90 |  9.14 | 21.6 |
+| 0.02729 |  0.0 |  7.07 |    0 | 0.4690 | 7.185 | 61.1 | 4.9671 |   2 | 242 |    17.8 | 392.83 |  4.03 | 34.7 |
+| 0.03237 |  0.0 |  2.18 |    0 | 0.4580 | 6.998 | 45.8 | 6.0622 |   3 | 222 |    18.7 | 394.63 |  2.94 | 33.4 |
+| 0.06905 |  0.0 |  2.18 |    0 | 0.4580 | 7.147 | 54.2 | 6.0622 |   3 | 222 |    18.7 | 396.90 |  5.33 | 36.2 |
+| 0.02985 |  0.0 |  2.18 |    0 | 0.4580 | 6.430 | 58.7 | 6.0622 |   3 | 222 |    18.7 | 394.12 |  5.21 | 28.7 |
+| 0.08829 | 12.5 |  7.87 |    0 | 0.5240 | 6.012 | 66.6 | 5.5605 |   5 | 311 |    15.2 | 395.60 | 12.43 | 22.9 |
+| 0.14455 | 12.5 |  7.87 |    0 | 0.5240 | 6.172 | 96.1 | 5.9505 |   5 | 311 |    15.2 | 396.90 | 19.15 | 27.1 |
 
 **Data dictionary**:
-
-This will look at each feature and provide the information from the original article:
 
 CRIM per capita crime rate by town
 
@@ -169,71 +166,13 @@ Another advantage you have over AI is humans want to compare and compete. An AI 
 This is a very good practice: In addition to looking for the results from other investigators, search for corrections to the original data.
 :::
 
-------------------------------------------------------------------------
-
 **Data summary: Visual**
-
-It is always possible to look at data in multiple ways. For our example, we will look at the Boston Housing data set in a visual way. Here is a code chunk that provides boxplots for all the numeric values in a data set:
-
-#### Boxplots:
-
-```{r Boston Housing boxplots of the numeric data}
-
-library(tidyverse)
-df %>%
-  tidyr::gather(key = "var", value = "value") %>%
-  ggplot2::ggplot(aes(x = "", y = value)) +
-  ggplot2::geom_boxplot(outlier.colour = "red", outlier.shape = 1) +
-  ggplot2::facet_wrap(~var, scales = "free") +
-  ggplot2::labs(title = "Boxplots of the numeric data")
-```
-
-We can see a lot from the box plots. A few examples:
-
-• Several of the features have a large inter-quartile range, including age, tax, and rad.
-
-• Several of the features have a very small inter-quartile range, including black, chas and crim.
-
-•Several of the features have a large number of outliers, such as black, crim, lstat, medv. rm and zn.
-
-• Several of the features have few (if any) outliers, such as age, indus, nox, rad and tax.
-
-#### Histograms
-
-```{r Histograms of each numeric column}
-
-ggplot2::ggplot(tidyr::gather(df, cols, value), aes(x = value)) +
-  ggplot2::geom_histogram(bins = round(nrow(df))) +
-  ggplot2::facet_wrap(. ~ cols, scales = "free") +
-  ggplot2::labs(title = "Histograms of each numeric column.")
-```
-
-The histograms tell us a lot of information about the data. For example, if we look at the histogram for medv, we can see the house values are truncated at \$50.00, and there are far more of those than any other value in the histogram.
-
-#### Target variable vs each of the features
-
-```{r Scatterlots of target vs each feature}
-
-df %>%
-  tidyr::gather(-medv, key = "var", value = "value") %>%
-  ggplot2::ggplot(aes(x = value, y = medv)) +
-  ggplot2::geom_point() +
-  ggplot2::facet_wrap(~ var, scales = "free") +
-  ggplot2::theme_bw()+
-  ggplot2::labs(title = "y (predictor variable) vs target variables")
-```
-
-This set of plots gives us an excellent summary of the data. It plots the target value (medv) against each of the features, in alphabetical order. The x-axis is the range for each feature (such as age or tax) and the y-values are medv.
-
-We can see (again) the medv values are truncated at 50, as the top value on each of the scatterplots.
-
-------------------------------------------------------------------------
 
 **The goal** in this case is to model the last column, medv, or the median value of the property, measured in thousands of dollars. For example, if a property has an MEDV value of 28.7, that property is valued at \$28,700.
 
-Another issue that will help you become a better data scientist is to recognize the accuracy of labels of columns. In this particular example, our goal is to model medv. That column is listed as the median value of the house price, but that is wrong. It is not the median value of the house price, medv IS the value of the house price.
+Another issue that will help you become a better data scientist is to recognize the accuracy of labels of columns. In this particular example, our goal is to model medv. That column is listed as the medium value of the house price, but that is wrong. It is not the median value of the house price, medv IS the value of the house price.
 
-A very good opportunity with the Boston housing data set is that it has been used many times in Kaggle data science competitions. Therefore, we will have a great opportunity to compare our results to the results of several other data science competitions. You will see in a moment how to find even more results if you wish, but the results you will see from other Kaggle data science competitions on the status that are very typical.
+A very good opportunity with the Boston housing data set is that it has been used many times in Kaggle data science competitions. Therefore, we will have a great opportunity to compare our results to the results of several other data science competitions. You will see in a moment how to find even more results if you wish, but the results you will see from other Cagle data science competitions on the status that are very typical.
 
 We will start with a typical Kaggle data science competition. \[\^Kaggle1\] This competition has:
 
@@ -275,11 +214,9 @@ head(df, n= 10)
 
 We can see ten columns, and all of the columns are numeric. Later on we will work with data sets where some columns are not numeric.
 
-## How to set up the data set so the analysis is much easier to perform in the future
+## How to set up the data set so the analysis is much easier to perform
 
-We're going to start at the end and work backwards here. The target column in this data set is medv. However, the name of the target column for other data sets will be different. We are going to take steps to set up all our data set in a similar way. This will make it much easier to work with a very wide range of data sets.
-
-You might have noticed we had to include 'medv' in our previous visualizations. Feel free to re-read the code examples if there are any questions about the name of the target variable. We can eliminate that step moving forward by always changing the name of the target to 'y' as soon as possible, in every data set we use.
+We're going to start at the end and work backwards here. The target column here is medv. However, the name of the target column for other data sets will be different. We are going to take steps to standardize the data set. This will make it much easier to work with a very wide range of data sets.
 
 > We can save an enormous amount of time by standardizing the data set when we read it in.
 
@@ -324,7 +261,7 @@ row.names(df)
 str(row.names(df))
 ```
 
-You do not need to do anything in this case with the row names, but you might need to do that in the future with other data sets.
+You do not need to do anything in this case with the role names, but you might need to do that in the future, in this method of identifying the role names is extremely useful.
 
 As another quick example of row names. The first column in the mtcars data set is not a normal column, so it cannot be called by the normal method, such as mtcars\$mpg. The very first column of mtcars can be retrieved the same way we just retrieved the road names for the Boston housing data set, by using the row.names function:
 
@@ -337,9 +274,9 @@ row.names(mtcars)
 
 We'll use 60% train and 40% test, but those numbers are not set in stone. You may use values that work best for you.
 
-We will start with the entire randomized data set. We will set the first 60% of the rows as the training set, and the remaining 40% as the test set.
+We will start with the entire randomized data set. We will set the first 60% as the training set, and the remaining 40% as the test set.
 
-We will be fitting our models on the training set, and making predictions on the test (holdout) set in the next section of this chapter. We will also take a quick look at the train and test sets.
+We will be building our models on the training set, and making predictions on the test (holdout) set in the next section. We will also take a quick look at the train and test sets.
 
 The sample function can improve the results you achieve. This will randomly split the data into a number of groups. We will split the data into a train set (60% of the data) and a test set (40% of the data).
 
@@ -363,15 +300,11 @@ Our target column is the right-most column
 
 Looks good so far, everything passed the tests up to this point.
 
-> I suggest saving everything up to this point in your data science library, you will be using it often in your career!
+> I suggest saving everything up to this point in your data science library, you will be using it often!
 
-------------------------------------------------------------------------
+## How to set up optimized (tuned) formulas
 
-## The data is set up, let's start building models!
-
-#### How to set up optimized (tuned) formulas
-
-We are going to start with numeric eight modeling methods. Since our data is already set up to be easy to use, all our modeling methods will be virtually identical:
+We are going to start with eight modeling methods. Since our data is set up to be easy to use, all our modeling methods will be similar:
 
 model(y \~ ., data = train)
 
@@ -442,17 +375,17 @@ results <- results %>% arrange(RMSE)
 results
 ```
 
-These results look good! Our best result beat all the other results in our analysis by an enormous amount, and also beat all the 699 results from the Kaggle.com competition we looked at earlier in the chapter. It only took a few lines of code, and this is code you can re-use as often as you need, to analyze other numeric data sets.
+These results look good! Our best result beat all the other results by an enormous amount, and also beat all the best results from the Kaggle.com competition we looked at earlier in the chapter.
 
-> I very strongly recommend saving these code snippets in your personal code library, so you have easy access to them and can use them over and over when you are analyzing numeric data sets. They work with the Boston Housing data set, and will work with virtually any other tidy data set.
+> I very strongly recommend saving these code snippets in your code library, so you have easy access to them and can use them over and over when you are analyzing numeric data sets. They work with the Boston Housing data set, and will work with virtually any other tidy data set.
 
-As a teaser, when we start making ensembles of numeric data in the next chapter, our lowest root mean squared error we will beat our current best result by a very nice margin! We will see that in the next chapter.
+As a teaser, when we start making ensembles in the next chapter, our lowest root mean squared error we will beat that best result by a very nice margin! We will see that in the next chapter.
 
-> A very good way to improve your work and your code is to ask **'What is one thing I can do to improve the results?'** If you look for any way to improve your results, that will be too vague, and the human brain does not solve problems that way. If you ask, "What can I do?", again that is too vague. Give your brain a very specific goal, and it will work to solve it.
+> A very good way to improve your work and your code is to ask 'What is one thing I can do to improve the results?' If you look for any way to improve your results, that will be too vague, and the human brain does not solve problems that way. Give your brain a very specific goal, and it will work to solve it.
 
-One thing we can do to improve our results is to randomly resample the results multiple times. What we will do is randomize the data, run the analysis and take the mean of the results. That will be repeated 25 times, and the mean of those 25 resamples will be a more accurate representation of the data than doing it just once.
+One thing we can do to improve our results is to resample the results 25 times. What we will do is randomize the data, run the analysis and take the mean of the results. That will be repeated 25 times, and the mean of those 25 resamples will be a more accurate representation of the data than doing it just once.
 
-There is a fairly fast law of diminishing returns on resampling. I've tested and found that approximately 25 resamples gives results that are not significantly different than doing 100 or 1,000 resamples. I recommend always testing everything to be sure.
+There is a fairly fast law of diminishing returns on resampling. I've tested and found that approximately 25 resamples gives results that are not significantly different than doing 100 or 1,000 resamples. I recommend always checking to be sure.
 
 ## Now let's run the same code, but randomly resample it 25 times.
 
@@ -576,18 +509,6 @@ summary_results <-
 summary_results
 ```
 
-This is only a few lines of code, well organized, that are returning results which are much stronger than a typical analysis. This analysis includes:
-
--   A range of models
-
--   Random resampling
-
--   95% confidence intervals around the root mean squared error
-
-These steps produce results which predict in the real world with a higher degree of accuracy than an individual model run one time.
-
-------------------------------------------------------------------------
-
 ## How to set up summary plots
 
 ### Predicted vs actual
@@ -651,17 +572,9 @@ summary_table <- reactable::reactable(data = summary_table, sortable = TRUE, res
 summary_table
 ```
 
-------------------------------------------------------------------------
-
-Check your skills: We are going to repeat the analysis with a new data set, and use virtually everything we built to solve the Boston Housing data set.
-
-::: {.callout-note appearance="minimal"}
-The vast majority of what we need has already been built, tested, and verified to work for the Boston Housing data set. Now we are going to test the code with a totally new data set.
-:::
-
 ## Intermediate data set: Numeric data, exploratory data analysis, and strings
 
-Now we are going to add strings to our data set. The process will be extremely similar to what we just did with the Boston Housing data set. The new data set is a well known data set, commonly called the Insurance data set.
+Now we are going to add strings to our data set. The process will be extremely similar to what we just did with the Boston Housing data set.
 
 ```{r Add strings to our numeric models}
 df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/Insurance1.csv', stringsAsFactors = TRUE)
@@ -669,49 +582,37 @@ head(df)
 str(df)
 ```
 
-Now change the target column name to 'y':
-
-```{r For the Insurance data set, change the target column name to y and test}
-library(tidyverse)
-df <- df %>% relocate(charges, .after = last_col())
-df <- df %>% dplyr::rename(y = charges)
-head(df)
-```
-
 As we can see the Insurance data set has seven columns. Three of the columns are imported as factors: sex, smoker, and region. We are now able to use them directly when we make our models.
 
 <h4>Steps to building individual models in a consistent way:</h4>
 
-We are going to follow the same steps we used for the Boston Housing data set, except that several of the columns are factors in the Insurance data set.
+We are going to follow the same steps we used for the Boston Housing data set, except that several of the columns are factors.
 
-<h4>What does the customer actually want?</h4>
+<h4>
+
+1.  What does the really customer want?
+
+    </h4>
 
 This is an insurance data set, the customer wants to model the charges (the seventh column). Specifically, they want to model the charges in a way that minimizes the charges they will pay, and meet their business obligations.
 
 This is a very typical set of requirements from customers: Given the data from the customer, what is the best action the customer can take? Our modeling and recommendations will have a direct impact on their business decisions.
 
-<h4>Before we run any code, let's ALWAYS take a look at the data to see what it suggests</h4>
+<h4>
 
-In this section we are going to do an Exploratory Data Analysis of the Insurance data set. This was first published in 1961 by John Tukey. His definition states:
+2.  Before we run any code, let's ALWAYS take a look at the data to see what it suggests
+
+    </h4>
+
+In this section we are going to do an Exploratory Data Analysis. This was first published in 1961 by John Tukey. His definition states:
 
 > "Procedures for analyzing data, techniques for interpreting the results of such procedures, ways of planning the gathering of data to make its analysis easier, more precise or more accurate, and all the machinery and results of (mathematical) statistics which apply to analyzing data." (add source)
 
-```{r Boxplots of the numeric values in the Insurance data set}
+```{r Histograms of the insurance data set}
 
+library(tidyverse)
 df1 <- df %>% purrr::keep(is.numeric)
-library(tidyverse)
-df1 %>%
-  tidyr::gather(key = "var", value = "value") %>%
-  ggplot2::ggplot(aes(x = "", y = value)) +
-  ggplot2::geom_boxplot(outlier.colour = "red", outlier.shape = 1) +
-  ggplot2::facet_wrap(~var, scales = "free") +
-  ggplot2::labs(title = "Boxplots of the numeric data")
-```
-
-```{r Histograms of the numeric values in the Insurance data set}
-
-library(tidyverse)
-ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
+ ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
   ggplot2::geom_histogram(bins = round(nrow(df1))) +
   ggplot2::facet_wrap(. ~ cols, scales = "free") +
   ggplot2::labs(title = "Histograms of each numeric column.")
@@ -719,9 +620,9 @@ ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
 
 ```{r Predictor (charges) vs each column}
 
-df1 %>%
-  tidyr::gather(-y, key = "var", value = "value") %>%
-  ggplot2::ggplot(aes(x = value, y = y)) +
+df %>%
+  tidyr::gather(-charges, key = "var", value = "value") %>%
+  ggplot2::ggplot(aes(x = value, y = charges)) +
   ggplot2::geom_point() +
   ggplot2::facet_wrap(~ var, scales = "free") +
   ggplot2::theme_bw()+
@@ -736,11 +637,13 @@ Several results stand out from the exploratory data analysis, and we would do we
 
 3.  Average and maximum charges for smokers are much higher than for non-smokers
 
-<h4>Setting up models</h4>
+<h4>
 
-We are able to use almost all of our code from our Boston housing example in the new insurance example. We will change the name of the variable to Y, initialize all of the model values, resample five times, and return summary results to the user.
+3.  Setting up models
 
-```{r analysis for the Insurance data set, borrowing from our code for Boston Housing}
+    </h4>
+
+```{r borrowing from our code for Boston Housing}
 
 df$sex <- as.numeric(df$sex)
 df$smoker <- as.numeric(df$smoker)
@@ -776,11 +679,7 @@ bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = b
 bagging_predicted[i] <- predict(object = bagging, newdata = test)
 
 bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
-bayesRNN_predicted[i] = predict(object = bayesRNN, newdata = test)
-
 earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
-earth_predicted[i] = predict(object = earth, newdata = test)
-
 linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
 randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
 svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
@@ -790,64 +689,6 @@ results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'Rand
 results <- results %>% arrange(RMSE)
 }
 results
-```
-
-**Summary plots (predicted vs actual) for the Insurance data set**
-
-```{r Summary plots for the Insurance data set}
-
-bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
-ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Bagging predicted vs actual', x = 'Actual', y = 'Predicted')
-
-bayesrnn_plot <- data.frame(x = predict(object = bayesRNN, newdata = test), y = test$y)
-ggplot(bayesrnn_plot, mapping = aes(x = x, y = y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Bayesrnn predicted vs actual', x = 'Actual', y = 'Predicted')
-
-earth_plot <- data.frame(x = predict(object = earth, newdata = test), y = test$y)
-ggplot(earth_plot, mapping = aes(x = predict(object = earth, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Earth predicted vs actual', x = 'Actual', y = 'Predicted')
-
-linear_plot <- data.frame(x = predict(object = linear, newdata = test), y = test$y)
-ggplot(linear_plot, mapping = aes(x = predict(object = linear, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
-
-randForest_plot <- data.frame(x = predict(object = randForest$best.model, newdata = test), y = test$y)
-ggplot(randForest_plot, mapping = aes(x = predict(object = randForest$best.model, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Random Forest predicted vs actual', x = 'Actual', y = 'Predicted')
-
-svm_plot <- data.frame(x = predict(object = svm$best.model, newdata = test), y = test$y)
-ggplot(randForest_plot, mapping = aes(x = predict(object = svm$best.model, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Support Vector Machines predicted vs actual', x = 'Actual', y = 'Predicted')
-
-tree_plot <- data.frame(x = predict(object = tree, newdata = test), y = test$y)
-ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test), y = test$y)) +
-  ggplot2::geom_point() +
-  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
-
-```
-
-**Summary plots (histograms of residuals, predicted vs residuals)**
-
-```{r Histograms of residuals by model for the Insurance data set}
-
-bagging_residuals <- data.frame('predicted' = c(bagging$y), 'residuals' = c(bagging$y - test$y))
-ggplot(bagging_residuals, aes(x = residuals)) +
-  geom_histogram(bins = round(nrow(df)/100)) +
-  ggtitle('Histogram of bagging model residuals for the Insurance data set, each bar = 100 rows') +
-  geom_vline(xintercept = 0, color = "red")
-
-bayesRNN_residuals <- data.frame('predicted' = predict(object = bayesRNN, newdata = test), 'residuals' = c(predicted - test$y))
-ggplot(bayesrnn_residuals, aes(x = residuals)) +
-  geom_histogram(bins = round(nrow(df)/100)) +
-  ggtitle('Histogram of bayesrnn model residuals for the Insurance data set, each bar = 100 rows') +
-  geom_vline(xintercept = 0, color = "red")
 ```
 
 <h4>The huge advantage is you've got a method you can use with a wide range of numeric data sets, without having to start from scratch every time</h4>
@@ -987,3 +828,144 @@ ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test)
 ```
 
 <h4>Summary report and recommendations</h4>
+
+Fill in summary report details/recommendations here
+
+<h4>Lab—Predict BMW car prices</h4>
+
+```{r BMW car prices - read in the data}
+
+df <- read.csv('https://raw.githubusercontent.com/InfiniteCuriosity/EnsemblesData/refs/heads/main/bmw.csv', stringsAsFactors = TRUE)
+
+head(df)
+str(df)
+dim(df)
+```
+
+<h4>Exploratory data analysis of BMW car price data</h4>
+
+First we are going to change the 'price' column to 'y', then move that column to the far right in the data set.
+
+```{r Change price column to y}
+colnames(df)[3] <- 'y'
+str(df)
+```
+
+```{r Move y column to the far right}
+
+df <- df %>% dplyr::relocate(y, .after = last_col()) # Moves the target column to the last column on the right
+
+str(df)
+```
+
+```{r Histograms of the BMW car price data set}
+library(tidyverse)
+df1 <- df %>% purrr::keep(is.numeric)
+ ggplot2::ggplot(tidyr::gather(df1, cols, value), aes(x = value)) +
+  ggplot2::geom_histogram(bins = round(nrow(df1))) +
+  ggplot2::facet_wrap(. ~ cols, scales = "free") +
+  ggplot2::labs(title = "Histograms of each numeric column.")
+```
+
+```{r Predictor vs target for the BMW car prices data set}
+
+df %>%
+  tidyr::gather(-y, key = "var", value = "value") %>%
+  ggplot2::ggplot(aes(x = value, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::facet_wrap(~ var, scales = "free") +
+  ggplot2::theme_bw()+
+  ggplot2::labs(title = "y (predictor variable) vs target variables")
+```
+
+```{r Build models for BMW car price data set}
+
+df$model <- as.numeric(df$model)
+df$transmission <- as.numeric(df$transmission)
+df$fuelType <- as.numeric(df$fuelType)
+
+bagging_predicted <- 0
+bagging_rmse <- 0
+bayesRNN_rmse <- 0
+earth_rmse <- 0
+linear_rmse <- 0
+randForest_rmse <- 0
+svm_rmse <- 0
+tree_rmse <- 0
+
+for (i in 1:5) {
+  sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.6,0.4))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+
+bagging <- ipred::bagging(y ~ ., data = train)
+bayesRNN <- brnn::brnn(x = as.matrix(train), y = train$y)
+earth <- earth::earth(y ~ ., data = train)
+linear <- lm(y ~ ., data = train)
+randForest <- e1071::tune.randomForest(y ~ ., data = train)
+svm <- e1071::tune.svm(y ~ ., data = train)
+tree <- tree::tree(y ~ ., data = train)
+
+bagging_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bagging, newdata = test))
+bagging_predicted[i] <- predict(object = bagging, newdata = test)
+
+bayesRNN_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = bayesRNN, newdata = test))
+earth_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = earth, newdata = test))
+linear_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = linear, newdata = test))
+randForest_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = randForest$best.model, newdata = test))
+svm_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = svm$best.model, newdata = test))
+tree_rmse[i] <- Metrics::rmse(actual = test$y, predicted = predict(object = tree, newdata = test))
+
+results <- data.frame('Name' = c('bagging', 'bayesRNN', 'Earth', 'Linear', 'RandomForest', 'SVM', 'Treet'), 'RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+results <- results %>% arrange(RMSE)
+}
+results
+```
+
+```{r Predicted vs actual plots for BMW car prices}
+
+bagging_plot <- data.frame(x = predict(object = bagging, newdata = test), y = test$y)
+ggplot(bagging_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bagging predicted vs actual', x = 'Actual', y = 'Predicted')
+
+bayesrnn_plot <- data.frame(x = predict(object = bayesRNN, newdata = test), y = test$y)
+ggplot(bayesrnn_plot, mapping = aes(x = x, y = y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Bayesrnn predicted vs actual', x = 'Actual', y = 'Predicted')
+
+earth_plot <- data.frame(x = predict(object = earth, newdata = test), y = test$y)
+ggplot(earth_plot, mapping = aes(x = predict(object = earth, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Earth predicted vs actual', x = 'Actual', y = 'Predicted')
+
+linear_plot <- data.frame(x = predict(object = linear, newdata = test), y = test$y)
+ggplot(linear_plot, mapping = aes(x = predict(object = linear, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+
+randForest_plot <- data.frame(x = predict(object = randForest$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = randForest$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Random Forest predicted vs actual', x = 'Actual', y = 'Predicted')
+
+svm_plot <- data.frame(x = predict(object = svm$best.model, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = svm$best.model, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Support Vector Machines predicted vs actual', x = 'Actual', y = 'Predicted')
+
+tree_plot <- data.frame(x = predict(object = tree, newdata = test), y = test$y)
+ggplot(randForest_plot, mapping = aes(x = predict(object = tree, newdata = test), y = test$y)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(title = 'Linear predicted vs actual', x = 'Actual', y = 'Predicted')
+```
+
+```{r Summary tables for BMW car price models}
+
+summary_table <- data.frame('Model_name' = c('Bagging', 'BayesRNN', 'Earth', 'Linear', 'Random Forest', 'Support Vector Machines', 'Trees'), 'Mean_RMSE' = c(mean(bagging_rmse), mean(bayesRNN_rmse), mean(earth_rmse), mean(linear_rmse), mean(randForest_rmse), mean(svm_rmse), mean(tree_rmse)))
+
+summary_table
+```
+
+Summary report (write this up!)
+

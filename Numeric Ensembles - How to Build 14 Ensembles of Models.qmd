@@ -5,7 +5,7 @@ format: html
 
 # Building weighted ensembles to model numerical data
 
-In the last chapter we learned how to make 23 individual models, including calculating the error rate (as root mean squared error), and predictions from the holdout data (test and validation).
+In the last chapter we learned how to make eight individual models, including calculating the error rate (as root mean squared error), and predictions from the holdout data (test and validation).
 
 This chapter will show how to use those results to make weighted ensembles that can be used to model numerical data.
 

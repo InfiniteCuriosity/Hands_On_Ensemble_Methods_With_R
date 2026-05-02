@@ -26,7 +26,7 @@ book:
     - Hiring and Getting Hired.qmd
     - Code Of Ethics.qmd
     - Final Comprehensive Project.qmd
-    - references.qmd
+    - references.bib
 
 bibliography: references.bib
 

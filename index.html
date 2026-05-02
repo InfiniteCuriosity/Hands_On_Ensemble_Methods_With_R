@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Russ Conte">
+<meta name="dcterms.date" content="2026-01-09">
+
+<title>Hands On Ensemble Methods With R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Welcome!.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">This book will put the most accurate tools to model nature in your hands</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hands On Ensemble Methods With R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">This book will put the most accurate tools to model nature in your hands</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Welcome!.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction: Improving How You Think</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./The Hello World! of ensembles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Hello World! of ensembles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Numeric Data - How To Build 18 Individual Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Numeric Data - How To Build 8 Individual Models.qmd</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Numeric Ensembles - How to Build 14 Ensembles of Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Numeric Ensembles - How to Build 14 Ensembles of Models.qmd</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Classification Data - How to Build Six Classification Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification Data - How to Build Six Classification Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Classification Ensembles - How to Build Six Classification Ensembles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Classification Ensembles - How to Build Six Classification Ensembles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Logistic Data - How to Build 15 Logistic Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Logistic Data - How to Build 15 Logistic Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Logistic Ensembles - How to Build Nine Logistic Ensembles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Logistic Ensembles - How to Build Nine Logistic Ensembles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Forecasting Data - How to Build 27 Forecasting Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Forecasting Ensembles - How to Build 27 Forecasting Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Forecasting Ensembles - How to Build Six Forecasting Ensembles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Forecasting Ensembles - How to Build Six Forecasting Ensembles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./How to Predict On Totally New Data With Your Trained Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">How to Predict On Totally New Data With Your Trained Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./How Leaders Actually Make Decisions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">How Leaders Actually Make Decisions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Building Your Own No Code Solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Building Your Own No Code Solutions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60 Open Data Sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">60 Open Data Sources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Your Journey From Student To Professional To Expert To Leader.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Your Journey From Student To Professional To Expert To Leader</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Hiring and Getting Hired.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Hiring and Getting Hired</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Code Of Ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Code Of Ethics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Final Comprehensive Project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Final Comprehensive Project</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#this-book-will-put-the-most-accurate-tools-to-model-nature-in-your-hands" id="toc-this-book-will-put-the-most-accurate-tools-to-model-nature-in-your-hands" class="nav-link active" data-scroll-target="#this-book-will-put-the-most-accurate-tools-to-model-nature-in-your-hands"><span class="header-section-number">1</span> This book will put the most accurate tools to model nature in your hands</a>
+  <ul class="collapse">
+  <li><a href="#features-of-this-book-to-help-you-get-the-most-out-of-your-experience" id="toc-features-of-this-book-to-help-you-get-the-most-out-of-your-experience" class="nav-link" data-scroll-target="#features-of-this-book-to-help-you-get-the-most-out-of-your-experience"><span class="header-section-number">1.1</span> Features of this book to help you get the most out of your experience</a></li>
+  <li><a href="#writing-the-dream-data-science-solution-for-your-customers-every-time." id="toc-writing-the-dream-data-science-solution-for-your-customers-every-time." class="nav-link" data-scroll-target="#writing-the-dream-data-science-solution-for-your-customers-every-time."><span class="header-section-number">1.2</span> Writing the dream data science solution for your customers every time.</a></li>
+  <li><a href="#what-to-know-before-you-start-building-models." id="toc-what-to-know-before-you-start-building-models." class="nav-link" data-scroll-target="#what-to-know-before-you-start-building-models."><span class="header-section-number">1.3</span> What to know <b><i>before</i></b> you start building models.</a></li>
+  <li><a href="#what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection." id="toc-what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection." class="nav-link" data-scroll-target="#what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection."><span class="header-section-number">1.4</span> What to do before building models: The value and process of observation, discovery and connection.</a></li>
+  <li><a href="#know-your-origin-story-why-are-you-doing-this-at-all" id="toc-know-your-origin-story-why-are-you-doing-this-at-all" class="nav-link" data-scroll-target="#know-your-origin-story-why-are-you-doing-this-at-all"><span class="header-section-number">1.5</span> Know your origin story: Why are you doing this at all?</a></li>
+  <li><a href="#youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results." id="toc-youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results." class="nav-link" data-scroll-target="#youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results."><span class="header-section-number">1.6</span> You’re not doing data science as much as customer service. Here’s what the very best in customer service actually do that generates the best results.</a></li>
+  <li><a href="#building-your-library-of-models-that-will-work-on-nearly-any-data-set" id="toc-building-your-library-of-models-that-will-work-on-nearly-any-data-set" class="nav-link" data-scroll-target="#building-your-library-of-models-that-will-work-on-nearly-any-data-set"><span class="header-section-number">1.7</span> Building your library of models that will work on nearly any data set</a></li>
+  <li><a href="#work-with-real-data-solve-real-problems-make-real-recommendations" id="toc-work-with-real-data-solve-real-problems-make-real-recommendations" class="nav-link" data-scroll-target="#work-with-real-data-solve-real-problems-make-real-recommendations"><span class="header-section-number">1.8</span> Work with real data, solve real problems, make real recommendations</a></li>
+  <li><a href="#speed-speed-and-more-speed-running-ensembles" id="toc-speed-speed-and-more-speed-running-ensembles" class="nav-link" data-scroll-target="#speed-speed-and-more-speed-running-ensembles"><span class="header-section-number">1.9</span> Speed, speed, and more speed running ensembles</a></li>
+  <li><a href="#how-to-code-a-lot-faster" id="toc-how-to-code-a-lot-faster" class="nav-link" data-scroll-target="#how-to-code-a-lot-faster"><span class="header-section-number">1.10</span> How to code a lot faster</a></li>
+  <li><a href="#examples-where-we-will-be-using-ensembles-of-models-to-make-predictions-and-recommendations" id="toc-examples-where-we-will-be-using-ensembles-of-models-to-make-predictions-and-recommendations" class="nav-link" data-scroll-target="#examples-where-we-will-be-using-ensembles-of-models-to-make-predictions-and-recommendations"><span class="header-section-number">1.11</span> Examples where we will be using ensembles of models to make predictions and recommendations:</a></li>
+  <li><a href="#how-to-show-change-in-static-data" id="toc-how-to-show-change-in-static-data" class="nav-link" data-scroll-target="#how-to-show-change-in-static-data"><span class="header-section-number">1.12</span> How to show change in static data</a></li>
+  <li><a href="#the-value-of-keeping-a-journal." id="toc-the-value-of-keeping-a-journal." class="nav-link" data-scroll-target="#the-value-of-keeping-a-journal."><span class="header-section-number">1.13</span> The value of keeping a journal.</a></li>
+  <li><a href="#one-of-your-own-or-you-learn-most-when-you-teach." id="toc-one-of-your-own-or-you-learn-most-when-you-teach." class="nav-link" data-scroll-target="#one-of-your-own-or-you-learn-most-when-you-teach."><span class="header-section-number">1.14</span> One of your own, or you learn most when you teach.</a></li>
+  <li><a href="#outliers-and-separators-that-provoke-questions-not-answers." id="toc-outliers-and-separators-that-provoke-questions-not-answers." class="nav-link" data-scroll-target="#outliers-and-separators-that-provoke-questions-not-answers."><span class="header-section-number">1.15</span> Outliers and Separators that provoke questions, not answers.</a></li>
+  <li><a href="#finding-the-strongest-predictors-of-the-most-important-feature" id="toc-finding-the-strongest-predictors-of-the-most-important-feature" class="nav-link" data-scroll-target="#finding-the-strongest-predictors-of-the-most-important-feature"><span class="header-section-number">1.16</span> Finding the strongest predictor(s) of the most important feature</a></li>
+  <li><a href="#how-to-tell-the-story-in-your-data-to-your-customer." id="toc-how-to-tell-the-story-in-your-data-to-your-customer." class="nav-link" data-scroll-target="#how-to-tell-the-story-in-your-data-to-your-customer."><span class="header-section-number">1.17</span> How to tell the story in your data to your customer.</a></li>
+  <li><a href="#how-to-make-the-best-evidence-based-recommendations-to-your-customer." id="toc-how-to-make-the-best-evidence-based-recommendations-to-your-customer." class="nav-link" data-scroll-target="#how-to-make-the-best-evidence-based-recommendations-to-your-customer."><span class="header-section-number">1.18</span> How to make the best evidence based recommendations to your customer.</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">1.19</span> Summary:</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">1.20</span> Homework:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hands On Ensemble Methods With R</h1>
+<p class="subtitle lead">The Most Accurate Methods Known to Science For Modelling Nature</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Russ Conte </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 9, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="this-book-will-put-the-most-accurate-tools-to-model-nature-in-your-hands" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> This book will put the most accurate tools to model nature in your hands</h1>
+<p>This book will guide you through the entire process of building your own ensemble models from beginning to end. I’ve done my very best to make the book very interesting, fun, and practical. There are lots of examples using real world data with all the steps included.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Nature is most accurately described, modeled and predicted using a diverse set of individual models and ensembles of models</strong>. Ensembles are the most accurate description of nature we have up to this time. Ensembles are the current best understanding of nature. This book will give you the tools and skills to build a diverse range of individual models and ensembles of models for numeric, classification, logistic and time series data.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>A Teacher will show you how to do things. A Mentor challenges you to grow and succeed. And a Counselor is committed to guiding you to do this process in the healthiest possible way.</strong> My goal is to be all three for you in this book, based on a lifetime of very successful experience. Welcome to the journey!</p>
+<p><strong>This book will be an attempt to answer the single most important question in all of science: How can nature be modeled in the most accurate way, given what we know at this time?</strong> The goal is to tell the truth in the evidence and make the most accurate predictions possible. This will be done by modeling, and you will learn about the process in this book.</p>
+<p>The goal is to help you become your own modeler, and help you produce the best results from any given data set.</p>
+</div>
+</div>
+</div>
+<section id="features-of-this-book-to-help-you-get-the-most-out-of-your-experience" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="features-of-this-book-to-help-you-get-the-most-out-of-your-experience"><span class="header-section-number">1.1</span> Features of this book to help you get the most out of your experience</h2>
+<section id="each-chapter-will-include-a-preview-like-this-full-text-and-a-review.-i-call-the-system-delayed-repetition-and-its-the-method-that-helps-me-learn-the-fastest." class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="each-chapter-will-include-a-preview-like-this-full-text-and-a-review.-i-call-the-system-delayed-repetition-and-its-the-method-that-helps-me-learn-the-fastest."><span class="header-section-number">1.1.1</span> Each chapter will include a preview (like this), full text, and a review. I call the system delayed repetition, and it’s the method that helps me learn the fastest.</h3>
+<p>I’ve had the pleasure to learn a very broad range of skills in my life. For example, I was the only bilingual staff person in an office for quite a while. I’ve also studied extreme sports, several styles of music, led two not for profit organizations (local chapter of Amnesty International and the Chicago Apple User Group), and much more. One of the most important skills I’ve learned is how I learned well. Certain methods are more successful for me, others are less successful. The most successful method I have found is a system I called <strong>delayed repetition</strong>. I learn faster when I see a preview of something, then do it, then do a review. I might do that over again, but that delayed repetition of working on a part of the process multiple times helps me learn much faster than if I just try to see it once and then apply it.</p>
+<p>Another benefit I have found is that delayed repetition results in longer retention for me. I have found that if I slow down my learning process and include delayed repetition, that my retention and accuracy of skills are much better than if I do not use delayed repetition.</p>
+<p>An example I have always enjoyed happened when I was a student in music school at Western Michigan University. My private violin instructor encouraged me to memorize a piece before I started practicing it. I told him that I found that confusing and was not sure what he was asking. He clarified that he wanted me to know the notes of the piece first, and then we will work out, over and over again, various ways to interpret it, so that the final result would be my choice of a range of interpretations, not his interpretation. This also resulted in me learning the music much faster than I had previous selections I worked out while I was a student in music school.</p>
+<p>This book will reflect that understanding that delayed repetition is a fast way to learn and retain skills. Every section will start with a preview, followed by the main body of the text, followed by a summary. There will also be practice exercises and other ways to review. My experience has shown, over and over and over again, that it is the delayed repetition where I learn the most, and this book will reflect that method, and hopefully demonstrate the success I have had learning in so many different areas. I found delayed repetition to be extremely successful in virtually every area I have applied, and I’m thrilled to bring delayed repetition to you in this book.</p>
+<p>In my experience, delayed repetition is a much faster to learn than any other system I’ve ever found. Since delayed repetition works in so many different areas, I encourage you to feel free to experiment with it in other areas in addition to learning data science and building ensembles.</p>
+</section>
+<section id="solve-one-of-your-own." class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="solve-one-of-your-own."><span class="header-section-number">1.1.2</span> Solve one of your own.</h3>
+<p>Another large benefit in this book is that each set of problems will ask you to <strong>solve one of your own in each problem set</strong>. What this means is that you will be asked to identify a data set of your choice, identify the problem, work up a solution and present your solution, all on your own.</p>
+<p>This is much more like the real world than a typical problem set. In normal real world settings, you are not given everything in a clean tidy format, and then asked to solve the problem. In fact, that has never happened to me in my professional career, nor do I know anyone else that was given everything, and only had to solve the problem. The idea that you will be presented with everything and just need to solve the problem, is extremely out of touch with how the real world actually works.</p>
+</section>
+<section id="be-a-problem-finder" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="be-a-problem-finder"><span class="header-section-number">1.1.3</span> Be a problem finder</h3>
+<p>To help you be successful, you need to be a <strong>problem finder</strong>, as well as a problem solver. This book will encourage you to be a great problem finder, as well as guiding you to learn the most powerful problem solving techniques currently available. In the real world the problem is usually not found until after some damage has been done. Therefore, this book encourages you to look for and notice things ahead of when danger might happen, or opportunities might be just around the corner.</p>
+<p>This book will show you how to identify the likely leading indicators in your data set before things go wrong.</p>
+<p>I heard an example of being a problem finder that made a big impression on me. Dr.&nbsp;Michael Roberto was on the faculty at the Harvard Business School when he arranged to have Robert McNamara speak to his class. McNamara was a key decision maker in the John F. Kennedy and Lyndon Johnson administrations, so he was in an excellent position to speak to the class.</p>
+<p>As Dr.&nbsp;Roberto tells the story, they met before class and McNamara asked Roberto if HBS still used the case method. Dr.&nbsp;Roberto replied they did. McNamara replied that was great, except for one problem. The real world isn’t like the case method at all. While the case method puts the reader in the role of the person making the decision, everything else is already done. All the student has to do is make the decision, but the real world is never like that at all.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="the-process-of-discovery" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="the-process-of-discovery"><span class="header-section-number">1.1.4</span> The process of discovery</h3>
+<p>What I see frequently described as a scientific method, or the scientific process, is only the second part of the actual scientific process. The part that I see involves testing, verification, and similar aspects of the process. What I do not see very often is the first part of the process, which is the process of discovery. Many times, great discoveries are made, then tested and verified. It is extremely rare that anything is discovered and verified at the same time. Therefore, an extremely valuable skill in the scientific method is the process of discovery. This book will encourage you to do that, and each section will have a part devoted to discovery.</p>
+<p><strong>Discovery</strong> can be greatly enhanced by seeing connections and relationships that other people frequently miss. This book will present various data science methods to help you see connections in relationships that are often overlooked. These will help you come up with more accurate descriptions and predictions on new data.</p>
+<p>I personally find the process of discovery to be very fun and exciting, and I will do my best to share my enthusiasm for with you in each section.</p>
+</section>
+<section id="post-it" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="post-it"><span class="header-section-number">1.1.5</span> Post it</h3>
+<p>The other part of the exercises is that <strong>you will be asked to post about your work</strong> on that section. You do not need to go into great detail, just enough so people understand what you are doing. For example:</p>
+<blockquote class="blockquote">
+<p>I’m working on an analysis of housing prices. The results beat the best prior results on housing prices that I could find on this data set by more than 90%. This result was achieved using a combination of ensembles, and tuning models. PM me if you’d like to learn more.</p>
+</blockquote>
+<p>That would be fine. Of course you may add graphics, comments, and much more.</p>
+<p><strong>The story behind the posting requirement:</strong></p>
+<p>I was talking with a friend of mine who is not a math person, he’s a 911 Operator. I explained that I was working on making a prediction for the winning time for the 2024 London Marathon. He asked me how confident I was about the prediction. “I’m very confident”, I replied. He looked straight at me and said, “Post it.” I realized he was absolutely correct. Take a risk, and put the results out there for the world to see BEFORE the London Marathon. So I did.</p>
+<p>I used time series (which we will cover in chapters 10 and 11) to predict the winning times in the men’s and women’s 2024 London marathon. The day before the marathon I posted my predictions on YouTube, and then waited for the results. I was willing to call the predictions good if they were ±30 seconds on a 2 hour race. Here are my posted predictions vs the actual results:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>2024 London Marathon Winning Times Prediction by Russ Conte</th>
+<th>Men (Predicted)</th>
+<th>Men (Actual)</th>
+<th>Women (Predicted)</th>
+<th>Women (Actual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>2:03:21 - 2:04:21</td>
+<td>2:04:01</td>
+<td>2:17:51 - 2:18:51</td>
+<td>2:16:16</td>
+</tr>
+</tbody>
+</table>
+<p>The men’s winning time is 100% in the predicted range, but the women completed the London Marathon faster than my prediction for them. You can see my predictions the day before (<a href="https://www.youtube.com/shorts/7rQSLCe8bYA" class="uri">https://www.youtube.com/shorts/7rQSLCe8bYA</a>) and after the results were announced (<a href="https://www.youtube.com/shorts/ZXGR_PpMIdU" class="uri">https://www.youtube.com/shorts/ZXGR_PpMIdU</a>).</p>
+<p>Posting on any social media about your data science experience/results/frustrations (etc.) will improve your skills in data science in ways that nothing else can match. You’ll be asked by others to explain your posts in non-technical terms, and do it in a way that is engaging.</p>
+<p>Posting (and replying) on social media about your data science experiences might be the very best education you get in terms of learning how to communicate these results to a non-technical crowd, in a way they understand and appreciate.</p>
+<p>That’s the first part of the book. We’ll do a very quick summary, then look at what is coming in the second half of the book.</p>
+<p>The first part of this book will cover the many methods for building and modeling, individual models and ensembles. The second part of this book will help you prepare for a career in the field. You will look at how leaders actually make decisions, how to build your own no code solutions if you want, and most importantly your journey from student to leader from getting hired to hiring.</p>
+<p>I’ve seen many times when people walk into a new job or career and they are not as well prepared as they could be. I want to provide a section of this book to help you be as well prepared for your career in this field as you can possibly be.</p>
+<p>Another feature of this book will be a code of ethics. When I trained as a professional counselor, almost every course discussed ethics, with very real world examples which have stayed with me through the years. I almost never hear of examples in ethics in data science, so I want to make sure to include those in this book. I suggest you start thinking now about ethics, and how you can integrate ethics into your work.</p>
+<p>The last section of the book is a final comprehensive project. By the time you get there, the project will be virtually done, all you’ll need to do is put it together. But it will give you results that you will be able to present in an interview or put together on a portfolio that will greatly improve your chances of demonstrating your confidence to a future employer.</p>
+<p>Another benefit of this book is that I will share several examples of completed projects for your review. Your completed projects can be part of your portfolio that can be presented to potential employers.</p>
+</section>
+</section>
+<section id="writing-the-dream-data-science-solution-for-your-customers-every-time." class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="writing-the-dream-data-science-solution-for-your-customers-every-time."><span class="header-section-number">1.2</span> Writing the dream data science solution for your customers every time.</h2>
+<p>If you could write your absolute dream data science solution, what would it look like? We will walk through my answer to my dream data science solution in every chapter, to a wide range of problems, so that you will have what I believe is the best format for a solution to huge range of data science problems. Each of the parts it does contain are considered essential, though you may also add sections unique to the data set or customer you are working on. When we use this type of format, these essential components will not be missed or forgotten.</p>
+<p>This will also give you several examples that you can use with an employer, on a portfolio, or as part of a professional presentation, such as a conference. In my observation, many people only learn this through trial and error, I want to make it as clear as possible how to write a report that will provide the information to the customer needs, and do it in a way that is the most helpful to the customer.</p>
+<p>All of my work, no exception, has been (and is) focused on the customer. I want to make sure I give the customer the most accurate report, do it as quickly as possible, and in the most professional manner. I want this to be something that customer can use to get the best possible results given what they know at that point in time.</p>
+<p>I have seen many other situations where the customer is not the priority, and the results are very far below optimal. I’m going to always recommend taking best possible care of the customer, and using that as your North star to determine how to move forward at any given time.</p>
+<p>At one point, I was actually trained in the Ritz Carlton customer service system. I will not attempt to reproduce that system here, but I will strongly recommend that you investigate it and do your best to provide the best customer service that you can all the time. Not everyone does this, this will help differentiate your work from the work of many other people.</p>
+<p>Here are two examples of the Ritz Carlton customer service system that are available to you, but there are many other customer service systems available if you prefer those systems:</p>
+<p><a href="https://www.amazon.com/New-Gold-Standard-Leadership-Ritz-Carlton/dp/1480595829" title="The New Gold Standard: 5 Leadership Principles for Creating a Legendary Customer Service Experience Courtesy of the Ritz Carlton Hotel Company">The New Gold Standard: 5 Leadership Principles for Creating a Legendary Customer Service Experience Courtesy of the Ritz Carlton Hotel Company</a></p>
+<p><a href="https://www.amazon.com/Excellence-Wins-No-Nonsense-Becoming-Compromise/dp/0310352096/ref=sr_1_1?crid=3NA8PXA24PXMZ&amp;dib=eyJ2IjoiMSJ9.xrNqED5F4e-2w9jpucG2Wlcr7dADd_WGzKxomaiN4010DEAbMtSLPtkaVDLbGdYaXafy4CjasLUlUrRdKwPMWIff_70j4zPjJSP7nU5C04Ff-mgqbi8MeNBg8_5zGjTxqDLe1GGOBne9xzaL5ZEOE7eqYRNZGjPbADZ-hnqdwOyxutC93roLSdMu34bVOvGi3i6cy_ULAYwaOP3gPEmpLcdDmaQZCscv7oyocGArDnI.oyVplHsb33jMQOg1YNn71yFbu5PMEN_GOpieZ-G8qV8&amp;dib_tag=se&amp;keywords=Horst+schulze&amp;qid=1768418978&amp;s=books&amp;sprefix=horst+schulz%2Cstripbooks%2C166&amp;sr=1-1" title="Excellence Wins: A No-Nonsense Guide to Becoming the Best in a World of Compromise">Excellence Wins: A No-Nonsense Guide to Becoming the Best in a World of Compromise</a></p>
+<section id="always-include-full-exploratory-data-analysis" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="always-include-full-exploratory-data-analysis"><span class="header-section-number">1.2.1</span> Always include full exploratory data analysis</h3>
+<p>The goal of an exploratory data analysis is to give the reader a quick summary of the data. There is no actual modeling done at this point in the process, the goal is to give the reader a quick view of the data. Many times in my experience, the exploratory data analysis is extremely revealing, and it is critical that this is included in the report to the customer.</p>
+<p>We will look at an Insurance data set as our example. Here are the top rows of the Insurance data set:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Cubist</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Metrics</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: arm</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: MASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lme4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+arm (Version 1.15-3, built: 2026-4-15)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Working directory is /Users/russellconte/Library/Mobile Documents/com~apple~CloudDocs/Documents/Taylor &amp; Francis/Hands_On_Ensemble_Methods_With_R</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: brnn</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Formula</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: truncnorm</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: broom</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: car</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'car':
+  method           from
+  na.action.merMod lme4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'car'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:arm':
+
+    logit</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: caret</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'caret'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:Metrics':
+
+    precision, recall</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: corrplot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.95 loaded</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'corrplot'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:arm':
+
+    corrplot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: doParallel</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: foreach</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: iterators</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: parallel</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dplyr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:car':
+
+    recode</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:MASS':
+
+    select</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: e1071</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'e1071'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    element</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: earth</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: plotmo</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: plotrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotrix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:arm':
+
+    rescale</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: gam</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: splines</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loaded gam 1.22-7</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: gbm</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loaded gbm 2.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This version of gbm is no longer under development. Consider transitioning to gbm3, https://github.com/gbm-developers/gbm3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: glmnet</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loaded glmnet 4.1-10</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: gridExtra</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gridExtra'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: htmltools</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: htmlwidgets</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ipred</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: leaps</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: nnet</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: olsrr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'olsrr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:MASS':
+
+    cement</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:datasets':
+
+    rivers</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: pls</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'pls'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:corrplot':
+
+    corrplot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:caret':
+
+    R2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:arm':
+
+    coefplot, corrplot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    loadings</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: purrr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'purrr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:foreach':
+
+    accumulate, when</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:caret':
+
+    lift</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:car':
+
+    some</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: randomForest</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type rfNews() to see new features/changes/bug fixes.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'randomForest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:gridExtra':
+
+    combine</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    margin</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: reactable</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: readr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: rpart</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: scales</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    discard</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:plotrix':
+
+    rescale</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:arm':
+
+    rescale</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: tidyr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'tidyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:Matrix':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: tree</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: xgboost</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'NumericEnsembles'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:MASS':
+
+    Insurance</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   age    sex    bmi children smoker    region   charges
+1   19 female 27.900        0    yes southwest 16884.924
+2   18   male 33.770        1     no southeast  1725.552
+3   28   male 33.000        3     no southeast  4449.462
+4   33   male 22.705        0     no northwest 21984.471
+5   32   male 28.880        0     no northwest  3866.855
+6   31 female 25.740        0     no southeast  3756.622
+7   46 female 33.440        1     no southeast  8240.590
+8   37 female 27.740        3     no northwest  7281.506
+9   37   male 29.830        2     no northeast  6406.411
+10  60 female 25.840        0     no northwest 28923.137
+11  25   male 26.220        0     no northeast  2721.321
+12  62 female 26.290        0    yes southeast 27808.725
+13  23   male 34.400        0     no southwest  1826.843
+14  56 female 39.820        0     no southeast 11090.718
+15  27   male 42.130        0    yes southeast 39611.758</code></pre>
+</div>
+</div>
+<p>Note the number of rows can be specified, in this case it is 15.</p>
+<p>We can view each of the columns, and have a quick view of each column. We have seven columns, including age, sex, bmi (body mass index), smoker (yes or no), region (southwest, southeast, northwest, northeast), and charges.</p>
+<p>We will be investigating the charges by making models, predictions, and recommendations.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      age            sex                 bmi           children    
+ Min.   :18.00   Length:1338        Min.   :15.96   Min.   :0.000  
+ 1st Qu.:27.00   Class :character   1st Qu.:26.30   1st Qu.:0.000  
+ Median :39.00   Mode  :character   Median :30.40   Median :1.000  
+ Mean   :39.21                      Mean   :30.66   Mean   :1.095  
+ 3rd Qu.:51.00                      3rd Qu.:34.69   3rd Qu.:2.000  
+ Max.   :64.00                      Max.   :53.13   Max.   :5.000  
+    smoker             region             charges     
+ Length:1338        Length:1338        Min.   : 1122  
+ Class :character   Class :character   1st Qu.: 4740  
+ Mode  :character   Mode  :character   Median : 9382  
+                                       Mean   :13270  
+                                       3rd Qu.:16640  
+                                       Max.   :63770  </code></pre>
+</div>
+</div>
+<p>The Summary gives us values for the minimum, 1st quartile, median, mean, 3rd quartile, and maximum values.</p>
+<p>We will also see how to create a plot of each column vs the target column, in this case that is the charges column. The plot is:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Charges_vs_each_feature.svg" class="img-fluid figure-img"></p>
+<figcaption>Charges vs each feature</figcaption>
+</figure>
+</div>
+<p>We will also learn how to create histograms of each numeric column. For our data set it looks like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Histograms_of_each_numeric_column.svg" class="img-fluid figure-img"></p>
+<figcaption>Histograms of each numeric column</figcaption>
+</figure>
+</div>
+<p>Another important plot we will learn to make is boxplots of each numeric column. For our Insurance data, the boxplots are:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Boxplots_of_each_numeric_column.svg" class="img-fluid figure-img"></p>
+<figcaption>Boxplots of each numeric column</figcaption>
+</figure>
+</div>
+</section>
+<section id="create-models-using-a-very-diverse-set-of-individual-models-and-ensembles-of-models" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="create-models-using-a-very-diverse-set-of-individual-models-and-ensembles-of-models"><span class="header-section-number">1.2.2</span> Create models using a very diverse set of individual models and ensembles of models</h3>
+<p>We will set up a standard library of models for each of the systems we will be using. You will see how that is developed in the next two chapters for numeric analysis. For numeric analysis, we will be using 32 models. 18 of the models are individual models, and 14 are ensembles. This diversity of model types will greatly improve our results.</p>
+<p>Ensembles are your Team of Rivals to give the customer the best possible results. I first became aware of the term when Dr.&nbsp;Doris Kearns Goodwin came to Chicago. She discussed her books, including her then new publication, Leadership in Turbulent Times, but she also discussed how Abraham Lincoln used a team of rivals to help him get the best results during the Civil War.</p>
+<p>We can do something in data science that is similar to what President Lincoln did in his decision making: Use a team of rivals. Our multiple models (including individual models and ensembles) will always be our team of rivals.</p>
+</section>
+<section id="we-will-use-regular-learning-and-deep-learning-models-in-our-ensembles" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="we-will-use-regular-learning-and-deep-learning-models-in-our-ensembles"><span class="header-section-number">1.2.3</span> We will use regular learning and deep learning models in our ensembles</h3>
+<p>We will be building individual regular learning, models, and deep learning models, and including all of them in our ensembles. The fact that we will be combining regular learning and deep learning will greatly improve the accuracy of our results.</p>
+</section>
+<section id="tuningoptimizing-all-models" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="tuningoptimizing-all-models"><span class="header-section-number">1.2.4</span> Tuning/optimizing all models</h3>
+<p>All the models we used that can be tuned and optimized will be tuned and optimized. This will also contribute to increased accuracy in our results.</p>
+</section>
+<section id="repeated-random-resampling.-youll-get-more-accurate-answers-when-you-randomly-resample." class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="repeated-random-resampling.-youll-get-more-accurate-answers-when-you-randomly-resample."><span class="header-section-number">1.2.5</span> Repeated random resampling. You’ll get more accurate answers when you randomly resample.</h3>
+<p>One of my personal frustrations when I see data science reports and presentations is when the authors only run a dead at a single time. Inevitably, if you randomly resample the data and then rerun the analysis, you will get a different result. We will use that observation to our advantage. We will randomly resemble in every report, and then provide the results from that random sampling. This will give us a more accurate result in the real world, then just running the analysis a single time.</p>
+</section>
+<section id="show-the-accuracy-for-each-model-and-each-resample" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="show-the-accuracy-for-each-model-and-each-resample"><span class="header-section-number">1.2.6</span> Show the accuracy for each model and each resample</h3>
+</section>
+<section id="include-confidence-intervals-for-all-results-not-just-a-specific-value-do-not-say-the-model-with-the-best-rmse-had-a-result-of-x." class="level3" data-number="1.2.7">
+<h3 data-number="1.2.7" class="anchored" data-anchor-id="include-confidence-intervals-for-all-results-not-just-a-specific-value-do-not-say-the-model-with-the-best-rmse-had-a-result-of-x."><span class="header-section-number">1.2.7</span> Include confidence intervals for all results, not just a specific value (do not say, “the model with the best RMSE had a result of X”).</h3>
+<p>We will also include 95% confidence intervals in our results. This will make it much more relatable to your reader, and give you a more accurate answer.</p>
+<p>For example, if the recommendation is that the housing price is $200,000, that is not nearly as accurate as saying that there’s a 95% degree of confidence at the housing price will be in the range of: $165,000 - $235,000.</p>
+<p>And building on the previous point, we are going to use multiple models and see the 95% confidence interval for each of these models. So if another model had a confidence interval of: $190,000 - $210,000, that would be something to share with the customer, that the second model has a narrow result than the first. Will actually be able to do this with all 32 models so we can see how accurate each of them actually are after we have re-sampled them multiple times.</p>
+</section>
+<section id="test-for-overfitting-only-use-models-that-do-not-overfit-on-new-data" class="level3" data-number="1.2.8">
+<h3 data-number="1.2.8" class="anchored" data-anchor-id="test-for-overfitting-only-use-models-that-do-not-overfit-on-new-data"><span class="header-section-number">1.2.8</span> Test for overfitting, only use models that do not overfit on new data</h3>
+<p>Overfitting is a flaw that can happen in a mathematical analysis. Overfitting happens when the model corresponds too closely to the training data, but fails to correspond on the testing data or on new data. Overfitting is a value which can be measured and tested, and the results can be ranked from lowest to highest (when applied to multiple models). We will look at how to measure and test for overfitting for each of the models, and report the results that so that we use the model which has the best accuracy and the lowest over fitting value.</p>
+<p>We will look at how to plot overfitting for each resample, for both the train value and the holdout (test) values. As this graph shows, lower values are more accurate, and it’s clear some models are more accurate than others. This is a plot with free scales (y-values), but it’s still clear to see how each of the 32 models performed with the Insurance data set.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Overfitting_by_model_and_resample.svg" class="img-fluid figure-img"></p>
+<figcaption>Overfitting by model and resample</figcaption>
+</figure>
+</div>
+</section>
+<section id="another-test-will-ask-if-the-predicted-results-come-from-the-same-distribution-as-the-original-data-reject-if-false." class="level3" data-number="1.2.9">
+<h3 data-number="1.2.9" class="anchored" data-anchor-id="another-test-will-ask-if-the-predicted-results-come-from-the-same-distribution-as-the-original-data-reject-if-false."><span class="header-section-number">1.2.9</span> Another test will ask if the predicted results come from the same distribution as the original data, reject if false.</h3>
+<p>You will see how to set up the Kolmogorov-Smirnov test. This will test if the distribution in question (the model) comes from the same distribution as the original test (the training data). Higher values are better, most researchers reject the results if they are below a pre-specified value (such as 0.05 or 0.10). This will help us prevent choosing a model that is not from the same distribution as the original data. Here is an example of what that will look like:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/K_S_test.svg" class="img-fluid figure-img" alt="Kolmogorov-Amirnov test, p-value, 1 standard deviation error bars"></p>
+<figcaption>Kolmogorov-Amirnov test, p-value, 1 standard deviation error bars</figcaption>
+</figure>
+</div>
+</section>
+<section id="show-diagnostic-plots-of-the-top-performing-models-predicted-vs-actual-q-q-residuals-vs-predicted-histogram-of-residuals." class="level3" data-number="1.2.10">
+<h3 data-number="1.2.10" class="anchored" data-anchor-id="show-diagnostic-plots-of-the-top-performing-models-predicted-vs-actual-q-q-residuals-vs-predicted-histogram-of-residuals."><span class="header-section-number">1.2.10</span> Show diagnostic plots of the top performing models: Predicted vs actual, Q-Q, residuals vs predicted, histogram of residuals.</h3>
+<p>We will learn how to plot the diagnostic plots of the top performing models. For numeric models this will include predicted vs actual, residuals, histogram of residuals, and Q-Q plot. We will learn how to make each of these plots, then put them together on one plot. In our Insurance example, the best model was made using a neuralnet, and these are the summary plots:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ensemble_Neuralnet_summary_plots.svg" class="img-fluid figure-img" alt="Ensemble Neuralnet summary plots"></p>
+<figcaption>Ensemble Neuralnet summary plots</figcaption>
+</figure>
+</div>
+<p>You can be in this business, an extremely long time and not see results this accurate without errors or overfitting. However, in this book, you will see exactly how to make results that are as accurate as the plot above shows and have no errors or no overfitting.</p>
+</section>
+</section>
+<section id="what-to-know-before-you-start-building-models." class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="what-to-know-before-you-start-building-models."><span class="header-section-number">1.3</span> What to know <b><i>before</i></b> you start building models.</h2>
+<p>I do extreme sports for fun, such as white water rafting, snowboarding, and skydiving, and I’ve never been hurt. The single best way to be safe in extreme sports is to be fully prepared and totally predictable (no surprises!), communicate a plan before you start, and always be ready when things do not go according to plan. This book will follow the same system. This chapter will outline the book, and you’ll have a chance to get a glimpse of some of the highlights of our journey together. Then each chapter will guide you through the way to be fully prepared and minimize surprises in your work. We will look at what to do when things do not go as planned. And you won’t even have to get out of your chair to do all of this!</p>
+<p>I find the material in this book to be extremely fun, interesting, and highly engaging. I’ve done my very best to communicate my joy and enthusiasm for this in this book, and I sincerely hope it comes though loud and clear for you.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>The goal of predicting and forecasting</strong> is not to predict, the goal of forecasting is not to forecast. The goal is to give the team that receives the predictions and forecasts the very best preparation for whatever might happen in the real world, so they are fully ready ahead of time to respond no matter what happens. That is what success and excellence in predictive analytics looks like. This goal is totally achievable, and this book will help you reach that destination.</p>
+<p>That’s why we are doing this. It always helps to know your why.</p>
+<p><strong>We are doing this so the team receiving your reports and comments and feedback is as well prepared as they can be for anything that might happen.</strong> This is a testable and falsifiable hypothesis.</p>
+<p>The goal is not only to give the best answer, but to set the team up for any answer that might happen in nature.</p>
+<p>We will look at models, of course, and we’ll learn a lot of skills to help the team be fully prepared with those models, such as multiple ways to determine what most strongly predicts the most important feature, how to determine (and be prepared for) changes when the data set is static, and much better alternatives to a fixed result. This book will never say something like, “The most accurate RMSE is 4.68”, we will look at much more accurate ways to communicate that result.</p>
+<p>It’s not important enough to know your why, because there are many whys in any situation. It’s much more valuable to know your absolute rock bottom why. The very foundation on which you stand.</p>
+<p><strong>Every why in data science connects to people. No exceptions.</strong> The results impact people. That’s the value proposition. We are doing all of this to make things better for people. It’s never an abstract exercise, the work always connects with people.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection." class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="what-to-do-before-building-models-the-value-and-process-of-observation-discovery-and-connection."><span class="header-section-number">1.4</span> What to do before building models: The value and process of observation, discovery and connection.</h2>
+<section id="we-will-practice-observation-discovery-and-connection-in-every-chapter-to-strengthen-your-skills-and-help-you-produce-better-models." class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="we-will-practice-observation-discovery-and-connection-in-every-chapter-to-strengthen-your-skills-and-help-you-produce-better-models."><span class="header-section-number">1.4.1</span> We will practice observation, discovery and connection in every chapter, to strengthen your skills and help you produce better models.</h3>
+</section>
+<section id="it-started-with-a-blizzard-in-chicago-and-much-of-the-united-states" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="it-started-with-a-blizzard-in-chicago-and-much-of-the-united-states"><span class="header-section-number">1.4.2</span> It started with a blizzard in Chicago (and much of the United States)</h3>
+</section>
+</section>
+<section id="know-your-origin-story-why-are-you-doing-this-at-all" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="know-your-origin-story-why-are-you-doing-this-at-all"><span class="header-section-number">1.5</span> Know your origin story: Why are you doing this at all?</h2>
+<p>I bring decades of real-world experience in the business world, both not-for-profit and for profit. A lot of my experience includes working in (and sometimes managing) multi-million dollar accounts for multi-million and multi-billion dollar companies. I’ve seen success and failure, triumph and tragedy. A large part of my duties have included hiring over 15,000 people, the vast majority were very good hires. A part of this book will share how you can start building a successful career. Part of this book will answer a question that I find to be extremely important: How do you communicate your results to managers and leaders in a way they will actually listen and take the path that is most likely to return the best results? Every data science book I’ve read has shown various steps and processes and models, but I’ve never seen the best ways to communicate those results to leaders and managers in an effective way. This book will provide ways to help you reach that goal on every job.</p>
+<p>We will also look at how to communicate your results in a resume or cover letter, even if you don’t have specific measures. There are steps you can take to greatly increase your probability of moving forward in the hiring process, and we’ll look at those steps.</p>
+<p>We will also look at the role of a manager, and what evidence and research shows managers can do to get great performance from their teams. If you decide to move into a manager role (or if you are there already), this section of the book will provide evidence that managers have done that results in lower turnover, higher performance, and more satisfied customers.</p>
+<p>How to test if you are actually solving the problem the customer wants you to solve.</p>
+<p>We will also look at ways to increase the probability you are actually solving the problem(s) the customer actually wants solved. It is shocking to me how often teams do not check if they are working on the correct problem or opportunity, only to find out all their time and effort was spent going in the wrong direction and is now totally wasted. We’ll look at specific steps you can take to reduce the probability of that happening on your projects right from the very beginning of the process.</p>
+</section>
+<section id="youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results." class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="youre-not-doing-data-science-as-much-as-customer-service.-heres-what-the-very-best-in-customer-service-actually-do-that-generates-the-best-results."><span class="header-section-number">1.6</span> You’re not doing data science as much as customer service. Here’s what the very best in customer service actually do that generates the best results.</h2>
+<section id="beating-the-best-scores-in-multiple-kaggle-data-science-competitions" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="beating-the-best-scores-in-multiple-kaggle-data-science-competitions"><span class="header-section-number">1.6.1</span> Beating the best scores in multiple Kaggle data science competitions</h3>
+</section>
+</section>
+<section id="building-your-library-of-models-that-will-work-on-nearly-any-data-set" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="building-your-library-of-models-that-will-work-on-nearly-any-data-set"><span class="header-section-number">1.7</span> Building your library of models that will work on nearly any data set</h2>
+</section>
+<section id="work-with-real-data-solve-real-problems-make-real-recommendations" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="work-with-real-data-solve-real-problems-make-real-recommendations"><span class="header-section-number">1.8</span> Work with real data, solve real problems, make real recommendations</h2>
+</section>
+<section id="speed-speed-and-more-speed-running-ensembles" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="speed-speed-and-more-speed-running-ensembles"><span class="header-section-number">1.9</span> Speed, speed, and more speed running ensembles</h2>
+</section>
+<section id="how-to-code-a-lot-faster" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="how-to-code-a-lot-faster"><span class="header-section-number">1.10</span> How to code a lot faster</h2>
+</section>
+<section id="examples-where-we-will-be-using-ensembles-of-models-to-make-predictions-and-recommendations" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="examples-where-we-will-be-using-ensembles-of-models-to-make-predictions-and-recommendations"><span class="header-section-number">1.11</span> Examples where we will be using ensembles of models to make predictions and recommendations:</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Numeric</th>
+<th style="text-align: left;">Classification</th>
+<th style="text-align: left;">Logistic</th>
+<th style="text-align: left;">Forecasting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Housing prices</td>
+<td style="text-align: left;">Product placement</td>
+<td style="text-align: left;">Sports analytics</td>
+<td style="text-align: left;">Employment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quality of automobiles</td>
+<td style="text-align: left;">Heart disease</td>
+<td style="text-align: left;">Fraud</td>
+<td style="text-align: left;">Marathons</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="how-to-show-change-in-static-data" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="how-to-show-change-in-static-data"><span class="header-section-number">1.12</span> How to show change in static data</h2>
+</section>
+<section id="the-value-of-keeping-a-journal." class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="the-value-of-keeping-a-journal."><span class="header-section-number">1.13</span> The value of keeping a journal.</h2>
+</section>
+<section id="one-of-your-own-or-you-learn-most-when-you-teach." class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="one-of-your-own-or-you-learn-most-when-you-teach."><span class="header-section-number">1.14</span> One of your own, or you learn most when you teach.</h2>
+<p>Science tells us that It’s not exactly correct that only the strong survive (even though it’s also a great song by Chicago legend Jerry Butler). Over a century of science tells us there is a particular kind of strength that favors survival, and that strength is the ability to adapt. The better you can adapt, the more likely you are to survive. Being able to adapt isn’t just a strength, it’s the most important strength to survival. This book is going to show you how to adapt in an extremely wide range of data science situations, so you are always as well prepared as possible.</p>
+</section>
+<section id="outliers-and-separators-that-provoke-questions-not-answers." class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="outliers-and-separators-that-provoke-questions-not-answers."><span class="header-section-number">1.15</span> Outliers and Separators that provoke questions, not answers.</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<h3 class="anchored">
+Study what separates top performers that no one else is doing
+</h3>
+<p>Don’t just study what the top performers are doing. The best information will come when we know what the top performers are doing that no one else is doing. Don’t just study what the top performers are doing, <strong>study what separates top performers from everyone else</strong>.</p>
+<p>In data science, the top performers are using ensembles, but very few others are using ensembles. So we will learn how to build ensembles of models, because that is the biggest separator between top performing statistical models and the rest.</p>
+<p>We’ll also see how to do separate top performers from everything else in our analysis, graphics, and recommendations. It’s not only what people are doing, it’s the values and commitments and disciplines that strongly contribute to all the difference, we will look at those in this book.</p>
+</div>
+</div>
+</div>
+<section id="how-high-stakes-separators-bring-out-the-strongest-predictors" class="level3" data-number="1.15.1">
+<h3 data-number="1.15.1" class="anchored" data-anchor-id="how-high-stakes-separators-bring-out-the-strongest-predictors"><span class="header-section-number">1.15.1</span> How high stakes separators bring out the strongest predictors</h3>
+<p>We will see how to create separators. These are the high stakes results that can have a huge impact on the customer. In our insurance example, we will see how to compare the highest five percent of charges against the lower five percent of charges, then plot the results. One of those plots shows that 100% of the top five percent of charges were smokers, and 0% of the bottom five percent were smokers. The Insurance company paid the top five percent $3,121,213 in charges, but only paid the bottom five percent (all non-smokers) $102,197 in charges. This is what is looks like as a graph with the highest five percent on the left, the lowest five percent on the right:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Separators.svg" class="img-fluid figure-img" alt="Separators: Smokers vs non-smokers"></p>
+<figcaption>Separators: Smokers vs non-smokers</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="finding-the-strongest-predictors-of-the-most-important-feature" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="finding-the-strongest-predictors-of-the-most-important-feature"><span class="header-section-number">1.16</span> Finding the strongest predictor(s) of the most important feature</h2>
+<p>We will do several processes to help you communicate the strongest predictor of the most important feature. In the insurance data set, just three features account for more than 93% of the variable importance, and we will see how to get these results:</p>
+<table class="caption-top table">
+<caption>Variable importance</caption>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Importance</th>
+<th>Sign</th>
+<th>Percentage</th>
+<th>Total Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Smoker</td>
+<td>57.8386452843969</td>
+<td>POS</td>
+<td>0.5921</td>
+<td>0.5921</td>
+</tr>
+<tr class="even">
+<td>Age</td>
+<td>21.6467805721622</td>
+<td>POS</td>
+<td>0.2216</td>
+<td>0.8137</td>
+</tr>
+<tr class="odd">
+<td>BMI</td>
+<td>11.9965423296263</td>
+<td>POS</td>
+<td>0.1228</td>
+<td>0.9365</td>
+</tr>
+<tr class="even">
+<td>Children</td>
+<td>3.48267002762218</td>
+<td>POS</td>
+<td>0.0357</td>
+<td>0.9722</td>
+</tr>
+<tr class="odd">
+<td>Region</td>
+<td>2.32770324733846</td>
+<td>NEG</td>
+<td>0.0238</td>
+<td>0.996</td>
+</tr>
+<tr class="even">
+<td>Sex</td>
+<td>0.393949407279711</td>
+<td>NEG</td>
+<td>0.004</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 class="anchored">
+What data scientists actually do
+</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>What separates data science from all other fields is <strong>we build models to make predictions and test everything</strong>. The function of data science is to test everything in a way that is neutral, fair, and reproducible. We share the results of the tests.</p>
+<p>In this book we will test everything from model accuracy to overfitting to how similar the predicted distribution is to the actual data, and much, much more.</p>
+<p>We will see the same test applied to a range of models, so the test results can be ranked.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-tell-the-story-in-your-data-to-your-customer." class="level2" data-number="1.17">
+<h2 data-number="1.17" class="anchored" data-anchor-id="how-to-tell-the-story-in-your-data-to-your-customer."><span class="header-section-number">1.17</span> How to tell the story in your data to your customer.</h2>
+</section>
+<section id="how-to-make-the-best-evidence-based-recommendations-to-your-customer." class="level2" data-number="1.18">
+<h2 data-number="1.18" class="anchored" data-anchor-id="how-to-make-the-best-evidence-based-recommendations-to-your-customer."><span class="header-section-number">1.18</span> How to make the best evidence based recommendations to your customer.</h2>
+</section>
+<section id="summary" class="level2" data-number="1.19">
+<h2 data-number="1.19" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.19</span> Summary:</h2>
+<p>In this introduction we previewed some of what this book will cover. We looked at:</p>
+<ul>
+<li><p>Knowing what to do <em>before</em> you start building models</p></li>
+<li><p>Knowing your own origin story (why you are doing this)</p></li>
+<li><p>How to be a problem finder</p></li>
+<li><p>The process of discovery</p></li>
+<li><p>Posting your work for others to see</p></li>
+<li><p>Writing your dream data science solution:</p>
+<ul>
+<li><p>Always include the full exploratory data analysis</p></li>
+<li><p>Use a diverse set of models</p></li>
+<li><p>Use regular learning and deep learning</p></li>
+<li><p>Tune/optimize all models</p></li>
+<li><p>Use random resampling</p></li>
+<li><p>Test for overfitting, reject models with unacceptable results</p></li>
+<li><p>Show diagnostic graphs</p></li>
+</ul></li>
+<li><p>Some examples from great customer service</p></li>
+<li><p>How to view high stakes separators</p></li>
+<li><p>How to write strong evidence based recommendations.</p></li>
+</ul>
+</section>
+<section id="homework" class="level2" data-number="1.20">
+<h2 data-number="1.20" class="anchored" data-anchor-id="homework"><span class="header-section-number">1.20</span> Homework:</h2>
+<ol type="1">
+<li>Post about what you learned in this chapter.</li>
+<li>Look at Chapter 15, 60 Open Data Sources. You will be doing a Final Project toward the end of the book. Start looking for a data set that would be good for your Final Project. Obviously look at other data sources, too.</li>
+<li>Come up with One of Your Own problems based on this chapter, write it up and post your solution. For example, maybe you found delayed repetition helpful (or not helpful), write that up and post it. Maybe you already know about excellent customer service. Write that up as One of Your Own, and post it.</li>
+<li>Read the preview of the next chapter before you get into the next chapter.</li>
+</ol>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://www.thegreatcoursesplus.com/the-art-of-critical-decision-making" class="uri">https://www.thegreatcoursesplus.com/the-art-of-critical-decision-making</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Welcome!.html" class="pagination-link" aria-label="Introduction: Improving How You Think">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction: Improving How You Think</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
