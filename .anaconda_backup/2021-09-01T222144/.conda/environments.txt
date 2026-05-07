@@ -1,0 +1,3 @@
+/Users/russellconte/Library/r-miniconda
+/Users/russellconte/Library/r-miniconda/envs/r-reticulate
+/Users/russellconte/opt/anaconda3

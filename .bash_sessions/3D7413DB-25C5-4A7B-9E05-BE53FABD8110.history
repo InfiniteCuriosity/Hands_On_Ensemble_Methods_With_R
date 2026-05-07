@@ -1,0 +1,272 @@
+git --version
+git --version
+git --version
+xcode-select --install
+xcode-select --install
+git --version
+git --version
+git --version
+jupyter notebook
+python3 -m pip install jupyter
+pip install --upgrade pip
+pip install --upgrade pip
+'pip install --upgrade pip'
+jupyter notebook
+jupyter notebook
+jupyter notebook
+jupyter notebook
+jupyter notebook
+defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
+defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
+defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
+defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
+defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
+defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
+defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
+defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
+defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+composer -V
+composer -V
+composer
+composer -V
+php composer.phar
+sudo mv composer /usr/local/bin/composer
+composer
+cd ~\Desktop
+cd ~/Desktop
+curl -sS http://getcomposer.org/installer | php -- --filename=composer
+sudo mv composer /usr/local/bin/composer 
+composer install
+composer install
+composer install
+echo "# PHP_and_MySQL" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/InfiniteCuriosity/PHP_and_MySQL.git
+git push -u origin master
+git config --global credential.helper osxkeychain
+git config --global credential.helper osxkeychain
+ssh russellconte@192.168.1.12
+ssh russellconte@192.168.1.12
+pip install jupyterlab
+pip install notebook
+jupyter notebook
+jupyter notebook
+ipython notebook
+ipython notebook
+ipython notebook
+/Library/Application\ Support/Adobe/ARMDC/Application/AcrobatUpdaterUninstaller ; exit;
+/Library/Application\ Support/Adobe/ARMDC/Application/AcrobatUpdaterUninstaller ; exit;
+$ pip install turtle
+pip install tensorflow
+pip install --upgrade tensorflow
+pip install --upgrade pip
+pip3
+pip install tensorflow
+pip install --upgrade pip
+pip3 --version
+pip install tensorflow
+pip install gplearn
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+pip install seaborn
+conda install seaborn
+conda install seaborn
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+ -- pip install --upgrade certifi --user
+~ russellconte$ /Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+ -- pip install --upgrade certifi  --user
+-- pip install --upgrade certifi --user
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.8/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+/Applications/Python\ 3.9/Install\ Certificates.command ; exit;
+pip
+python -m pip --version
+python -m pip
+python get-pip.py --user
+Consider using the `--user` option or check the permissions.
+pip –version
+Python get-pip.py
+python -m pip --version
+python get-pip.py --no-index --find-links=/local/copies
+python get-pip.py --user
+python -m pip install -U pip
+python -m pip --version
+python get-pip.py
+-- pip install --upgrade certifi
+-- pip install --upgrade certifi --user
+-- pip install
+python -m pip --version
+/Users/russellconte/opt/anaconda3/bin/jupyter_mac.command ; exit;
+/Users/russellconte/opt/anaconda3/bin/jupyter_mac.command ; exit;
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+pip -V
+pip --version
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+pip -V
+pip -V
+chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
+source ~/miniforge3/bin/activate
+conda install -c apple tensorflow-deps
+python -m pip install tensorflow-macos
+python -m pip install tensorflow-metal
+chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+chmod +x ~/venv/tensorflow_pycharm/Miniforge3-MacOSX-arm64.sh
+chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
+source ~/miniforge3/bin/activate
+conda install -c apple tensorflow-deps
+python -m pip install tensorflow-macos
+python -m pip install tensorflow
+python -m pip install tensorflow-metal
+pip install tensorflow-metal
+ file $(which python)
+source ~/tensorflow_pycharm/bin/activate
+pip3 install --upgrade tensorflow
+xcode-select --install
+file $(which python)
+which pip
+cd /Users/russellconte/miniforge3
+which pip
+which pip
+file $(which Python)
+% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/apple/tensorflow_macos/master/scripts/download_and_install.sh)"
+conda
+file $(which python)
+jupyter notebook list
+pip install pandas
+pip install seaborn
+pip install -q seaborn
+pip install -q seaborn
+pip install -q seaborn
+git reset --hard HEAD~
+git pull
+git push -u origin master
+git -- version
+git--version
+git --version
+xcode-select --install
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
+git status
+git reset HEAD^ --soft
+git close https://github.com/infinitecuriosity/repo.git
+git clone https://github.com/infinitecuriosity/repo.git
+pip --upgrade pip
+pip install --upgrade pip
+pip install tensorflow
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
+conda create --name tf python=3.10
+pip install --upgrade pip
+pip install tensorflow
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python-pip python-dev
+sudo apt-get install python-pip python-dev
+/Users/russellconte/opt/anaconda3/bin/jupyter_mac.command ; exit;
+python -m spacy download em
+python -m spacy download en_core_web_md
+pip install -U pip setuptools wheel
+pip install -U 'spacy[apple]'
+conda deactivate
+conda update anaconda-navigator
+conda -- version
+export PATH=~/anaconda3/bin:$PATH
+anaconda-navigator
+python
+conda update -n base -c defaults conda
+anaconda
+. /Users/russellconte/opt/anaconda3/bin/activate && conda activate /Users/russellconte/opt/anaconda3; python -i
+. /Users/russellconte/opt/anaconda3/bin/activate && conda activate /Users/russellconte/Library/r-miniconda-arm64; python -i
+python -m spacy download en_core_web_md
+pip install tensorflow-macos
+pip install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.8.0-py3-none-any.whl
+git --version
+sudo xcodebuild -license accept
+sudo xcodebuild -license accept
+rm -f .git/index.lock
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+git config --global --unset http.proxy
+print("Hello, Python interpreter")
+print("Something")
+brew install git
+import this
+Zen of Python
+import this
+brew install git
+user-2025-website/$ quarto preview
+rm -f .git/index.lock
+rm .git/index.lock
+rm -f .git/index.lock
+rm -f .git/index.lock
+R.Version
+R.version
+import this
+zen
+zen of python
+import this
+python3
+brew install git
+xcode-select --install
+sudo port install git
+brew install git
+it --version
+git --version
+git --version
+brew install git
+git --version
+xcode-select --install
+git --version
+brew install git
+xcode-select --install
+whereis git
+which git
+which -a git
+sudo sh -c 'type curl';type curl
+which git
+git config --global user.name 'Your Name'
+git config --global user.name 'Russell Conte'
+git config --global user.email 'russconte@mac.com'
+which git
+git config --global user.name 'Russ Conte'
+git config --global user.email 'russconte@mac.com'
+which git
+which git
+brew install curl
+curl -version
+curl –version
+curl -version
+which git
+sudo ln -s /path/to/your/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
+brew update
+brew upgrade
+which git
+git --version
+which git
+which libcurl
+echo 'export PATH="$(brew --prefix)/opt/curl/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+xcode-select --install
+brew install git
+brew reinstall git
+which git

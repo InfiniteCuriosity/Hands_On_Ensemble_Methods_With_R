@@ -1,0 +1,3 @@
+$ sudo mkdir /tmp/.X11-unix
+sudo mkdir /tmp/.X11-unix
+sudo chmod a+rwx,+t /tmp/.X11-unix

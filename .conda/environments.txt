@@ -1,0 +1,7 @@
+/opt/homebrew/Caskroom/miniforge/base
+/Users/russellconte/miniforge3
+/Users/russellconte/miniforge3/envs/tf
+/opt/homebrew/Caskroom/miniforge/base/envs/r-reticulate
+/Users/russellconte/opt/anaconda3
+/Users/russellconte/Library/r-miniconda-arm64
+/Users/russellconte/Library/r-miniconda-arm64/envs/r-reticulate
